@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Controle de Treinos — {{ atleta.nome }}</title>
+<style>{{ css }}</style>
+</head>
+<body>
+
+{% macro exercicio(item) %}
+<div class="exercicio">
+  {% if item.imagem_uri %}<img class="midia" src="{{ item.imagem_uri }}" alt="">{% else %}<span class="sem-midia"></span>{% endif %}
+  <div>
+    <div class="nome">{{ item.nome }}</div>
+    {% if item.obs %}<div class="obs">{{ item.obs }}</div>{% endif %}
+    {% if item.dica %}<div class="dica">{{ item.dica }}</div>{% endif %}
+  </div>
+  <div class="lado-direito">
+    {% if item.prescricao %}<div class="prescricao">{{ item.prescricao }}</div>{% endif %}
+    {% if item.qr %}<a class="qr" href="{{ item.video }}">{{ item.qr }}<span>vídeo</span></a>{% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro rodape(pagina) %}
+<div class="rodape">
+  <span>Controle de Treinos — {{ atleta.nome }} · Fase {{ plano.fase }}</span>
+  <span>Gerado em {{ gerado_em }} · {{ pagina }}</span>
+</div>
+{% endmacro %}
+
+{# ---------- Capa ---------- #}
+<section class="pagina capa">
+  <div class="marca">Controle de Treinos</div>
+  <h1>{{ atleta.nome }}</h1>
+  <div class="perfil">
+    {{ [atleta.esporte, (atleta.idade ~ " anos") if atleta.idade else none] | select | join(" · ") }}
+    {% if atleta.contexto %}<br>{{ atleta.contexto }}{% endif %}
+  </div>
+  <div class="fase">Fase: {{ plano.fase }} · {{ plano.sessoes | length }} sessões semanais</div>
+
+  <div class="titulo-secao">Sessões da semana</div>
+  <div class="lista-sessoes">
+    {% for s in plano.sessoes %}
+    <div class="card-sessao">
+      <div class="numero">{{ "%02d" | format(loop.index) }}</div>
+      <div>
+        <h3>{{ s.titulo }}</h3>
+        {% if s.resumo %}<p>{{ s.resumo }}</p>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {{ rodape("capa") }}
+</section>
+
+{# ---------- Uma página por sessão ---------- #}
+{% for s in plano.sessoes %}
+<section class="pagina">
+  <header class="cabecalho">
+    <div>
+      <div class="sobretitulo">Dia {{ loop.index }} · {{ atleta.nome }}</div>
+      <h1>{{ s.titulo }}</h1>
+    </div>
+    <div class="numero-dia">{{ "%02d" | format(loop.index) }}</div>
+  </header>
+
+  {% for b in s.blocos %}
+  <div class="bloco {{ b.tipo }}">
+    <div class="bloco-titulo">{{ b.titulo }}{% if b.nota %} <span class="nota">· {{ b.nota }}</span>{% endif %}</div>
+    <div class="itens">
+      {% for item in b.itens %}
+        {% if item.combinado %}
+        <div class="combinado">
+          {% for sub in item.combinado %}
+            {{ exercicio(sub) }}
+            {% if not loop.last %}<div class="mais">+</div>{% endif %}
+          {% endfor %}
+        </div>
+        {% else %}
+          {{ exercicio(item) }}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+
+  {% if s.objetivo %}
+  <div class="objetivo">
+    <h4>Objetivo da sessão</h4>
+    <p>{{ s.objetivo }}</p>
+  </div>
+  {% endif %}
+
+  {{ rodape("dia " ~ loop.index) }}
+</section>
+{% endfor %}
+
+{# ---------- Controle semanal ---------- #}
+<section class="pagina">
+  <header class="cabecalho">
+    <div>
+      <div class="sobretitulo">{{ atleta.nome }} · início {{ plano.inicio | data_br }}</div>
+      <h1>Controle semanal</h1>
+    </div>
+  </header>
+
+  <p style="margin:0;color:var(--cor-tinta-suave);font-size:var(--tam-sm)">
+    Marque cada sessão feita e anote o esforço percebido (PSE, de 0 a 10). Mande uma foto desta página
+    ou os valores pelo WhatsApp para atualizar seu histórico.
+  </p>
+
+  <table class="tabela-controle">
+    <thead>
+      <tr>
+        <th>Semana</th>
+        {% for s in plano.sessoes %}<th>Dia {{ loop.index }}<br><span class="periodo">{{ s.titulo }}</span></th>{% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for sem in controle %}
+      <tr>
+        <td><div class="semana">Semana {{ sem.numero }}</div><div class="periodo">{{ sem.inicio }} a {{ sem.fim }}</div></td>
+        {% for c in sem.celulas %}
+        <td>
+          {% if c.feito %}
+            <span class="caixa feito">✓</span><span class="data-feito">{{ c.data }}{% if c.pse is not none %} · PSE {{ c.pse }}{% endif %}</span>
+          {% else %}
+            <span class="caixa"></span> <span class="data-feito">data <span class="linha-preencher" style="min-width:34px"></span> PSE <span class="linha-preencher" style="min-width:20px"></span></span>
+          {% endif %}
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% if plano.observacao %}<div class="aviso">{{ plano.observacao }}</div>{% endif %}
+
+  <div class="grafico">
+    <h4>Anotações da fase</h4>
+    {% for _ in range(9) %}<div class="linha-anotacao"></div>{% endfor %}
+  </div>
+
+  {{ rodape("controle") }}
+</section>
+
+{# ---------- Histórico e evolução ---------- #}
+<section class="pagina">
+  <header class="cabecalho">
+    <div>
+      <div class="sobretitulo">{{ atleta.nome }}</div>
+      <h1>Histórico e evolução</h1>
+    </div>
+  </header>
+
+  <div class="indicadores">
+    <div class="indicador"><div class="valor">{{ evolucao.total }}</div><div class="rotulo">sessões registradas</div></div>
+    <div class="indicador"><div class="valor">{{ evolucao.meses_ativos }}</div><div class="rotulo">meses com treino</div></div>
+    <div class="indicador"><div class="valor" style="font-size:22pt">{{ evolucao.ultima }}</div><div class="rotulo">último treino registrado</div></div>
+  </div>
+
+  <div class="graficos-lado">
+    <div class="grafico">
+      <h4>Sessões por mês</h4>
+      {% if evolucao.por_mes %}{{ evolucao.por_mes }}{% else %}<p class="vazio">Nenhuma sessão registrada ainda.</p>{% endif %}
+    </div>
+    <div class="grafico">
+      <h4>Foco das sessões</h4>
+      {% if evolucao.focos %}{{ evolucao.focos }}{% else %}<p class="vazio">Nenhuma sessão registrada ainda.</p>{% endif %}
+    </div>
+  </div>
+
+  <div class="graficos-lado">
+    <div class="grafico">
+      <h4>Esforço percebido (PSE)</h4>
+      {% if evolucao.pse %}{{ evolucao.pse }}{% else %}<p class="vazio">Aparece a partir de 2 treinos com PSE anotado na tabela de controle.</p>{% endif %}
+    </div>
+    <div class="grafico">
+      <h4>Evolução de carga</h4>
+      {% for g in evolucao.cargas[:1] %}<div class="obs" style="font-weight:700">{{ g.nome }}</div>{{ g.svg }}{% else %}<p class="vazio">Aparece a partir de 2 registros de carga (kg) do mesmo exercício.</p>{% endfor %}
+    </div>
+  </div>
+
+  {% if evolucao.cargas | length > 1 %}
+  <div class="graficos-lado">
+    {% for g in evolucao.cargas[1:3] %}
+    <div class="grafico"><h4>Carga · {{ g.nome }}</h4>{{ g.svg }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="grafico">
+    <h4>Últimas sessões</h4>
+    <div class="linha-tempo">
+      {% for h in evolucao.recentes[:(4 if evolucao.cargas | length > 1 else 6)] %}
+      <div class="evento">
+        <div class="quando">{{ h.data | data_br("dia") }}</div>
+        <div class="ponto"></div>
+        <div>
+          <div class="titulo">{{ h.titulo }}{% if h.foco %} <span class="foco">· {{ h.foco }}</span>{% endif %}</div>
+          {% if h.itens %}<div class="foco">{{ h.itens | join(" · ") }}</div>{% endif %}
+        </div>
+      </div>
+      {% else %}
+      <p class="vazio">Nenhuma sessão registrada ainda.</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  {{ rodape("histórico") }}
+</section>
+
+</body>
+</html>

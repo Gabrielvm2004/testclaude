@@ -1,0 +1,18 @@
+# Biblioteca de exercícios — imagens e vídeos de referência.
+#
+# A chave é o nome do exercício exatamente como aparece na ficha do atleta.
+# Maiúsculas, acentos e o que estiver entre parênteses são ignorados na busca:
+# "Agachamento cálice" e "agachamento calice" encontram a mesma entrada.
+#
+#   imagem: caminho de uma foto/ilustração dentro de midia/exercicios/ (jpg, png ou webp)
+#   video:  link do vídeo (YouTube, Instagram, Drive...). Vira um QR code + link clicável no PDF.
+#   dica:   uma frase curta de execução que aparece embaixo do nome
+#
+# Tudo é opcional. Exemplo:
+#
+# Agachamento cálice:
+#   imagem: agachamento-calice.jpg
+#   video: https://www.youtube.com/watch?v=XXXXXXXX
+#   dica: Halter junto ao peito, joelhos acompanham a ponta dos pés.
+
+{}

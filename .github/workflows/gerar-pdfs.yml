@@ -1,0 +1,38 @@
+name: Gerar PDFs de treino
+
+on:
+  push:
+    paths:
+      - "dados/**"
+      - "midia/**"
+      - "modelos/**"
+      - "design-system/**"
+      - "gerador/**"
+      - ".github/workflows/gerar-pdfs.yml"
+  workflow_dispatch:
+
+jobs:
+  gerar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependências
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Gerar PDFs
+        run: python gerador/gerar.py
+
+      - name: Publicar PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdfs-treino
+          path: saida/**/*.pdf
+          retention-days: 30

@@ -1,0 +1,157 @@
+# Ficha do atleta — cada atleta tem um arquivo como este em dados/atletas/.
+# Depois de editar, gere o PDF com:  python gerador/gerar.py diego-avelar
+
+atleta:
+  nome: Diego Avelar
+  esporte: Futebol
+  idade: 17
+  contexto: EUA — apenas academia, treino autônomo
+
+plano:
+  fase: Manutenção
+  inicio: 2026-09-22        # data de início da fase (a tabela de controle começa na semana desta data)
+  semanas: 4                # quantas semanas aparecem na tabela de controle
+  observacao: >-
+    Volume e carga podem ser ajustados pelo Diego dentro do prescrito,
+    conforme sensação de recuperação e adaptação semanal.
+
+  sessoes:
+    - titulo: Inferiores + Core
+      resumo: Base de força e estabilidade de quadril
+      objetivo: >-
+        Manter a base de força e estabilidade de quadril construída na pré-temporada,
+        priorizando exercícios de execução técnica já consolidada. Trabalho em padrões
+        conhecidos, preservando o ganho de estabilidade central já conquistado.
+      blocos:
+        - tipo: mobilidade
+          itens:
+            - nome: Soltura de quadril
+              prescricao: 10 reps cada lado
+              obs: abdução, adução e flexão de quadril
+        - tipo: ativacao
+          itens:
+            - nome: Band tornozelo
+              prescricao: 2 × 8 cada lado
+              obs: estímulo coordenativo lateral
+            - nome: Band joelho
+              prescricao: 2 × 8 cada lado
+              obs: ativação de glúteo em passada lateral
+        - tipo: principal
+          nota: exercícios combinados
+          itens:
+            - combinado:
+                - { nome: Agachamento cálice, prescricao: 4 × 10 }
+                - { nome: Prancha, prescricao: 3 × 35" }
+            - combinado:
+                - { nome: Afundo (dinâmico), prescricao: 3 × 8, obs: cada lado }
+                - { nome: Ponte isométrica, prescricao: 3 × 30" }
+            - combinado:
+                - { nome: Hip thrust c/ potência, prescricao: 3 × 10 }
+                - { nome: Prancha lateral, prescricao: 3 × 25", obs: cada lado }
+        - tipo: cardio
+          titulo: Cardio — bicicleta
+          itens:
+            - nome: Bicicleta
+              prescricao: 5 min
+              obs: intensidade moderada
+
+    - titulo: Superiores + Core
+      resumo: Padrões de empurrar e puxar
+      objetivo: >-
+        Manter os padrões de empurrar e puxar trabalhados na pré-temporada, com controle
+        técnico na fase excêntrica. Utilização de exercícios de execução já consolidada,
+        preservando a demanda atencional em torno do core.
+      blocos:
+        - tipo: mobilidade
+          itens:
+            - nome: Mobilidade de ombro
+              obs: abertura peitoral + rotação 360º de ombro
+            - nome: Mobilidade escapular/torácica
+              obs: séries leves, sem carga
+        - tipo: ativacao
+          itens:
+            - nome: Estabilidade de ombro
+              prescricao: 2 × 10
+              obs: isometria simples ou banda leve
+            - nome: Avião
+              prescricao: 2 × 10
+        - tipo: principal
+          nota: exercícios combinados
+          itens:
+            - combinado:
+                - { nome: Supino halteres, prescricao: 4 × 12 }
+                - { nome: Perdigueiro (bird dog), prescricao: 3 × 12 }
+            - { nome: Puxada (pulley), prescricao: 4 × 12 }
+            - combinado:
+                - { nome: Desenvolvimento halteres, prescricao: 3 × 10 }
+                - { nome: Core anti-extensão, prescricao: 3 × 30" }
+            - { nome: Push up, prescricao: 3 × 10 }
+            - combinado:
+                - { nome: Remada, prescricao: 3 × 12 }
+                - { nome: Supino vertical, prescricao: 3 × 10 }
+
+    - titulo: Coordenativo + Bíceps/Tríceps
+      resumo: Controle motor e isolamento
+      objetivo: >-
+        Preservar o estímulo coordenativo (relação braço-perna e controle motor), somado a
+        um trabalho complementar de isolamento de bíceps e tríceps, adequados para execução
+        autônoma. Mantido o princípio de que quanto melhor coordenado, mais força e velocidade.
+      blocos:
+        - tipo: mobilidade
+          itens:
+            - nome: Mobilidade dinâmica
+              obs: tornozelo, quadril (vai e vem posterior), 90-90
+        - tipo: ativacao
+          itens:
+            - nome: Tornozelo no step
+              prescricao: 2 × 8
+            - nome: Mini band
+              prescricao: 2 × 10
+              obs: cada movimento, cada perna
+        - tipo: principal
+          itens:
+            - nome: Coordenação lateral no step
+              prescricao: 3 × 10
+              obs: cada lado
+            - nome: Skip frontal controlado
+              prescricao: 3 × 30"
+              obs: ritmo moderado, sem intensidade máxima
+            - nome: Rosca direta (halteres)
+              prescricao: 4 × 12
+            - nome: Tríceps pulley
+              prescricao: 4 × 12
+        - tipo: finalizacao
+          itens:
+            - nome: Abdominal livre
+              prescricao: 2 × 1 min
+              obs: ao final do treino
+
+# Histórico de sessões realizadas. Adicione uma entrada a cada treino feito.
+#   sessao: número da sessão do plano atual (1, 2, 3...) — marca o check na tabela de controle
+#   pse:    esforço percebido de 0 a 10 (opcional) — gera o gráfico de esforço
+#   cargas: kg usados por exercício (opcional) — gera os gráficos de evolução de carga
+historico:
+  - data: 2026-06-11
+    titulo: Apenas academia
+    foco: Força + core
+    itens: [Agachamento cálice 4×10, Afundo 3×8, Hip thrust c/ potência 3×10, Prancha 35", Prancha lateral 25" cada lado, Crucifixo iso 30", Esteira 5 min]
+  - data: 2026-06-18
+    titulo: Empurrar e quadril
+    foco: Superiores + core
+    itens: [Supino reto 3×12, Perdigueiro 3×12, Caminhada isometria posterior 3×30", Desenvolvimento uni 3×8 cada lado, Push up 4×12]
+  - data: 2026-06-30
+    titulo: Coordenativo
+    foco: Coordenação
+    itens: [Troca das mãos na parede, Coordenação lateral no step 3×10 cada lado, Marcha corrida com estabilização 4 séries, Skip lateral step 3×40", Skip frontal step 4×40"]
+  - data: 2026-07-02
+    titulo: Potência
+    foco: Potência
+    itens: [Afundo reativo 3×6/8 cada lado, Ponte reativa 3×8, Proprioceptivo tornozelo step 2×30", Agach. cálice + agach. c/ salto 3×8 + 30", Posterior bola de pilates 3×30", Core anti-extensão 2×30"]
+  - data: 2026-07-07
+    titulo: Treino superiores
+    foco: Superiores + core
+    itens: [Push up 3×10, Supino halteres 4×12, Cross polia 4×12, Desenvolvimento uni 4×8, Elevação lateral 3×10, Tríceps corda 4×12, Tríceps pulley 4×10]
+  - data: 2026-08-04
+    titulo: Pré-retorno
+    foco: Força + core
+    itens: [Ativação core 3×10, Supino 3×10, Isometria unipodal 3×30", Puxada unilateral 3×8, Coordenativo 3×8, Prancha 3× com progressão]

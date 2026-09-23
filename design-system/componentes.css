@@ -1,0 +1,327 @@
+/*
+ * Componentes visuais do PDF de treinos.
+ * Cada componente tem um preview em design-system/previews/ para o Claude Design.
+ */
+
+@page { size: A4; margin: 0; }
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--cor-fundo);
+  color: var(--cor-tinta);
+  font-family: var(--fonte-texto);
+  font-size: var(--tam-md);
+  line-height: 1.4;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+h1, h2, h3, h4 { font-family: var(--fonte-titulo); margin: 0; line-height: 1.05; }
+
+/* ---------- Página ---------- */
+
+.pagina {
+  width: 210mm;
+  height: 297mm;
+  padding: 16mm 15mm 14mm;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-4);
+}
+.pagina:last-child { page-break-after: auto; }
+
+.rodape {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--tam-xs);
+  color: var(--cor-tinta-suave);
+  border-top: 1px solid var(--cor-linha);
+  padding-top: var(--esp-2);
+}
+
+/* ---------- Cabeçalho de página ---------- */
+
+.cabecalho {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--cor-tinta);
+  padding-bottom: var(--esp-2);
+}
+.cabecalho .sobretitulo {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: var(--tam-sm);
+  color: var(--cor-destaque);
+}
+.cabecalho h1 { font-size: var(--tam-xl); font-weight: 800; text-transform: uppercase; }
+.cabecalho .numero-dia {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: var(--tam-xxl);
+  color: var(--cor-destaque);
+  line-height: 0.85;
+}
+
+/* ---------- Capa ---------- */
+
+.capa {
+  background: var(--cor-tinta);
+  color: #fff;
+  padding: 22mm 18mm 16mm;
+}
+.capa .marca {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cor-destaque);
+  font-size: var(--tam-md);
+}
+.capa h1 {
+  font-size: 54pt;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.92;
+  margin-top: var(--esp-3);
+}
+.capa .perfil { color: #b9c3d1; font-size: var(--tam-lg); margin-top: var(--esp-2); }
+.capa .fase {
+  display: inline-flex;
+  gap: var(--esp-2);
+  align-items: center;
+  margin-top: var(--esp-5);
+  background: var(--cor-destaque);
+  color: #fff;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: var(--tam-lg);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  align-self: flex-start;
+}
+.capa .rodape { border-top-color: #2b3a50; color: #8a97a8; }
+
+.capa .titulo-secao {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8a97a8;
+  margin-top: var(--esp-6);
+}
+
+/* ---------- Card de sessão (visão geral) ---------- */
+
+.lista-sessoes { display: flex; flex-direction: column; gap: var(--esp-3); margin-top: var(--esp-3); }
+.card-sessao {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: var(--esp-4);
+  align-items: center;
+  background: #16263c;
+  border-radius: var(--raio);
+  padding: var(--esp-4) var(--esp-5);
+}
+.card-sessao .numero {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 40pt;
+  color: var(--cor-destaque);
+  line-height: 1;
+}
+.card-sessao h3 { font-size: 18pt; font-weight: 800; text-transform: uppercase; color: #fff; }
+.card-sessao p { margin: 2px 0 0; color: #b9c3d1; font-size: var(--tam-md); }
+
+/* Variante clara (usada fora da capa) */
+.card-sessao.claro { background: var(--cor-superficie); }
+.card-sessao.claro h3 { color: var(--cor-tinta); }
+.card-sessao.claro p { color: var(--cor-tinta-suave); }
+
+/* ---------- Bloco de treino ---------- */
+
+.bloco { break-inside: avoid; }
+.bloco-titulo {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-2);
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: var(--tam-lg);
+  margin-bottom: var(--esp-2);
+}
+.bloco-titulo::before {
+  content: "";
+  width: 6px;
+  height: 18px;
+  border-radius: 3px;
+  background: var(--cor-bloco, var(--cor-destaque));
+}
+.bloco-titulo .nota {
+  font-family: var(--fonte-texto);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: var(--tam-sm);
+  color: var(--cor-tinta-suave);
+}
+.bloco.mobilidade { --cor-bloco: var(--cor-mobilidade); }
+.bloco.ativacao { --cor-bloco: var(--cor-ativacao); }
+.bloco.principal { --cor-bloco: var(--cor-principal); }
+.bloco.cardio { --cor-bloco: var(--cor-cardio); }
+.bloco.finalizacao { --cor-bloco: var(--cor-finalizacao); }
+
+.itens { display: flex; flex-direction: column; gap: var(--esp-2); }
+
+/* ---------- Exercício ---------- */
+
+.exercicio {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--esp-3);
+  align-items: center;
+  background: var(--cor-superficie);
+  border-left: 3px solid var(--cor-bloco, var(--cor-destaque));
+  border-radius: var(--raio-sm);
+  padding: var(--esp-2) var(--esp-3);
+  min-height: 42px;
+}
+.exercicio .midia {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--raio-sm);
+  object-fit: cover;
+  background: #fff;
+}
+.exercicio .sem-midia { width: 0; }
+.exercicio .nome { font-weight: 700; }
+.exercicio .obs { color: var(--cor-tinta-suave); font-size: var(--tam-sm); }
+.exercicio .dica { color: var(--cor-tinta-suave); font-size: var(--tam-xs); font-style: italic; }
+.exercicio .lado-direito { display: flex; align-items: center; gap: var(--esp-3); }
+.exercicio .prescricao {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 15pt;
+  color: var(--cor-tinta);
+  white-space: nowrap;
+}
+.exercicio .qr { display: flex; flex-direction: column; align-items: center; text-decoration: none; }
+.exercicio .qr svg { width: 46px; height: 46px; display: block; }
+.exercicio .qr span { font-size: 6pt; color: var(--cor-tinta-suave); text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* Par combinado (bi-set) */
+.combinado {
+  display: grid;
+  grid-template-columns: 1fr 22px 1fr;
+  align-items: stretch;
+  gap: var(--esp-1);
+}
+.combinado .mais {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 16pt;
+  color: var(--cor-bloco, var(--cor-destaque));
+}
+.combinado .exercicio { grid-template-columns: auto 1fr auto; }
+.combinado .exercicio .prescricao { font-size: 13pt; }
+
+/* ---------- Objetivo e observações ---------- */
+
+.objetivo {
+  background: var(--cor-destaque-suave);
+  border-radius: var(--raio);
+  padding: var(--esp-3) var(--esp-4);
+  break-inside: avoid;
+}
+.objetivo h4 {
+  font-size: var(--tam-md);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cor-destaque);
+  margin-bottom: var(--esp-1);
+}
+.objetivo p { margin: 0; }
+
+.aviso {
+  background: var(--cor-alerta-suave);
+  border-left: 3px solid var(--cor-alerta);
+  border-radius: var(--raio-sm);
+  padding: var(--esp-2) var(--esp-3);
+  font-size: var(--tam-sm);
+}
+
+/* ---------- Tabela de controle ---------- */
+
+.tabela-controle { width: 100%; border-collapse: separate; border-spacing: 0; font-size: var(--tam-sm); }
+.tabela-controle th {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: var(--tam-md);
+  text-align: left;
+  padding: var(--esp-2);
+  border-bottom: 2px solid var(--cor-tinta);
+}
+.tabela-controle td { padding: var(--esp-2); border-bottom: 1px solid var(--cor-linha); vertical-align: middle; }
+.tabela-controle .semana { font-weight: 700; white-space: nowrap; }
+.tabela-controle .periodo { color: var(--cor-tinta-suave); font-size: var(--tam-xs); }
+.caixa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--cor-linha);
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.caixa.feito { background: var(--cor-destaque); border-color: var(--cor-destaque); color: #fff; font-weight: 700; font-size: 9pt; }
+.data-feito { font-size: var(--tam-xs); color: var(--cor-tinta-suave); margin-left: 4px; }
+.linha-anotacao { height: 26px; border-bottom: 1px solid var(--cor-linha); }
+.linha-preencher { display: inline-block; min-width: 60px; border-bottom: 1px dotted var(--cor-tinta-suave); height: 12px; }
+
+/* ---------- Indicadores e gráficos ---------- */
+
+.indicadores { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--esp-3); }
+.indicador { background: var(--cor-superficie); border-radius: var(--raio); padding: var(--esp-3) var(--esp-4); }
+.indicador .valor { font-family: var(--fonte-titulo); font-weight: 800; font-size: 30pt; color: var(--cor-destaque); line-height: 1; }
+.indicador .rotulo { font-size: var(--tam-sm); color: var(--cor-tinta-suave); }
+
+.grafico { background: var(--cor-superficie); border-radius: var(--raio); padding: var(--esp-3) var(--esp-4); break-inside: avoid; }
+.grafico h4 { font-size: var(--tam-lg); text-transform: uppercase; margin-bottom: var(--esp-2); }
+.grafico svg { width: 100%; height: auto; display: block; }
+.grafico svg text { font-family: var(--fonte-texto); font-size: 11px; fill: var(--cor-tinta-suave); }
+.grafico svg .valor { fill: var(--cor-tinta); font-weight: 700; }
+.grafico .vazio { color: var(--cor-tinta-suave); font-size: var(--tam-sm); font-style: italic; }
+.graficos-lado { display: grid; grid-template-columns: 1fr 1fr; gap: var(--esp-3); }
+
+/* ---------- Linha do tempo ---------- */
+
+.linha-tempo { display: flex; flex-direction: column; }
+.evento {
+  display: grid;
+  grid-template-columns: 56px 14px 1fr;
+  gap: var(--esp-2);
+  align-items: start;
+  padding: var(--esp-1) 0;
+}
+.evento .quando { font-family: var(--fonte-titulo); font-weight: 800; font-size: var(--tam-lg); text-align: right; line-height: 1.1; }
+.evento .ponto { width: 10px; height: 10px; border-radius: 50%; background: var(--cor-destaque); margin-top: 5px; }
+.evento .titulo { font-weight: 700; }
+.evento .foco { font-size: var(--tam-sm); color: var(--cor-tinta-suave); }

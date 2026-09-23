@@ -1,0 +1,51 @@
+/*
+ * Tokens do design system — Controle de Treinos.
+ * Fonte única de cores, tipografia e espaçamento usada pelos PDFs
+ * e pelos previews sincronizáveis com o Claude Design (/design-sync).
+ */
+
+@font-face { font-family: "Barlow Condensed"; font-weight: 600; src: url("fontes/barlow-condensed-600.ttf"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 800; src: url("fontes/barlow-condensed-800.ttf"); }
+@font-face { font-family: "Inter"; font-weight: 400; src: url("fontes/inter-400.ttf"); }
+@font-face { font-family: "Inter"; font-weight: 600; src: url("fontes/inter-600.ttf"); }
+@font-face { font-family: "Inter"; font-weight: 700; src: url("fontes/inter-700.ttf"); }
+
+:root {
+  /* Cores */
+  --cor-tinta: #0f1c2e;          /* texto principal, capa */
+  --cor-tinta-suave: #4a5668;    /* texto secundário */
+  --cor-linha: #dfe4ea;          /* bordas e divisórias */
+  --cor-fundo: #ffffff;
+  --cor-superficie: #f3f6f8;     /* cards e blocos */
+  --cor-destaque: #16a36f;       /* verde campo: números, acentos */
+  --cor-destaque-suave: #e3f5ec;
+  --cor-alerta: #f2a900;         /* observações e ajustes */
+  --cor-alerta-suave: #fff5d9;
+
+  /* Cores por tipo de bloco */
+  --cor-mobilidade: #3b82c4;
+  --cor-ativacao: #f2a900;
+  --cor-principal: #16a36f;
+  --cor-cardio: #e0523b;
+  --cor-finalizacao: #7a5cc7;
+
+  /* Tipografia */
+  --fonte-titulo: "Barlow Condensed", "Liberation Sans Narrow", sans-serif;
+  --fonte-texto: "Inter", "Liberation Sans", sans-serif;
+  --tam-xs: 8pt;
+  --tam-sm: 9pt;
+  --tam-md: 10.5pt;
+  --tam-lg: 14pt;
+  --tam-xl: 22pt;
+  --tam-xxl: 44pt;
+
+  /* Espaçamento e forma */
+  --esp-1: 4px;
+  --esp-2: 8px;
+  --esp-3: 12px;
+  --esp-4: 16px;
+  --esp-5: 24px;
+  --esp-6: 36px;
+  --raio: 10px;
+  --raio-sm: 6px;
+}
