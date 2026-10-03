@@ -89,3 +89,9 @@ Em `design-system/previews/` há uma página de preview para cada grupo de compo
 `<!-- @dsCard group="…" -->`. Isso permite sincronizar a pasta com um projeto de design system no
 [Claude Design](https://claude.ai/design) usando o comando `/design-sync` do Claude Code: você ajusta o visual lá,
 traz de volta para cá e os próximos PDFs já saem com o design novo.
+
+---
+
+# Scout pós-jogo
+
+Atalhos de teclado que gravam finalizações, pressões, posses etc. lendo o tempo do vídeo do jogo (YouTube/QuickTime). Instalação e uso: [`scout/LEIA-ME.md`](scout/LEIA-ME.md).
