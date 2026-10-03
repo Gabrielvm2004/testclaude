@@ -21,7 +21,7 @@ Atalhos de teclado que gravam eventos do jogo num CSV, lendo o **tempo do vídeo
 
 ## Como funciona
 
-- Cada atalho é uma **Ação Rápida do Automator** de uma linha que chama o script central `Documentos/Scout/sistema/scout.applescript`.
+- Cada atalho é uma **Ação Rápida do Automator** (`~/Library/Services/Scout N - ….workflow`) de uma linha que chama o script central `Documentos/Scout/sistema/scout.applescript`. O instalador coloca tudo no lugar.
 - O script vê qual app está na frente:
   - **Chrome:** lê o tempo do vídeo do YouTube da aba ativa. Se estiver passando anúncio, avisa e não grava.
   - **QuickTime:** ignora gravações de tela e vídeos com menos de 5 minutos. Usa o vídeo que estiver tocando; se nenhum estiver tocando, usa o que está mais na frente.
@@ -41,83 +41,66 @@ No Monterey, o app Atalhos é a primeira versão: em Mac Intel ele demora 1 a 2 
 
 ## Instalação (passo a passo)
 
-> **Se você já fez a Etapa 1:** pule os Passos 3 a 5 da primeira instalação. Faça só o **Passo 1** (baixar de novo), o **Passo 2** (substituir o script) e depois o **Passo 6** em diante.
+O instalador faz quase tudo sozinho: copia o script, instala as 10 Ações Rápidas e configura os atalhos ⌃⌥0 a ⌃⌥9. Você só baixa, dá duplo clique e reinicia a sessão.
 
-### Passo 1 — Baixar os arquivos
-1. No GitHub, abra o repositório, troque para o branch **`claude/vibrant-archimedes-2l7l6r`** e clique em **Code → Download ZIP**.
-2. Abra o ZIP (duplo clique) na pasta **Transferências**.
+### Passo 1 — Baixar o ZIP
+1. No GitHub, abra o repositório e troque para o branch **`claude/vibrant-archimedes-2l7l6r`** (botão com o nome do branch, em cima da lista de arquivos).
+2. Clique no botão verde **Code** → **Download ZIP**.
+3. Abra a pasta **Transferências** e dê **duplo clique** no ZIP. Aparece uma pasta com o mesmo nome.
+4. Entre nessa pasta e depois na pasta **`scout`**.
 
-### Passo 2 — Colocar o script no lugar
-1. No Finder, abra **Documentos**. Se ainda não existir, crie a pasta **`Scout`** e, dentro dela, a pasta **`sistema`**.
-2. Copie o arquivo **`scout/sistema/scout.applescript`** (do ZIP) para **`Documentos/Scout/sistema/`**. Se perguntar, escolha **Substituir**.
-3. Copie também **`scout/resumo.html`** para **`Documentos/Scout/`** (é a página do resumo).
+### Passo 2 — Rodar o instalador
+1. Dê **duplo clique** em **`Instalar Scout.command`**.
+2. Abre uma janela do **Terminal** (fundo branco ou preto, com texto). Não precisa digitar nada.
+3. Em poucos segundos aparece uma janela **"Scout — instalação"** com o que deu certo e o que fazer. Leia e clique **OK**.
 
-### Passo 3 — Criar a primeira Ação Rápida (Finalização nossa)
-*(Já feito na Etapa 1? Pule para o Passo 6.)*
-1. Abra o **Automator** (Aplicativos → Automator).
-2. Clique em **Novo Documento** → escolha **Ação Rápida** → **Escolher**.
-3. No topo da área da direita, ajuste:
-   - **Fluxo de trabalho recebe:** `nenhuma entrada`
-   - **em:** `qualquer aplicativo`
-4. Na coluna da esquerda, na busca, digite **`AppleScript`** e arraste **Executar AppleScript** para a área da direita.
-5. Apague todo o texto que aparece na caixa e cole exatamente isto:
+**Se o Mac disser que o arquivo é de "desenvolvedor não identificado"** (ou que "não pode ser aberto"):
+1. Clique em **OK** (ou **Cancelar**) nesse aviso.
+2. Clique no `Instalar Scout.command` com o **botão direito** (ou Control + clique) → **Abrir**.
+3. Aparece o aviso de novo, agora com o botão **Abrir**. Clique em **Abrir**.
 
-   ```applescript
-   on run {input, parameters}
-   	set scout to (POSIX path of (path to documents folder)) & "Scout/sistema/scout.applescript"
-   	run script ((POSIX file scout) as alias) with parameters {"finalizacao_nossa"}
-   	return input
-   end run
-   ```
+Se ainda assim não abrir:
+1. Abra **Preferências do Sistema → Segurança e Privacidade → aba Geral**.
+2. Embaixo aparece *"O 'Instalar Scout.command' foi bloqueado…"*. Clique em **Abrir Mesmo Assim** e confirme.
 
-6. Clique no martelo (**Compilar**). O texto deve ficar colorido, sem erro.
-7. **Arquivo → Salvar…** com o nome **`Scout – Finalização nossa`**.
+**Plano C (sempre funciona):**
+1. Abra o **Terminal** (Aplicativos → Utilitários → Terminal).
+2. Digite `bash` e **um espaço** (não aperte Enter ainda).
+3. Arraste o arquivo `Instalar Scout.command` do Finder para dentro da janela do Terminal.
+4. Aperte **Enter**.
 
-### Passo 4 — Liberar o JavaScript no Chrome (só uma vez)
-1. Abra o **Google Chrome**.
-2. Na barra de menus: **Visualizar → Desenvolvedor → Permitir JavaScript de Eventos Apple**.
-3. Confirme que ficou com um ✓ ao lado.
+> Pode rodar o instalador quantas vezes quiser. Toda vez que eu mandar uma versão nova, é só baixar o ZIP e rodar de novo.
 
-### Passo 5 — Atalho da primeira ação
-Veja o Passo 7 (é igual para todas as ações).
+### Passo 3 — Sair e entrar de novo na sessão
+Para o Mac reconhecer os atalhos novos: menu  (maçã) → **Encerrar Sessão de Gabriel…** → entre de novo com sua senha. Reiniciar o Mac também serve.
 
-### Passo 6 — Criar as outras 9 Ações Rápidas (duplicando)
-Todas são iguais à primeira; só muda **uma palavra** (o evento entre aspas) e o nome.
+### Passo 4 — Conferir os atalhos
+1. Abra **Preferências do Sistema → Teclado → aba Atalhos → Serviços** (na lista da esquerda).
+2. Role a lista da direita até a seção **Geral**. Devem estar lá, **marcados**:
 
-1. No Automator, abra **Arquivo → Abrir Recente → Scout – Finalização nossa**.
-   (Se não aparecer: **Arquivo → Abrir…**, aperte **⌘⇧G**, digite `~/Library/Services` e abra **Scout – Finalização nossa.workflow**.)
-2. **Arquivo → Duplicar** (⌘⇧S). Abre uma cópia.
-3. Na cópia, troque **só** o texto entre aspas em `{"finalizacao_nossa"}` pelo evento da tabela abaixo. Mantenha as aspas.
-4. Clique no martelo (**Compilar**).
-5. **Arquivo → Salvar…** com o nome da tabela. Feche a cópia (⌘W).
-6. Repita os itens 2 a 5 para cada linha:
+| Ação Rápida | Atalho |
+|---|---|
+| Scout 0 - Desfazer | ^⌥0 |
+| Scout 1 - Ganhamos posse | ^⌥1 |
+| Scout 2 - Perdemos posse | ^⌥2 |
+| Scout 3 - Finalizacao nossa | ^⌥3 |
+| Scout 4 - Finalizacao concedida | ^⌥4 |
+| Scout 5 - Subida de pressao | ^⌥5 |
+| Scout 6 - Corrida para tras | ^⌥6 |
+| Scout 7 - Inicio 1o tempo | ^⌥7 |
+| Scout 8 - Inicio 2o tempo | ^⌥8 |
+| Scout 9 - Novo jogo | ^⌥9 |
 
-| Nome para salvar | Texto entre aspas | Atalho |
-|---|---|---|
-| `Scout – Ganhamos a posse` | `ganhamos_posse` | ⌃⌥1 |
-| `Scout – Perdemos a posse` | `perdemos_posse` | ⌃⌥2 |
-| `Scout – Finalização nossa` *(já existe)* | `finalizacao_nossa` | ⌃⌥3 |
-| `Scout – Finalização concedida` | `finalizacao_concedida` | ⌃⌥4 |
-| `Scout – Subida de pressão` | `subida_pressao` | ⌃⌥5 |
-| `Scout – Corrida para trás` | `corrida_para_tras` | ⌃⌥6 |
-| `Scout – Início do 1º tempo` | `inicio_1t` | ⌃⌥7 |
-| `Scout – Início do 2º tempo` | `inicio_2t` | ⌃⌥8 |
-| `Scout – Novo jogo` | `novo_jogo` | ⌃⌥9 |
-| `Scout – Desfazer` | `desfazer` | ⌃⌥0 |
+3. **Se algum estiver sem atalho:** dê duplo clique em **nenhum** (ou **adicionar atalho**) ao lado do nome e aperte a combinação (ex.: **Control + Option + 1**).
+4. **Se algum estiver desmarcado:** marque a caixinha à esquerda do nome.
 
-> Digite o texto entre aspas **exatamente** como na tabela: sem acento, com `_`. Se errar, o atalho avisa "Evento desconhecido".
+> **Por que os nomes não têm acento?** O instalador configura os atalhos pelo nome de cada ação. Sem acento, esse nome é sempre o mesmo e não há risco de o atalho não "pegar".
 
-### Passo 7 — Configurar os atalhos de teclado
-1. Abra **Preferências do Sistema → Teclado → aba Atalhos**.
-2. Na lista da esquerda, clique em **Serviços**.
-3. Role a lista da direita até a seção **Geral**: as 10 ações **Scout – …** estão lá.
-4. Para cada uma: dê duplo clique em **nenhum** (ou **adicionar atalho**) ao lado do nome e aperte a combinação da tabela (ex.: **Control + Option + 1**). Deve aparecer `^⌥1`.
-5. Confira se todas as 10 estão **marcadas** (caixinha à esquerda do nome).
-6. Feche as Preferências.
+### Passo 5 — Liberar o JavaScript no Chrome (só uma vez; você já fez)
+No Chrome: **Visualizar → Desenvolvedor → Permitir JavaScript de Eventos Apple** (deve ficar com ✓).
 
-### Passo 8 — Permitir os avisos na tela (Notificações)
-Na Etapa 1 não apareceu nenhum aviso. Para garantir que apareçam:
-1. Aperte qualquer atalho Scout uma vez com o Chrome na frente (ex.: ⌃⌥9 e depois **Cancelar**).
+### Passo 6 — Permitir os avisos na tela (Notificações)
+1. Aperte um atalho Scout uma vez com o Chrome na frente (ex.: ⌃⌥9 e depois **Cancelar**).
 2. Abra **Preferências do Sistema → Notificações e Foco → aba Notificações**.
 3. Na lista da esquerda, procure **Automator**, **Editor de Script**, **WorkflowServiceRunner** ou **Google Chrome** (o que aparecer).
 4. Ative **Permitir Notificações** e escolha o estilo **Faixas**.
@@ -125,7 +108,7 @@ Na Etapa 1 não apareceu nenhum aviso. Para garantir que apareçam:
 
 > Se mesmo assim nenhum aviso aparecer, o **som** continua confirmando: "Tink" = gravou, som grave = não gravou. Me conte, que trocamos o aviso por outro tipo.
 
-### Passo 9 — Teste completo (5 minutos)
+### Passo 7 — Teste completo (5 minutos)
 1. Abra um jogo no **YouTube** (Chrome) e deixe tocando.
 2. **⌃⌥9** → digite o adversário → **OK** → confira a data → **OK** → escolha a categoria → **OK** → escolha o mando → **OK**. Deve tocar o "Tink" e aparecer "Jogo: América x …".
 3. **⌃⌥3** → deve avisar *"Marque antes o início do 1º tempo"* (som grave).
@@ -144,9 +127,8 @@ Na Etapa 1 não apareceu nenhum aviso. Para garantir que apareçam:
 
 | O que acontece | O que fazer |
 |---|---|
-| Nada acontece ao apertar um atalho | Teste pelo menu: **Chrome → Serviços → Scout – …**. Se pelo menu funcionar, o problema é o atalho: refaça o Passo 7 ou use **⌃⌥⌘** + número. |
-| A ação não aparece em Serviços | No Automator, confira o Passo 3, item 3 ("nenhuma entrada" em "qualquer aplicativo"). |
-| "Evento desconhecido" | O texto entre aspas da Ação Rápida está diferente da tabela do Passo 6. |
+| Nada acontece ao apertar um atalho | Encerre a sessão e entre de novo (Passo 3). Depois teste pelo menu: **Chrome → Serviços → Scout 3 - …**. Se pelo menu funcionar, o problema é o atalho: confira o Passo 4. |
+| As ações não aparecem em Serviços | Rode o instalador de novo e encerre a sessão. Se continuar, me mande a mensagem final do instalador. |
 | "O Chrome bloqueou a leitura do tempo" | Refaça o Passo 4. |
 | "Nenhum jogo aberto" | Comece com **⌃⌥9**. |
 | As perguntas do ⌃⌥9 não aparecem ou ficam atrás | Clique no ícone do Chrome no Dock e tente de novo; me avise se continuar. |
@@ -160,6 +142,8 @@ No começo do `Documentos/Scout/sistema/scout.applescript`, na seção **CONFIGU
 - Nome da pasta, duração mínima do vídeo no QuickTime e os sons.
 
 Para editar: clique com o botão direito no arquivo → **Abrir com → Editor de Script**, mude o valor e salve (⌘S). Não precisa mexer no Automator.
+
+> Atenção: rodar o instalador de novo substitui o script pela versão do ZIP (a sua fica salva como `scout.applescript.anterior`). Se mudar alguma configuração, me avise para eu deixar igual na próxima versão.
 
 ---
 
@@ -206,3 +190,10 @@ finalizacao_nossa,130.2,1,youtube,2026-10-03 20:02:00
 | `finalizacao_nossa` / `finalizacao_concedida` | finalizações |
 | `subida_pressao` | subida de pressão |
 | `corrida_para_tras` | corrida para trás da defesa |
+
+## Para quem for mexer no código
+
+- `sistema/scout.applescript`: toda a lógica dos atalhos.
+- `servicos/`: as 10 Ações Rápidas. Elas são **geradas** por `ferramentas/gerar_workflows.py` (`python3 scout/ferramentas/gerar_workflows.py`). Para mudar nomes ou atalhos, edite a lista `ATALHOS` lá e gere de novo.
+- `Instalar Scout.command`: o instalador.
+- `resumo.html`: a página do resumo.

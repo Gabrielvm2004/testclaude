@@ -1,0 +1,10 @@
+0	Scout 0 - Desfazer
+1	Scout 1 - Ganhamos posse
+2	Scout 2 - Perdemos posse
+3	Scout 3 - Finalizacao nossa
+4	Scout 4 - Finalizacao concedida
+5	Scout 5 - Subida de pressao
+6	Scout 6 - Corrida para tras
+7	Scout 7 - Inicio 1o tempo
+8	Scout 8 - Inicio 2o tempo
+9	Scout 9 - Novo jogo
