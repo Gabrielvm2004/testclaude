@@ -1,0 +1,26 @@
+evento,segundos_video,tempo,origem,horario
+janela_amostra,900,,,2026-10-03 20:00:00
+inicio_1t,62.0,1,youtube,2026-10-03 20:01:00
+ganhamos_posse,80.0,1,youtube,2026-10-03 20:01:10
+perdemos_posse,84.5,1,youtube,2026-10-03 20:01:14
+ganhamos_posse,120.0,1,youtube,2026-10-03 20:01:50
+perdemos_posse,128.0,1,youtube,2026-10-03 20:01:58
+finalizacao_nossa,130.2,1,youtube,2026-10-03 20:02:00
+ganhamos_posse,200.0,1,youtube,2026-10-03 20:03:00
+ganhamos_posse,210.0,1,youtube,2026-10-03 20:03:10
+perdemos_posse,225.0,1,youtube,2026-10-03 20:03:25
+subida_pressao,300.0,1,youtube,2026-10-03 20:04:00
+subida_pressao,300.8,1,youtube,2026-10-03 20:04:01
+ganhamos_posse,400.0,1,youtube,2026-10-03 20:05:00
+perdemos_posse,640.0,1,youtube,2026-10-03 20:09:00
+finalizacao_concedida,1500.0,1,youtube,2026-10-03 20:20:00
+corrida_para_tras,1800.0,1,youtube,2026-10-03 20:25:00
+inicio_2t,15.0,2,youtube,2026-10-03 21:00:00
+ganhamos_posse,30.0,2,youtube,2026-10-03 21:00:20
+perdemos_posse,42.0,2,youtube,2026-10-03 21:00:32
+perdemos_posse,60.0,2,youtube,2026-10-03 21:00:50
+ganhamos_posse,70.0,2,youtube,2026-10-03 21:01:00
+perdemos_posse,73.0,2,youtube,2026-10-03 21:01:03
+finalizacao_nossa,900.0,2,youtube,2026-10-03 21:15:00
+finalizacao_nossa,1600.0,2,youtube,2026-10-03 21:25:00
+corrida_para_tras,2000.0,2,youtube,2026-10-03 21:30:00

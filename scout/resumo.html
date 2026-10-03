@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scout – Resumo do jogo</title>
+<script>
+// =====================================================================
+// CONFIGURAÇÕES (mude só aqui)
+// =====================================================================
+
+// Instrução fixa para o Claude Design. Fica SEMPRE igual entre jogos,
+// para os cards da comissão saírem no mesmo padrão.
+// Os dados do jogo são colados automaticamente logo abaixo deste texto.
+const INSTRUCAO_CLAUDE_DESIGN = `Crie um card visual de pós-jogo do América FC (Pernambuco), no padrão da comissão técnica. Siga sempre este layout:
+
+1. Cabeçalho: escudo/identidade do América FC (verde e branco), "América FC x <adversário>", data, categoria e mando.
+2. Números grandes no topo: finalizações, finalizações concedidas, subidas de pressão e corridas para trás (total do jogo).
+3. Comparação 1º tempo × 2º tempo em barras horizontais lado a lado, para as quatro contagens acima.
+4. Posse de bola: nº de posses, duração média e mediana, maior posse, e a distribuição da duração das posses por faixa (0–5s, 5–10s, 10–20s, 20s+) em barras.
+5. Rodapé com a observação: "Posse medida por amostra: 0–<janela>' de cada tempo. Contagens referem-se ao jogo inteiro."
+
+Use apenas os dados abaixo, sem inventar números. Visual limpo, legível no celular, formato retrato.`;
+
+// Posse mais longa que isto (em segundos) é sinalizada para conferir.
+const POSSE_SUSPEITA_SEG = 180;
+
+// Dois registros iguais com menos que isto (s de vídeo) = provável repetição.
+const REPETIDO_SEG = 2;
+
+// Usado só se o CSV não trouxer a linha "janela_amostra".
+const JANELA_PADRAO_MIN = 15;
+</script>
+<style>
+  :root {
+    --verde: #0b6b3a; --verde-claro: #e7f3ec; --texto: #1b1f1d; --suave: #5d6661;
+    --borda: #d9dfdb; --fundo: #f6f8f7; --cartao: #ffffff; --alerta: #9a5b00; --alerta-fundo: #fff4e0;
+    --erro: #a32020;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --verde: #4cc285; --verde-claro: #16301f; --texto: #e8ece9; --suave: #9aa59f;
+      --borda: #2e3732; --fundo: #121614; --cartao: #1a201d; --alerta: #f0b45a; --alerta-fundo: #2e2414;
+      --erro: #ff8080;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+         color: var(--texto); background: var(--fundo); }
+  main { max-width: 860px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 22px; margin: 0 0 4px; color: var(--verde); }
+  .sub { color: var(--suave); margin: 0 0 20px; }
+  #zona { border: 2px dashed var(--borda); border-radius: 12px; padding: 28px 16px; text-align: center;
+          background: var(--cartao); color: var(--suave); cursor: pointer; }
+  #zona.ativa { border-color: var(--verde); background: var(--verde-claro); }
+  #zona strong { color: var(--texto); }
+  .cartao { background: var(--cartao); border: 1px solid var(--borda); border-radius: 12px; padding: 16px; margin-top: 16px; }
+  .campos { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  label { font-size: 12px; color: var(--suave); display: block; }
+  input, select { width: 100%; padding: 7px 8px; font: inherit; color: var(--texto); background: var(--fundo);
+                  border: 1px solid var(--borda); border-radius: 8px; }
+  .tabela-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { padding: 7px 10px; border-bottom: 1px solid var(--borda); text-align: right; white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; white-space: normal; }
+  thead th { color: var(--suave); font-weight: 600; font-size: 13px; }
+  tr.secao td { background: var(--verde-claro); color: var(--verde); font-weight: 700; text-align: left; }
+  td.jogo { font-weight: 700; }
+  .avisos { background: var(--alerta-fundo); color: var(--alerta); }
+  .avisos h2 { font-size: 15px; margin: 0 0 6px; }
+  .avisos ul { margin: 0; padding-left: 20px; }
+  .botoes { display: flex; flex-wrap: wrap; gap: 10px; }
+  button { font: inherit; font-weight: 600; padding: 9px 14px; border-radius: 8px; border: 1px solid var(--verde);
+           background: var(--verde); color: #fff; cursor: pointer; }
+  button.sec { background: transparent; color: var(--verde); }
+  #status { color: var(--verde); font-weight: 600; margin-top: 8px; min-height: 1.4em; }
+  textarea { width: 100%; min-height: 160px; margin-top: 10px; font: 12px/1.4 ui-monospace, Menlo, monospace;
+             color: var(--texto); background: var(--fundo); border: 1px solid var(--borda); border-radius: 8px; padding: 8px; }
+  .escondido { display: none; }
+  .erro { color: var(--erro); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Scout – Resumo do jogo</h1>
+  <p class="sub">América FC · arraste o CSV do jogo (Documentos/Scout) para a área abaixo.</p>
+
+  <div id="zona" tabindex="0">
+    <strong>Arraste o CSV aqui</strong><br>ou clique para escolher o arquivo
+    <input id="arquivo" type="file" accept=".csv,text/csv" class="escondido">
+  </div>
+
+  <div id="resultado" class="escondido">
+    <div class="cartao">
+      <div class="campos">
+        <div><label for="adv">Adversário</label><input id="adv"></div>
+        <div><label for="data">Data</label><input id="data" placeholder="AAAA-MM-DD"></div>
+        <div><label for="cat">Categoria</label>
+          <select id="cat"><option></option><option>Profissional</option><option>Sub-20</option></select></div>
+        <div><label for="mando">Mando</label>
+          <select id="mando"><option></option><option>Casa</option><option>Fora</option></select></div>
+      </div>
+    </div>
+
+    <div id="avisos" class="cartao avisos escondido">
+      <h2>Confira antes de usar os números</h2>
+      <ul id="lista-avisos"></ul>
+    </div>
+
+    <div class="cartao tabela-wrap">
+      <table>
+        <thead><tr><th>Métrica</th><th>1º T</th><th>2º T</th><th>Jogo</th></tr></thead>
+        <tbody id="corpo"></tbody>
+      </table>
+    </div>
+
+    <div class="cartao">
+      <div class="botoes">
+        <button id="btn-design">Copiar para o Claude Design</button>
+        <button id="btn-sheets" class="sec">Baixar CSV de resumo (Google Sheets)</button>
+      </div>
+      <div id="status"></div>
+      <textarea id="texto-design" class="escondido" readonly></textarea>
+    </div>
+  </div>
+</main>
+
+<script>
+// =====================================================================
+// Leitura do CSV
+// Colunas: evento, segundos_video, tempo, origem, horario
+// =====================================================================
+const NOMES = {
+  ganhamos_posse: 'Ganhamos a posse',
+  perdemos_posse: 'Perdemos a posse',
+  finalizacao_nossa: 'Finalização nossa',
+  finalizacao_concedida: 'Finalização concedida',
+  subida_pressao: 'Subida de pressão',
+  corrida_para_tras: 'Corrida para trás',
+  inicio_1t: 'Início do 1º tempo',
+  inicio_2t: 'Início do 2º tempo',
+  janela_amostra: 'Janela da amostra',
+};
+const CONTAGENS = [
+  ['finalizacao_nossa', 'Finalizações'],
+  ['finalizacao_concedida', 'Finalizações concedidas'],
+  ['subida_pressao', 'Subidas de pressão'],
+  ['corrida_para_tras', 'Corridas para trás'],
+];
+const FAIXAS = [['0–5s', 0, 5], ['5–10s', 5, 10], ['10–20s', 10, 20], ['20s+', 20, Infinity]];
+
+let resumoAtual = null;
+
+function lerCSV(texto) {
+  const linhas = texto.replace(/^﻿/, '').split(/\r?\n/).filter(l => l.trim() !== '');
+  const registros = [];
+  const avisos = [];
+  linhas.forEach((linha, i) => {
+    if (i === 0 && linha.startsWith('evento')) return; // cabeçalho
+    const [evento, seg, tempo, origem, horario] = linha.split(',').map(s => (s || '').trim());
+    const segundos = parseFloat(seg);
+    if (!NOMES[evento]) { avisos.push(`Linha ${i + 1}: evento desconhecido "${evento}" — ignorado.`); return; }
+    if (evento !== 'janela_amostra' && isNaN(segundos)) { avisos.push(`Linha ${i + 1}: tempo do vídeo inválido — ignorada.`); return; }
+    registros.push({ linha: i + 1, evento, segundos, tempo, origem, horario });
+  });
+  return { registros, avisos };
+}
+
+// =====================================================================
+// Cálculos
+// =====================================================================
+function relogio(seg) {
+  const s = Math.round(seg);
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+}
+function quando(r) {
+  return `${r.tempo ? r.tempo + 'º T, ' : ''}vídeo ${relogio(r.segundos)} (linha ${r.linha})`;
+}
+
+function montarPosses(registros, tempo, avisos) {
+  const posses = [];
+  let aberta = null;
+  registros.filter(r => r.tempo === tempo && (r.evento === 'ganhamos_posse' || r.evento === 'perdemos_posse'))
+    .forEach(r => {
+      if (r.evento === 'ganhamos_posse') {
+        if (aberta) avisos.push(`Dois "ganhamos" seguidos — ${quando(aberta)} e ${quando(r)}. A primeira posse foi ignorada.`);
+        aberta = r;
+      } else {
+        if (!aberta) { avisos.push(`"Perdemos" sem "ganhamos" antes — ${quando(r)}. Ignorado.`); return; }
+        const dur = r.segundos - aberta.segundos;
+        if (dur <= 0) {
+          avisos.push(`Posse com duração zero ou negativa (vídeo voltou?) — ${quando(aberta)}. Ignorada.`);
+        } else {
+          if (dur > POSSE_SUSPEITA_SEG) avisos.push(`Posse de ${fmt(dur)} s (mais de ${POSSE_SUSPEITA_SEG} s) — ${quando(aberta)}. Confira; ela entrou no cálculo.`);
+          posses.push(dur);
+        }
+        aberta = null;
+      }
+    });
+  if (aberta) avisos.push(`Posse sem "perdemos" no final — ${quando(aberta)}. Ignorada.`);
+  return posses;
+}
+
+function estatisticas(posses) {
+  const n = posses.length;
+  if (!n) return { n: 0, media: null, mediana: null, maior: null, faixas: FAIXAS.map(() => 0) };
+  const ord = [...posses].sort((a, b) => a - b);
+  const meio = Math.floor(n / 2);
+  return {
+    n,
+    media: posses.reduce((a, b) => a + b, 0) / n,
+    mediana: n % 2 ? ord[meio] : (ord[meio - 1] + ord[meio]) / 2,
+    maior: ord[n - 1],
+    faixas: FAIXAS.map(([, min, max]) => posses.filter(d => d >= min && d < max).length),
+  };
+}
+
+function calcular(registros, avisosLeitura) {
+  const avisos = [...avisosLeitura];
+
+  // Fontes misturadas
+  const origens = [...new Set(registros.map(r => r.origem).filter(Boolean))];
+  if (origens.length > 1) avisos.push(`O jogo mistura fontes (${origens.join(' e ')}). Confira se é tudo do mesmo jogo.`);
+
+  // Janela da amostra (gravada pelo "Novo jogo")
+  const linhaJanela = registros.find(r => r.evento === 'janela_amostra');
+  const janelaMin = linhaJanela ? Math.round(linhaJanela.segundos / 60) : JANELA_PADRAO_MIN;
+  if (!linhaJanela) avisos.push(`O CSV não informa a janela da amostra; considerei ${JANELA_PADRAO_MIN} min.`);
+
+  const eventos = registros.filter(r => r.evento !== 'janela_amostra');
+
+  // Registros sem tempo (antes do ⌃⌥7)
+  const semTempo = eventos.filter(r => r.tempo !== '1' && r.tempo !== '2');
+  if (semTempo.length) avisos.push(`${semTempo.length} registro(s) sem 1º/2º tempo marcado (feitos antes do ⌃⌥7). Contam só na coluna "Jogo".`);
+
+  if (!eventos.some(r => r.evento === 'inicio_1t')) avisos.push('Falta o início do 1º tempo (⌃⌥7).');
+  if (!eventos.some(r => r.evento === 'inicio_2t')) avisos.push('Falta o início do 2º tempo (⌃⌥8).');
+
+  // Prováveis repetições (mesmo evento, mesmo tempo, quase o mesmo instante do vídeo)
+  const vistos = {};
+  eventos.forEach(r => {
+    const chave = r.evento + '|' + r.tempo;
+    const ant = vistos[chave];
+    if (ant && Math.abs(r.segundos - ant.segundos) < REPETIDO_SEG && !r.evento.startsWith('inicio')) {
+      avisos.push(`"${NOMES[r.evento]}" registrado duas vezes quase no mesmo lance — ${quando(ant)} e linha ${r.linha}. Se foi engano, apague uma no CSV.`);
+    }
+    vistos[chave] = r;
+  });
+
+  const p1 = montarPosses(eventos, '1', avisos);
+  const p2 = montarPosses(eventos, '2', avisos);
+  const posse = { t1: estatisticas(p1), t2: estatisticas(p2), jogo: estatisticas([...p1, ...p2]) };
+
+  const contar = (ev, tempo) => eventos.filter(r => r.evento === ev && (tempo ? r.tempo === tempo : true)).length;
+  const contagens = CONTAGENS.map(([ev, rotulo]) => ({ ev, rotulo, t1: contar(ev, '1'), t2: contar(ev, '2'), jogo: contar(ev) }));
+
+  return { posse, contagens, avisos, janelaMin, origens };
+}
+
+// =====================================================================
+// Tela
+// =====================================================================
+function fmt(x) {
+  if (x === null || x === undefined) return '–';
+  return Number.isInteger(x) ? String(x) : x.toFixed(1).replace('.', ',');
+}
+
+function linhasDaTabela(res) {
+  const { posse, contagens, janelaMin } = res;
+  const L = [];
+  L.push({ secao: `Posse — amostra 0–${janelaMin}' de cada tempo` });
+  L.push({ rotulo: 'Nº de posses na amostra', v: s => s.n });
+  L.push({ rotulo: 'Duração média (s)', v: s => s.media });
+  L.push({ rotulo: 'Duração mediana (s)', v: s => s.mediana });
+  L.push({ rotulo: 'Maior posse (s)', v: s => s.maior });
+  FAIXAS.forEach(([nome], i) => L.push({ rotulo: `Posses de ${nome}`, v: s => s.faixas[i] }));
+  const linhas = L.map(l => l.secao ? l : { rotulo: l.rotulo, t1: l.v(posse.t1), t2: l.v(posse.t2), jogo: l.v(posse.jogo) });
+  linhas.push({ secao: 'Contagens — jogo inteiro' });
+  contagens.forEach(c => linhas.push(c));
+  return linhas;
+}
+
+function desenhar(res) {
+  const corpo = document.getElementById('corpo');
+  corpo.innerHTML = '';
+  linhasDaTabela(res).forEach(l => {
+    const tr = document.createElement('tr');
+    if (l.secao) {
+      tr.className = 'secao';
+      tr.innerHTML = `<td colspan="4"></td>`;
+      tr.firstChild.textContent = l.secao;
+    } else {
+      [l.rotulo, fmt(l.t1), fmt(l.t2), fmt(l.jogo)].forEach((txt, i) => {
+        const td = document.createElement('td');
+        td.textContent = txt;
+        if (i === 3) td.className = 'jogo';
+        tr.appendChild(td);
+      });
+    }
+    corpo.appendChild(tr);
+  });
+
+  const caixa = document.getElementById('avisos');
+  const lista = document.getElementById('lista-avisos');
+  lista.innerHTML = '';
+  res.avisos.forEach(a => { const li = document.createElement('li'); li.textContent = a; lista.appendChild(li); });
+  caixa.classList.toggle('escondido', res.avisos.length === 0);
+
+  document.getElementById('resultado').classList.remove('escondido');
+  document.getElementById('status').textContent = '';
+  document.getElementById('texto-design').classList.add('escondido');
+}
+
+// Nome do arquivo: AAAA-MM-DD_Categoria_Adversário_Mando.csv
+function dadosDoNome(nome) {
+  const partes = nome.replace(/\.csv$/i, '').split('_');
+  if (partes.length === 4 && /^\d{4}-\d{2}-\d{2}$/.test(partes[0])) {
+    return { data: partes[0], categoria: partes[1], adversario: partes[2], mando: partes[3] };
+  }
+  return { data: '', categoria: '', adversario: '', mando: '' };
+}
+
+function preencherCampos(info) {
+  document.getElementById('adv').value = info.adversario;
+  document.getElementById('data').value = info.data;
+  document.getElementById('cat').value = info.categoria;
+  document.getElementById('mando').value = info.mando;
+}
+
+function infoDoJogo() {
+  return {
+    adversario: document.getElementById('adv').value.trim(),
+    data: document.getElementById('data').value.trim(),
+    categoria: document.getElementById('cat').value,
+    mando: document.getElementById('mando').value,
+  };
+}
+
+function abrir(arquivo) {
+  const leitor = new FileReader();
+  leitor.onload = () => {
+    const { registros, avisos } = lerCSV(leitor.result);
+    if (!registros.length) {
+      document.getElementById('status').innerHTML = '';
+      alert('Esse arquivo não tem registros do scout.');
+      return;
+    }
+    resumoAtual = calcular(registros, avisos);
+    preencherCampos(dadosDoNome(arquivo.name));
+    desenhar(resumoAtual);
+  };
+  leitor.readAsText(arquivo, 'utf-8');
+}
+
+// =====================================================================
+// Exportações
+// =====================================================================
+function textoClaudeDesign() {
+  const info = infoDoJogo();
+  const res = resumoAtual;
+  const instrucao = INSTRUCAO_CLAUDE_DESIGN.replaceAll('<janela>', res.janelaMin);
+  const linhas = linhasDaTabela(res).map(l =>
+    l.secao ? `\n${l.secao}:` : `- ${l.rotulo}: 1º T ${fmt(l.t1)} | 2º T ${fmt(l.t2)} | Jogo ${fmt(l.jogo)}`);
+  return `${instrucao}
+
+DADOS DO JOGO
+Adversário: ${info.adversario || '(não informado)'}
+Data: ${info.data || '(não informada)'}
+Categoria: ${info.categoria || '(não informada)'}
+Mando: ${info.mando || '(não informado)'}
+${linhas.join('\n')}`;
+}
+
+async function copiar(texto) {
+  try {
+    await navigator.clipboard.writeText(texto);
+    return true;
+  } catch (e) {
+    const area = document.getElementById('texto-design');
+    area.value = texto;
+    area.classList.remove('escondido');
+    area.select();
+    try { return document.execCommand('copy'); } catch (e2) { return false; }
+  }
+}
+
+document.getElementById('btn-design').addEventListener('click', async () => {
+  const ok = await copiar(textoClaudeDesign());
+  const st = document.getElementById('status');
+  st.className = ok ? '' : 'erro';
+  st.textContent = ok ? 'Copiado! Cole no Claude Design (⌘V).'
+                      : 'Não consegui copiar sozinho: selecione o texto abaixo e use ⌘C.';
+  if (!ok) {
+    const area = document.getElementById('texto-design');
+    area.value = textoClaudeDesign();
+    area.classList.remove('escondido');
+  }
+});
+
+// Uma linha por jogo, para colar no Google Sheets e comparar jogos.
+document.getElementById('btn-sheets').addEventListener('click', () => {
+  const info = infoDoJogo();
+  const cab = ['data', 'adversario', 'categoria', 'mando', 'janela_amostra_min'];
+  const val = [info.data, info.adversario, info.categoria, info.mando, resumoAtual.janelaMin];
+  const chave = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+  linhasDaTabela(resumoAtual).filter(l => !l.secao).forEach(l => {
+    ['t1', 't2', 'jogo'].forEach(col => {
+      cab.push(`${chave(l.rotulo)}_${col}`);
+      const v = l[col];
+      // Vírgula decimal, para o Google Sheets em português reconhecer como número.
+      val.push(v === null ? '' : (Number.isInteger(v) ? v : v.toFixed(1).replace('.', ',')));
+    });
+  });
+  const esc = v => /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : v;
+  const csv = cab.join(',') + '\n' + val.map(esc).join(',') + '\n';
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `resumo_${info.data || 'jogo'}_${chave(info.adversario || 'adversario')}.csv`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+  document.getElementById('status').className = '';
+  document.getElementById('status').textContent = 'CSV de resumo baixado (pasta Transferências).';
+});
+
+// =====================================================================
+// Arrastar e soltar
+// =====================================================================
+const zona = document.getElementById('zona');
+const entrada = document.getElementById('arquivo');
+zona.addEventListener('click', () => entrada.click());
+zona.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') entrada.click(); });
+entrada.addEventListener('change', () => { if (entrada.files[0]) abrir(entrada.files[0]); });
+['dragenter', 'dragover'].forEach(t => zona.addEventListener(t, e => { e.preventDefault(); zona.classList.add('ativa'); }));
+['dragleave', 'drop'].forEach(t => zona.addEventListener(t, e => { e.preventDefault(); zona.classList.remove('ativa'); }));
+zona.addEventListener('drop', e => { if (e.dataTransfer.files[0]) abrir(e.dataTransfer.files[0]); });
+// Soltar fora da área não deve abrir o CSV no lugar da página.
+['dragover', 'drop'].forEach(t => window.addEventListener(t, e => e.preventDefault()));
+</script>
+</body>
+</html>

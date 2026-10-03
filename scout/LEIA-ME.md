@@ -2,7 +2,8 @@
 
 Atalhos de teclado que gravam eventos do jogo num CSV, lendo o **tempo do vídeo** (YouTube no Chrome ou QuickTime).
 
-> **Etapa 1 (atual):** só o atalho **⌃⌥3 – Finalização nossa**. Os outros atalhos, a amostra de posse e a página de resumo vêm nas próximas etapas.
+> **Pronto:** atalho **⌃⌥3 – Finalização nossa** (Etapa 1) e a **página de resumo** (`resumo.html`).
+> **Falta:** os outros atalhos, a amostra de posse e o "Novo jogo" (Etapa 2).
 
 ## Como funciona
 
@@ -107,3 +108,37 @@ Renomeie (ou apague) o arquivo `Documentos/Scout/teste_<data>.csv`, por exemplo 
 
 ## Onde mudar as configurações
 No começo do `scout.applescript`, na seção **CONFIGURAÇÕES**: nome da pasta, duração mínima do vídeo no QuickTime e os sons. Depois de editar, não precisa mexer no Automator.
+
+---
+
+## Página de resumo (`resumo.html`)
+
+1. Dê duplo clique em **`scout/resumo.html`** (abre no Chrome ou no Safari, funciona sem internet). Se quiser, copie o arquivo para `Documentos/Scout/`.
+2. Arraste o CSV do jogo para a área tracejada (ou clique nela para escolher o arquivo).
+3. Confira os campos **Adversário / Data / Categoria / Mando**. Eles vêm do nome do arquivo (`AAAA-MM-DD_Categoria_Adversário_Mando.csv`) e podem ser corrigidos ali mesmo.
+4. Leia a caixa laranja **"Confira antes de usar os números"**, se aparecer. Ela avisa sobre:
+   - dois "ganhamos" seguidos, ou "perdemos" sem "ganhamos" (a posse errada é ignorada);
+   - posse com mais de 3 min (entra no cálculo, mas é sinalizada);
+   - o mesmo evento marcado duas vezes quase no mesmo lance;
+   - mistura de YouTube e QuickTime, ou falta de ⌃⌥7/⌃⌥8.
+5. Botões:
+   - **Copiar para o Claude Design:** copia o texto pronto (instrução fixa do card + dados do jogo). Abra o Claude Design e cole com **⌘V**.
+   - **Baixar CSV de resumo (Google Sheets):** baixa uma linha por jogo. No Sheets: **Arquivo → Importar → Fazer upload** → escolha **Anexar à planilha atual**. Assim cada jogo vira uma linha e dá para comparar.
+
+Para testar sem jogo real, use o exemplo `scout/exemplo/2026-10-03_Profissional_Santa Cruz_Casa.csv`.
+
+### Mudar o padrão do card do Claude Design
+Abra `resumo.html` no **TextEdit**. No topo, em **CONFIGURAÇÕES**, edite o texto entre crases (`` ` ``) de `INSTRUCAO_CLAUDE_DESIGN`. `<janela>` vira automaticamente a duração da amostra (ex.: 15). Ali também ficam o limite de "posse suspeita" (180 s) e o de "registro repetido" (2 s).
+
+> No TextEdit, use **Formatar → Converter em Texto Simples** se aparecer formatação, e salve sem mudar a extensão `.html`.
+
+## Formato do CSV (para referência)
+
+| evento | significado |
+|---|---|
+| `janela_amostra` | duração da amostra em segundos (gravada pelo "Novo jogo") |
+| `inicio_1t` / `inicio_2t` | início do 1º / 2º tempo |
+| `ganhamos_posse` / `perdemos_posse` | início / fim de uma posse (só na amostra) |
+| `finalizacao_nossa` / `finalizacao_concedida` | finalizações |
+| `subida_pressao` | subida de pressão |
+| `corrida_para_tras` | corrida para trás da defesa |
