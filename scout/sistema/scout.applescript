@@ -18,11 +18,6 @@
 
 -- ---------- CONFIGURAÇÕES (mude só aqui) ----------
 
--- Janela da amostra de posse, em minutos de vídeo, a partir do início de cada tempo.
--- Mantenha sempre igual entre jogos para dar para comparar.
--- (Cada jogo novo grava este valor no próprio CSV.)
-property JANELA_AMOSTRA_MIN : 15
-
 -- Pasta dos jogos, dentro de Documentos.
 property PASTA_SCOUT : "Scout"
 
@@ -61,14 +56,8 @@ on registrar(evento)
 	if nomeDoEvento(evento) is evento then error "Evento desconhecido: " & evento & ". Confira a Ação Rápida." number 1000
 	set arquivo to jogoAtual()
 	set {segundos, origem} to lerTempoDoVideo()
-	set estado to lerEstado(arquivo, segundos)
-	set tempoJogo to item 1 of estado -- "" , "1" ou "2"
-	set dentro to (item 2 of estado) is "1" -- dentro da janela da amostra
-	set passou to (item 3 of estado) is "1" -- depois do fim da janela
-	set aberta to (item 5 of estado) is "1" -- há uma posse aberta (ganhamos sem perdemos)
-	set primeiraOrigem to item 6 of estado
-	set relogio to item 7 of estado -- tempo do vídeo em mm:ss
-	set janelaMin to item 8 of estado
+	set {tempoJogo, aberta, primeiraOrigem, relogio} to lerEstado(arquivo, segundos)
+	set aberta to (aberta is "1") -- há uma posse aberta (ganhamos sem perdemos) neste tempo
 
 	-- Não misturar YouTube e QuickTime no mesmo jogo.
 	if primeiraOrigem is not "" and primeiraOrigem is not origem then
@@ -76,60 +65,33 @@ on registrar(evento)
 	end if
 
 	set extra to ""
-
-	if evento is "inicio_1t" or evento is "inicio_2t" then
-		if evento is "inicio_1t" then
-			set tempoJogo to "1"
-		else
-			set tempoJogo to "2"
-		end if
-		esquecerAvisoDaAmostra(arquivo, tempoJogo)
-		set extra to "Amostra de posse: próximos " & janelaMin & " min de vídeo."
+	if evento is "inicio_1t" then
+		set tempoJogo to "1"
+	else if evento is "inicio_2t" then
+		set tempoJogo to "2"
 	else
 		if tempoJogo is "" then error "Marque antes o início do 1º tempo (⌃⌥7)." number 1000
-
-		if evento is "ganhamos_posse" or evento is "perdemos_posse" then
-			-- "Perdemos" logo depois da janela vale, se fecha uma posse aberta.
-			set fechaPosse to (evento is "perdemos_posse") and aberta and passou
-			if not (dentro or fechaPosse) then
-				if passou then avisarFimDaAmostra(arquivo, tempoJogo)
-				error "Fora da amostra (0–" & janelaMin & "' do " & tempoJogo & "º tempo)." number 1000
-			end if
-			if evento is "ganhamos_posse" and aberta then set extra to "Atenção: a posse anterior não foi fechada."
-			if evento is "perdemos_posse" and not aberta then set extra to "Atenção: não havia posse aberta."
-		end if
+		-- Posses: valem o jogo inteiro; só avisa se a sequência estiver errada.
+		if evento is "ganhamos_posse" and aberta then set extra to "Atenção: a posse anterior não foi fechada (⌃⌥2)."
+		if evento is "perdemos_posse" and not aberta then set extra to "Atenção: não havia posse aberta (⌃⌥1)."
 	end if
 
 	gravarLinha(arquivo, evento, segundos, tempoJogo, origem)
-
-	-- Aviso único de fim da amostra, no primeiro atalho depois da janela.
-	if passou and evento is not "inicio_1t" and evento is not "inicio_2t" then
-		if not jaAvisouFimDaAmostra(arquivo, tempoJogo) then
-			marcarAvisoDaAmostra(arquivo, tempoJogo)
-			set extra to extra & " Amostra do " & tempoJogo & "º tempo encerrada."
-			if aberta and evento is not "perdemos_posse" then set extra to extra & " Ainda há uma posse aberta."
-		end if
-	end if
-
 	confirmar(nomeDoEvento(evento) & " — " & tempoJogo & "º T, vídeo " & relogio, extra)
 end registrar
 
--- Lê do CSV o estado do jogo. Toda a conta com números é feita no awk,
+-- Lê do CSV o estado do jogo. A conta com o tempo do vídeo é feita no awk,
 -- que sempre usa ponto decimal (o Mac em português usa vírgula).
--- Devolve: tempo | dentro | passou | antes | aberta | origem | mm:ss | janela_min
+-- Devolve: tempo atual (1/2) | posse aberta (1/0) | primeira origem | mm:ss
 on lerEstado(arquivo, segundos)
 	set programa to "BEGIN{FS=\",\"} NR==1{next} " & ¬
-		"$1==\"janela_amostra\"{j=$2; next} " & ¬
 		"{if(o==\"\" && $4!=\"\") o=$4} " & ¬
-		"$1==\"inicio_1t\"{tp=1; ini[1]=$2} " & ¬
-		"$1==\"inicio_2t\"{tp=2; ini[2]=$2} " & ¬
+		"$1==\"inicio_1t\"{tp=1} " & ¬
+		"$1==\"inicio_2t\"{tp=2} " & ¬
 		"$1==\"ganhamos_posse\" || $1==\"perdemos_posse\"{u[$3]=$1} " & ¬
-		"END{ if(j==\"\") j=jpad; dentro=0; passou=0; antes=0; aberta=0; " & ¬
-		"if(tp!=\"\"){ i0=ini[tp]+0; if(t<i0) antes=1; else if(t<=i0+j) dentro=1; else passou=1; " & ¬
-		"if(u[tp]==\"ganhamos_posse\") aberta=1 } " & ¬
-		"s=int(t+0.5); printf \"%s|%d|%d|%d|%d|%s|%d:%02d|%d\", tp, dentro, passou, antes, aberta, o, int(s/60), s%60, int(j/60) }"
-	set resultado to do shell script "awk -v t=" & segundos & " -v jpad=" & (JANELA_AMOSTRA_MIN * 60) & ¬
-		" " & quoted form of programa & " " & quoted form of arquivo
+		"END{ aberta=(tp!=\"\" && u[tp]==\"ganhamos_posse\") ? 1 : 0; " & ¬
+		"s=int(t+0.5); printf \"%s|%d|%s|%d:%02d\", tp, aberta, o, int(s/60), s%60 }"
+	set resultado to do shell script "awk -v t=" & segundos & " " & quoted form of programa & " " & quoted form of arquivo
 	return dividir(resultado, "|")
 end lerEstado
 
@@ -259,8 +221,7 @@ on novoJogo()
 		perguntarSimNao("Esse jogo já existe. Continuar marcando nele?", "Continuar")
 	else
 		do shell script "mkdir -p " & quoted form of pasta & ¬
-			"; printf 'evento,segundos_video,tempo,origem,horario\\njanela_amostra,%s,,,%s\\n' " & ¬
-			(JANELA_AMOSTRA_MIN * 60) & " \"$(date '+%Y-%m-%d %H:%M:%S')\" > " & quoted form of arquivo
+			"; echo 'evento,segundos_video,tempo,origem,horario' > " & quoted form of arquivo
 	end if
 	do shell script "echo " & quoted form of arquivo & " > " & quoted form of (pasta & ".jogo_atual")
 
@@ -274,7 +235,8 @@ end limparNome
 
 -- ---------- DESFAZER (⌃⌥0) ----------
 
--- Apaga a última linha do CSV (nunca o cabeçalho nem a janela da amostra).
+-- Apaga a última linha do CSV (nunca o cabeçalho).
+-- (janela_amostra só existe em jogos antigos, da época da amostra de 15 min.)
 on desfazer()
 	set arquivo to jogoAtual()
 	set resultado to do shell script "f=" & quoted form of arquivo & "; " & ¬
@@ -286,35 +248,6 @@ on desfazer()
 	set {evento, tempoJogo, relogio} to dividir(resultado, "|")
 	confirmar("Desfeito: " & nomeDoEvento(evento) & " — " & tempoJogo & "º T, vídeo " & relogio, "")
 end desfazer
-
--- ---------- AVISO DE FIM DA AMOSTRA ----------
--- Guarda em Documentos/Scout/.amostra_avisada quais tempos já foram avisados.
-
-on chaveAviso(arquivo, tempoJogo)
-	return arquivo & "|" & tempoJogo
-end chaveAviso
-
-on jaAvisouFimDaAmostra(arquivo, tempoJogo)
-	set registro to pastaScout() & ".amostra_avisada"
-	return (do shell script "grep -qxF " & quoted form of chaveAviso(arquivo, tempoJogo) & " " & quoted form of registro & " 2>/dev/null && echo sim || echo nao") is "sim"
-end jaAvisouFimDaAmostra
-
-on marcarAvisoDaAmostra(arquivo, tempoJogo)
-	set registro to pastaScout() & ".amostra_avisada"
-	do shell script "echo " & quoted form of chaveAviso(arquivo, tempoJogo) & " >> " & quoted form of registro
-end marcarAvisoDaAmostra
-
--- Usado quando o atalho de posse é recusado por estar depois da janela.
-on avisarFimDaAmostra(arquivo, tempoJogo)
-	if not jaAvisouFimDaAmostra(arquivo, tempoJogo) then marcarAvisoDaAmostra(arquivo, tempoJogo)
-end avisarFimDaAmostra
-
--- Ao marcar de novo o início de um tempo, o aviso volta a valer.
-on esquecerAvisoDaAmostra(arquivo, tempoJogo)
-	set registro to pastaScout() & ".amostra_avisada"
-	do shell script "r=" & quoted form of registro & "; [ -f \"$r\" ] && grep -vxF " & quoted form of chaveAviso(arquivo, tempoJogo) & ¬
-		" \"$r\" > \"$r.tmp\"; [ -f \"$r.tmp\" ] && mv \"$r.tmp\" \"$r\"; true"
-end esquecerAvisoDaAmostra
 
 -- ---------- NOMES ----------
 

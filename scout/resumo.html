@@ -17,8 +17,8 @@ const INSTRUCAO_CLAUDE_DESIGN = `Crie um card visual de pós-jogo do América FC
 1. Cabeçalho: escudo/identidade do América FC (verde e branco), "América FC x <adversário>", data, categoria e mando.
 2. Números grandes no topo: finalizações, finalizações concedidas, subidas de pressão e corridas para trás (total do jogo).
 3. Comparação 1º tempo × 2º tempo em barras horizontais lado a lado, para as quatro contagens acima.
-4. Posse de bola: nº de posses, duração média e mediana, maior posse, e a distribuição da duração das posses por faixa (0–5s, 5–10s, 10–20s, 20s+) em barras.
-5. Rodapé com a observação: "Posse medida por amostra: 0–<janela>' de cada tempo. Contagens referem-se ao jogo inteiro."
+4. Posse de bola (posses principais, escolhidas pelo analista): nº de posses marcadas, duração média e mediana, maior posse, e a distribuição da duração das posses por faixa (0–5s, 5–10s, 10–20s, 20s+) em barras.
+5. Rodapé com a observação: "Posse: <posses> posses marcadas (escolhidas pelo analista). Contagens referem-se ao jogo inteiro."
 
 Use apenas os dados abaixo, sem inventar números. Visual limpo, legível no celular, formato retrato.`;
 
@@ -27,9 +27,6 @@ const POSSE_SUSPEITA_SEG = 180;
 
 // Dois registros iguais com menos que isto (s de vídeo) = provável repetição.
 const REPETIDO_SEG = 2;
-
-// Usado só se o CSV não trouxer a linha "janela_amostra".
-const JANELA_PADRAO_MIN = 15;
 </script>
 <style>
   :root {
@@ -139,7 +136,7 @@ const NOMES = {
   corrida_para_tras: 'Corrida para trás',
   inicio_1t: 'Início do 1º tempo',
   inicio_2t: 'Início do 2º tempo',
-  janela_amostra: 'Janela da amostra',
+  janela_amostra: 'Janela da amostra (jogos antigos)',
 };
 const CONTAGENS = [
   ['finalizacao_nossa', 'Finalizações'],
@@ -222,11 +219,7 @@ function calcular(registros, avisosLeitura) {
   const origens = [...new Set(registros.map(r => r.origem).filter(Boolean))];
   if (origens.length > 1) avisos.push(`O jogo mistura fontes (${origens.join(' e ')}). Confira se é tudo do mesmo jogo.`);
 
-  // Janela da amostra (gravada pelo "Novo jogo")
-  const linhaJanela = registros.find(r => r.evento === 'janela_amostra');
-  const janelaMin = linhaJanela ? Math.round(linhaJanela.segundos / 60) : JANELA_PADRAO_MIN;
-  if (!linhaJanela) avisos.push(`O CSV não informa a janela da amostra; considerei ${JANELA_PADRAO_MIN} min.`);
-
+  // "janela_amostra" só existe em jogos antigos (amostra de 15 min) e é ignorada.
   const eventos = registros.filter(r => r.evento !== 'janela_amostra');
 
   // Registros sem tempo (antes do ⌃⌥7)
@@ -254,7 +247,7 @@ function calcular(registros, avisosLeitura) {
   const contar = (ev, tempo) => eventos.filter(r => r.evento === ev && (tempo ? r.tempo === tempo : true)).length;
   const contagens = CONTAGENS.map(([ev, rotulo]) => ({ ev, rotulo, t1: contar(ev, '1'), t2: contar(ev, '2'), jogo: contar(ev) }));
 
-  return { posse, contagens, avisos, janelaMin, origens };
+  return { posse, contagens, avisos, origens };
 }
 
 // =====================================================================
@@ -266,10 +259,10 @@ function fmt(x) {
 }
 
 function linhasDaTabela(res) {
-  const { posse, contagens, janelaMin } = res;
+  const { posse, contagens } = res;
   const L = [];
-  L.push({ secao: `Posse — amostra 0–${janelaMin}' de cada tempo` });
-  L.push({ rotulo: 'Nº de posses na amostra', v: s => s.n });
+  L.push({ secao: `Posse — ${posse.jogo.n} posses marcadas (escolhidas pelo analista)` });
+  L.push({ rotulo: 'Nº de posses marcadas', v: s => s.n });
   L.push({ rotulo: 'Duração média (s)', v: s => s.media });
   L.push({ rotulo: 'Duração mediana (s)', v: s => s.mediana });
   L.push({ rotulo: 'Maior posse (s)', v: s => s.maior });
@@ -358,7 +351,7 @@ function abrir(arquivo) {
 function textoClaudeDesign() {
   const info = infoDoJogo();
   const res = resumoAtual;
-  const instrucao = INSTRUCAO_CLAUDE_DESIGN.replaceAll('<janela>', res.janelaMin);
+  const instrucao = INSTRUCAO_CLAUDE_DESIGN.replaceAll('<posses>', res.posse.jogo.n);
   const linhas = linhasDaTabela(res).map(l =>
     l.secao ? `\n${l.secao}:` : `- ${l.rotulo}: 1º T ${fmt(l.t1)} | 2º T ${fmt(l.t2)} | Jogo ${fmt(l.jogo)}`);
   return `${instrucao}
@@ -400,8 +393,8 @@ document.getElementById('btn-design').addEventListener('click', async () => {
 // Uma linha por jogo, para colar no Google Sheets e comparar jogos.
 document.getElementById('btn-sheets').addEventListener('click', () => {
   const info = infoDoJogo();
-  const cab = ['data', 'adversario', 'categoria', 'mando', 'janela_amostra_min'];
-  const val = [info.data, info.adversario, info.categoria, info.mando, resumoAtual.janelaMin];
+  const cab = ['data', 'adversario', 'categoria', 'mando'];
+  const val = [info.data, info.adversario, info.categoria, info.mando];
   const chave = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
   linhasDaTabela(resumoAtual).filter(l => !l.secao).forEach(l => {

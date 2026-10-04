@@ -49,13 +49,17 @@ else
 	falha "Não consegui copiar o scout.applescript para Documentos/Scout/sistema."
 fi
 
-# Página de resumo: não sobrescreve se você já a personalizou.
-if [ ! -f "$SCOUT/resumo.html" ]; then
-	cp "$AQUI/resumo.html" "$SCOUT/resumo.html" && ok "resumo.html copiado para Documentos/Scout."
-elif ! cmp -s "$AQUI/resumo.html" "$SCOUT/resumo.html"; then
-	cp "$AQUI/resumo.html" "$SCOUT/resumo (nova versao).html"
-	ok "Você já tinha um resumo.html; a versão nova ficou como 'resumo (nova versao).html'."
+# Página de resumo: substitui pela versão nova (a antiga fica como resumo.anterior.html).
+obs=""
+if [ -f "$SCOUT/resumo.html" ] && ! cmp -s "$AQUI/resumo.html" "$SCOUT/resumo.html"; then
+	cp "$SCOUT/resumo.html" "$SCOUT/resumo.anterior.html"
+	obs=" (a antiga ficou como resumo.anterior.html)"
 fi
+cp "$AQUI/resumo.html" "$SCOUT/resumo.html" && ok "resumo.html atualizado em Documentos/Scout$obs."
+rm -f "$SCOUT/resumo (nova versao).html"
+
+# Sobra da antiga amostra de 15 min (não é mais usada).
+rm -f "$SCOUT/.amostra_avisada"
 
 # ---------- 3. Ações Rápidas ----------
 titulo "3. Ações Rápidas (atalhos)"

@@ -9,8 +9,8 @@ Atalhos de teclado que gravam eventos do jogo num CSV, lendo o **tempo do vídeo
 | ⌃⌥9 | **Novo jogo** | antes de começar (pergunta adversário, data, categoria e mando) |
 | ⌃⌥7 | Início do 1º tempo | no apito inicial, no vídeo do 1º tempo |
 | ⌃⌥8 | Início do 2º tempo | no apito inicial, no vídeo do 2º tempo |
-| ⌃⌥1 | Ganhamos a posse | só na amostra (0–15' de cada tempo) |
-| ⌃⌥2 | Perdemos a posse | só na amostra |
+| ⌃⌥1 | Ganhamos a posse | início de uma posse que você escolheu marcar (jogo inteiro) |
+| ⌃⌥2 | Perdemos a posse | fim dessa posse |
 | ⌃⌥3 | Finalização nossa | jogo inteiro |
 | ⌃⌥4 | Finalização concedida | jogo inteiro |
 | ⌃⌥5 | Subida de pressão | jogo inteiro |
@@ -26,9 +26,8 @@ Atalhos de teclado que gravam eventos do jogo num CSV, lendo o **tempo do vídeo
   - **Chrome:** lê o tempo do vídeo do YouTube da aba ativa. Se estiver passando anúncio, avisa e não grava.
   - **QuickTime:** ignora gravações de tela e vídeos com menos de 5 minutos. Usa o vídeo que estiver tocando; se nenhum estiver tocando, usa o que está mais na frente.
 - **1º e 2º tempo em vídeos separados:** cada registro grava se é do 1º ou do 2º tempo (coluna `tempo`), conforme o último ⌃⌥7/⌃⌥8 marcado. Por isso não importa que o tempo do vídeo recomece no 2º tempo.
-- **Amostra de posse:** ⌃⌥1 e ⌃⌥2 só gravam entre o início do tempo (⌃⌥7/⌃⌥8) e +15 min **de vídeo**. Fora disso, avisa "Fora da amostra".
-  - Exceção: um ⌃⌥2 logo depois da janela é aceito se fecha uma posse que começou dentro dela.
-  - No primeiro atalho que você apertar depois da janela, aparece o aviso "Amostra do 1º tempo encerrada" (uma vez por tempo).
+- **Posses marcadas:** você escolhe quais posses marcar (as principais), em qualquer momento do jogo, depois do ⌃⌥7/⌃⌥8. Marque ⌃⌥1 quando a posse começa e ⌃⌥2 quando termina.
+  - Se apertar ⌃⌥1 com uma posse ainda aberta, ou ⌃⌥2 sem posse aberta, grava, mas avisa na hora. A página do resumo ignora a posse com sequência errada.
 - **Regras de segurança:**
   - ⌃⌥3 a ⌃⌥6 só gravam depois do ⌃⌥7. Se você esquecer, o aviso lembra.
   - O script não deixa misturar YouTube e QuickTime no mesmo jogo.
@@ -112,12 +111,11 @@ No Chrome: **Visualizar → Desenvolvedor → Permitir JavaScript de Eventos App
 1. Abra um jogo no **YouTube** (Chrome) e deixe tocando.
 2. **⌃⌥9** → digite o adversário → **OK** → confira a data → **OK** → escolha a categoria → **OK** → escolha o mando → **OK**. Deve tocar o "Tink" e aparecer "Jogo: América x …".
 3. **⌃⌥3** → deve avisar *"Marque antes o início do 1º tempo"* (som grave).
-4. **⌃⌥7** → "Tink" + "Início do 1º tempo — Amostra de posse: próximos 15 min de vídeo".
+4. **⌃⌥7** → "Tink" + "Início do 1º tempo".
 5. **⌃⌥1**, espere uns segundos, **⌃⌥2** → dois "Tink".
 6. **⌃⌥5** e depois **⌃⌥0** → "Desfeito: Subida de pressão".
-7. Avance o vídeo para **depois** dos 15 min da amostra e aperte **⌃⌥1** → *"Fora da amostra"*.
-8. Aperte **⌃⌥3** → grava e avisa *"Amostra do 1º tempo encerrada"*.
-9. Abra `Documentos/Scout/resumo.html` e arraste o CSV do jogo (está em `Documentos/Scout/`).
+7. Avance o vídeo para qualquer ponto do jogo e aperte **⌃⌥1** duas vezes seguidas → a segunda avisa *"a posse anterior não foi fechada"*. Feche com **⌃⌥2**.
+8. Abra `Documentos/Scout/resumo.html` e arraste o CSV do jogo (está em `Documentos/Scout/`).
 
 **Teste no QuickTime:** faça um **⌃⌥9** novo (outro adversário, ex.: "Teste QT"), abra um vídeo do jogo no QuickTime, deixe ele na frente e repita os passos 4 a 6. Na primeira vez, aceite o pedido para controlar o **QuickTime Player** → **OK**. Depois, faça uma gravação de tela curta, deixe ela aberta no QuickTime e aperte **⌃⌥3** com o jogo pausado: o tempo gravado deve ser o do jogo, não o da gravação.
 
@@ -137,7 +135,6 @@ No Chrome: **Visualizar → Desenvolvedor → Permitir JavaScript de Eventos App
 
 ## Onde mudar as configurações
 No começo do `Documentos/Scout/sistema/scout.applescript`, na seção **CONFIGURAÇÕES**:
-- **`JANELA_AMOSTRA_MIN`** (15): duração da amostra de posse. Mude só se for mudar para todos os jogos dali em diante. Cada jogo grava no próprio CSV a janela que usou.
 - `AVISO_NA_TELA`: `false` deixa só o som quando grava (os avisos de erro continuam).
 - Nome da pasta, duração mínima do vídeo no QuickTime e os sons.
 
@@ -164,7 +161,7 @@ Para editar: clique com o botão direito no arquivo → **Abrir com → Editor d
 Para testar sem jogo real, use o exemplo `scout/exemplo/2026-10-03_Profissional_Santa Cruz_Casa.csv`.
 
 ### Mudar o padrão do card do Claude Design
-O texto fica no topo do `resumo.html`, em **CONFIGURAÇÕES**, entre crases (`` ` ``), em `INSTRUCAO_CLAUDE_DESIGN`. `<janela>` vira automaticamente a duração da amostra (ex.: 15). Ali também ficam o limite de "posse suspeita" (180 s) e o de "registro repetido" (2 s).
+O texto fica no topo do `resumo.html`, em **CONFIGURAÇÕES**, entre crases (`` ` ``), em `INSTRUCAO_CLAUDE_DESIGN`. `<posses>` vira automaticamente o número de posses marcadas. Ali também ficam o limite de "posse suspeita" (180 s) e o de "registro repetido" (2 s).
 
 Para editar com o **TextEdit** sem estragar o arquivo:
 1. Abra o **TextEdit → Preferências → aba Abrir e Salvar** e marque **"Exibir arquivos HTML como código HTML em vez de texto formatado"**. Isso só precisa ser feito uma vez.
@@ -177,16 +174,15 @@ Arquivo: `Documentos/Scout/AAAA-MM-DD_Categoria_Adversário_Mando.csv`
 
 ```
 evento,segundos_video,tempo,origem,horario
-janela_amostra,900,,,2026-10-03 20:00:00
 inicio_1t,62.0,1,youtube,2026-10-03 20:01:00
 finalizacao_nossa,130.2,1,youtube,2026-10-03 20:02:00
 ```
 
 | evento | significado |
 |---|---|
-| `janela_amostra` | duração da amostra em segundos (gravada pelo ⌃⌥9) |
+| `janela_amostra` | só em jogos antigos (época da amostra de 15 min); é ignorada |
 | `inicio_1t` / `inicio_2t` | início do 1º / 2º tempo |
-| `ganhamos_posse` / `perdemos_posse` | início / fim de uma posse (só na amostra) |
+| `ganhamos_posse` / `perdemos_posse` | início / fim de uma posse marcada |
 | `finalizacao_nossa` / `finalizacao_concedida` | finalizações |
 | `subida_pressao` | subida de pressão |
 | `corrida_para_tras` | corrida para trás da defesa |
