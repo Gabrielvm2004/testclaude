@@ -9,8 +9,8 @@ Atalhos de teclado que gravam eventos do jogo num CSV, lendo o **tempo do vídeo
 | ⌃⌥9 | **Novo jogo** | antes de começar (pergunta adversário, data, categoria e mando) |
 | ⌃⌥7 | Início do 1º tempo | no apito inicial, no vídeo do 1º tempo |
 | ⌃⌥8 | Início do 2º tempo | no apito inicial, no vídeo do 2º tempo |
-| ⌃⌥1 | Ganhamos a posse | início de uma posse que você escolheu marcar (jogo inteiro) |
-| ⌃⌥2 | Perdemos a posse | fim dessa posse |
+| ⌃⌥1 | Posse nossa | começou uma posse nossa (encerra a deles) |
+| ⌃⌥2 | Posse deles | começou uma posse deles (encerra a nossa) |
 | ⌃⌥3 | Finalização nossa | jogo inteiro |
 | ⌃⌥4 | Finalização concedida | jogo inteiro |
 | ⌃⌥5 | Subida de pressão | jogo inteiro |
@@ -26,8 +26,12 @@ Atalhos de teclado que gravam eventos do jogo num CSV, lendo o **tempo do vídeo
   - **Chrome:** lê o tempo do vídeo do YouTube da aba ativa. Se estiver passando anúncio, avisa e não grava.
   - **QuickTime:** ignora gravações de tela e vídeos com menos de 5 minutos. Usa o vídeo que estiver tocando; se nenhum estiver tocando, usa o que está mais na frente.
 - **1º e 2º tempo em vídeos separados:** cada registro grava se é do 1º ou do 2º tempo (coluna `tempo`), conforme o último ⌃⌥7/⌃⌥8 marcado. Por isso não importa que o tempo do vídeo recomece no 2º tempo.
-- **Posses marcadas:** você escolhe quais posses marcar (as principais), em qualquer momento do jogo, depois do ⌃⌥7/⌃⌥8. Marque ⌃⌥1 quando a posse começa e ⌃⌥2 quando termina.
-  - Se apertar ⌃⌥1 com uma posse ainda aberta, ou ⌃⌥2 sem posse aberta, grava, mas avisa na hora. A página do resumo ignora a posse com sequência errada.
+- **Posses marcadas:** você escolhe quais posses marcar (as principais), em qualquer momento do jogo, depois do ⌃⌥7/⌃⌥8.
+  - ⌃⌥1 = começou a posse **nossa**; ⌃⌥2 = começou a posse **deles**. Cada tecla encerra a posse do outro time.
+  - Duração da posse = tempo do vídeo da próxima tecla de posse (⌃⌥1 ou ⌃⌥2) − tempo desta. Outros atalhos no meio não atrapalham.
+  - Tecla igual repetida (⌃⌥1…⌃⌥1 ou ⌃⌥2…⌃⌥2): a primeira posse acabou e conta como **posse sem duração**. A última posse de cada tempo também fica sem duração (não há tecla depois dela).
+  - Posse com mais de 60 s conta, mas fica **fora da média**, com aviso na página para conferir.
+- **Finalizações** são só contagem: podem ser marcadas com atraso, a ordem não importa.
 - **Regras de segurança:**
   - ⌃⌥3 a ⌃⌥6 só gravam depois do ⌃⌥7. Se você esquecer, o aviso lembra.
   - O script não deixa misturar YouTube e QuickTime no mesmo jogo.
@@ -80,8 +84,8 @@ Para o Mac reconhecer os atalhos novos: menu  (maçã) → **Encerrar Sessão de
 | Ação Rápida | Atalho |
 |---|---|
 | Scout 0 - Desfazer | ^⌥0 |
-| Scout 1 - Ganhamos posse | ^⌥1 |
-| Scout 2 - Perdemos posse | ^⌥2 |
+| Scout 1 - Posse nossa | ^⌥1 |
+| Scout 2 - Posse deles | ^⌥2 |
 | Scout 3 - Finalizacao nossa | ^⌥3 |
 | Scout 4 - Finalizacao concedida | ^⌥4 |
 | Scout 5 - Subida de pressao | ^⌥5 |
@@ -114,7 +118,7 @@ No Chrome: **Visualizar → Desenvolvedor → Permitir JavaScript de Eventos App
 4. **⌃⌥7** → "Tink" + "Início do 1º tempo".
 5. **⌃⌥1**, espere uns segundos, **⌃⌥2** → dois "Tink".
 6. **⌃⌥5** e depois **⌃⌥0** → "Desfeito: Subida de pressão".
-7. Avance o vídeo para qualquer ponto do jogo e aperte **⌃⌥1** duas vezes seguidas → a segunda avisa *"a posse anterior não foi fechada"*. Feche com **⌃⌥2**.
+7. Avance o vídeo para qualquer ponto do jogo e aperte **⌃⌥5** (pressão) e logo depois **⌃⌥1**: na página do resumo isso aparece como 1 pressão efetiva.
 8. Abra `Documentos/Scout/resumo.html` e arraste o CSV do jogo (está em `Documentos/Scout/`).
 
 **Teste no QuickTime:** faça um **⌃⌥9** novo (outro adversário, ex.: "Teste QT"), abra um vídeo do jogo no QuickTime, deixe ele na frente e repita os passos 4 a 6. Na primeira vez, aceite o pedido para controlar o **QuickTime Player** → **OK**. Depois, faça uma gravação de tela curta, deixe ela aberta no QuickTime e aperte **⌃⌥3** com o jogo pausado: o tempo gravado deve ser o do jogo, não o da gravação.
@@ -150,18 +154,23 @@ Para editar: clique com o botão direito no arquivo → **Abrir com → Editor d
 2. Arraste o CSV do jogo para a área tracejada (ou clique nela para escolher o arquivo).
 3. Confira os campos **Adversário / Data / Categoria / Mando**. Eles vêm do nome do arquivo criado pelo ⌃⌥9 e podem ser corrigidos ali mesmo.
 4. Leia a caixa laranja **"Confira antes de usar os números"**, se aparecer. Ela avisa sobre:
-   - dois "ganhamos" seguidos, ou "perdemos" sem "ganhamos" (a posse errada é ignorada);
-   - posse com mais de 3 min (entra no cálculo, mas é sinalizada);
-   - o mesmo evento marcado duas vezes quase no mesmo lance;
+   - posse com mais de 60 s (conta, mas fica fora da média);
+   - posse com duração zero ou negativa (vídeo voltou), contada sem duração;
    - mistura de YouTube e QuickTime, ou falta de ⌃⌥7/⌃⌥8.
-5. Botões:
+5. O que a tabela mostra:
+   - **Contagens** (jogo inteiro): finalizações, finalizações concedidas, subidas de pressão, corridas para trás.
+   - **Relações**, contadas pela **ordem dos registros** (não pelos segundos), com limite de segurança de 60 s de vídeo, em número e % (ex.: "5 de 9 = 56%"):
+     - **Pressões efetivas:** o registro seguinte à subida de pressão é um ⌃⌥1. Finalizações registradas no meio são puladas, porque podem ter sido marcadas com atraso.
+     - **⚠ Corridas que viraram finalização sofrida:** depois da corrida para trás aparece uma finalização concedida antes do próximo ⌃⌥1.
+   - **Posse:** nossas (quantidade, duração média, maior posse, faixas 0–5 / 5–10 / 10–20 / 20–60 s, acima de 60 s e sem duração) e deles (quantidade e duração média). A média e as faixas usam só posses com duração de até 60 s.
+6. Botões:
    - **Copiar para o Claude Design:** copia o texto pronto (instrução fixa do card + dados do jogo). Abra o Claude Design e cole com **⌘V**.
    - **Baixar CSV de resumo (Google Sheets):** baixa uma linha por jogo. No Sheets: **Arquivo → Importar → Fazer upload** → escolha **Anexar à planilha atual**. Assim cada jogo vira uma linha e dá para comparar.
 
 Para testar sem jogo real, use o exemplo `scout/exemplo/2026-10-03_Profissional_Santa Cruz_Casa.csv`.
 
 ### Mudar o padrão do card do Claude Design
-O texto fica no topo do `resumo.html`, em **CONFIGURAÇÕES**, entre crases (`` ` ``), em `INSTRUCAO_CLAUDE_DESIGN`. `<posses>` vira automaticamente o número de posses marcadas. Ali também ficam o limite de "posse suspeita" (180 s) e o de "registro repetido" (2 s).
+O texto fica no topo do `resumo.html`, em **CONFIGURAÇÕES**, entre crases (`` ` ``), em `INSTRUCAO_CLAUDE_DESIGN`. `<posses>` vira automaticamente o número de posses marcadas (ex.: "12 nossas e 9 deles"). Ali também fica o `LIMITE_SEG` (60 s): posses acima disso saem da média, e ele é o limite de segurança das relações.
 
 Para editar com o **TextEdit** sem estragar o arquivo:
 1. Abra o **TextEdit → Preferências → aba Abrir e Salvar** e marque **"Exibir arquivos HTML como código HTML em vez de texto formatado"**. Isso só precisa ser feito uma vez.
@@ -182,7 +191,7 @@ finalizacao_nossa,130.2,1,youtube,2026-10-03 20:02:00
 |---|---|
 | `janela_amostra` | só em jogos antigos (época da amostra de 15 min); é ignorada |
 | `inicio_1t` / `inicio_2t` | início do 1º / 2º tempo |
-| `ganhamos_posse` / `perdemos_posse` | início / fim de uma posse marcada |
+| `ganhamos_posse` / `perdemos_posse` | começou a posse nossa (⌃⌥1) / deles (⌃⌥2) — nomes antigos mantidos para os jogos já marcados continuarem abrindo |
 | `finalizacao_nossa` / `finalizacao_concedida` | finalizações |
 | `subida_pressao` | subida de pressão |
 | `corrida_para_tras` | corrida para trás da defesa |

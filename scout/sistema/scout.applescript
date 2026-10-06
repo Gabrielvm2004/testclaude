@@ -11,7 +11,8 @@
 --   (tempo = 1 ou 2, conforme o último início de tempo marcado)
 --
 -- Eventos aceitos:
---   ganhamos_posse, perdemos_posse, finalizacao_nossa,
+--   ganhamos_posse (= começou a posse nossa), perdemos_posse (= começou a posse deles),
+--   finalizacao_nossa,
 --   finalizacao_concedida, subida_pressao, corrida_para_tras,
 --   inicio_1t, inicio_2t, desfazer, novo_jogo
 -- ============================================================
@@ -56,41 +57,34 @@ on registrar(evento)
 	if nomeDoEvento(evento) is evento then error "Evento desconhecido: " & evento & ". Confira a Ação Rápida." number 1000
 	set arquivo to jogoAtual()
 	set {segundos, origem} to lerTempoDoVideo()
-	set {tempoJogo, aberta, primeiraOrigem, relogio} to lerEstado(arquivo, segundos)
-	set aberta to (aberta is "1") -- há uma posse aberta (ganhamos sem perdemos) neste tempo
+	set {tempoJogo, primeiraOrigem, relogio} to lerEstado(arquivo, segundos)
 
 	-- Não misturar YouTube e QuickTime no mesmo jogo.
 	if primeiraOrigem is not "" and primeiraOrigem is not origem then
 		error "Este jogo começou com " & primeiraOrigem & " e o registro veio de " & origem & "." number 1000
 	end if
 
-	set extra to ""
 	if evento is "inicio_1t" then
 		set tempoJogo to "1"
 	else if evento is "inicio_2t" then
 		set tempoJogo to "2"
 	else
 		if tempoJogo is "" then error "Marque antes o início do 1º tempo (⌃⌥7)." number 1000
-		-- Posses: valem o jogo inteiro; só avisa se a sequência estiver errada.
-		if evento is "ganhamos_posse" and aberta then set extra to "Atenção: a posse anterior não foi fechada (⌃⌥2)."
-		if evento is "perdemos_posse" and not aberta then set extra to "Atenção: não havia posse aberta (⌃⌥1)."
 	end if
 
 	gravarLinha(arquivo, evento, segundos, tempoJogo, origem)
-	confirmar(nomeDoEvento(evento) & " — " & tempoJogo & "º T, vídeo " & relogio, extra)
+	confirmar(nomeDoEvento(evento) & " — " & tempoJogo & "º T, vídeo " & relogio, "")
 end registrar
 
 -- Lê do CSV o estado do jogo. A conta com o tempo do vídeo é feita no awk,
 -- que sempre usa ponto decimal (o Mac em português usa vírgula).
--- Devolve: tempo atual (1/2) | posse aberta (1/0) | primeira origem | mm:ss
+-- Devolve: tempo atual (1/2) | primeira origem | mm:ss
 on lerEstado(arquivo, segundos)
 	set programa to "BEGIN{FS=\",\"} NR==1{next} " & ¬
 		"{if(o==\"\" && $4!=\"\") o=$4} " & ¬
 		"$1==\"inicio_1t\"{tp=1} " & ¬
 		"$1==\"inicio_2t\"{tp=2} " & ¬
-		"$1==\"ganhamos_posse\" || $1==\"perdemos_posse\"{u[$3]=$1} " & ¬
-		"END{ aberta=(tp!=\"\" && u[tp]==\"ganhamos_posse\") ? 1 : 0; " & ¬
-		"s=int(t+0.5); printf \"%s|%d|%s|%d:%02d\", tp, aberta, o, int(s/60), s%60 }"
+		"END{ s=int(t+0.5); printf \"%s|%s|%d:%02d\", tp, o, int(s/60), s%60 }"
 	set resultado to do shell script "awk -v t=" & segundos & " " & quoted form of programa & " " & quoted form of arquivo
 	return dividir(resultado, "|")
 end lerEstado
@@ -252,8 +246,9 @@ end desfazer
 -- ---------- NOMES ----------
 
 on nomeDoEvento(evento)
-	if evento is "ganhamos_posse" then return "Ganhamos a posse"
-	if evento is "perdemos_posse" then return "Perdemos a posse"
+	-- (os nomes internos ficaram por compatibilidade com os jogos já marcados)
+	if evento is "ganhamos_posse" then return "Posse nossa"
+	if evento is "perdemos_posse" then return "Posse deles"
 	if evento is "finalizacao_nossa" then return "Finalização nossa"
 	if evento is "finalizacao_concedida" then return "Finalização concedida"
 	if evento is "subida_pressao" then return "Subida de pressão"

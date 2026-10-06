@@ -72,15 +72,15 @@ end run</string>
 				<key>Class Name</key>
 				<string>RunScriptAction</string>
 				<key>InputUUID</key>
-				<string>BC7EED3E-10B3-565F-BC9A-5AC7BAC6BD75</string>
+				<string>DC010856-4274-59EC-B817-0E54B3601CB8</string>
 				<key>Keywords</key>
 				<array>
 					<string>Run</string>
 				</array>
 				<key>OutputUUID</key>
-				<string>1CBF3586-D238-5F9F-93E8-25C65B5457BA</string>
+				<string>DDCD719B-B510-5BBB-8604-80CD28378851</string>
 				<key>UUID</key>
-				<string>916B0DEE-0AA4-5F66-A9CE-86AC721BD3E1</string>
+				<string>21B931B3-7E24-5428-ACB0-82D17FA55244</string>
 				<key>UnlocalizedApplications</key>
 				<array>
 					<string>Automator</string>

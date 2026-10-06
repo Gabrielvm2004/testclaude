@@ -74,6 +74,20 @@ for w in "$SERVICOS"/Scout\ –\ *.workflow "$SERVICOS"/Scout\ -\ *.workflow; do
 done
 [ "$antigas" -gt 0 ] && ok "$antigas Ação(ões) Rápida(s) antiga(s) 'Scout – ...' movida(s) para o Lixo."
 
+# Ações Rápidas de versões anteriores deste instalador que mudaram de nome
+# (ex.: "Scout 1 - Ganhamos posse" virou "Scout 1 - Posse nossa") são removidas,
+# para não disputarem o mesmo atalho com as novas.
+REMOVIDAS=()
+for w in "$SERVICOS"/Scout\ [0-9]\ -\ *.workflow; do
+	[ -e "$w" ] || continue
+	nome="$(basename "$w" .workflow)"
+	if ! cut -f2 "$LISTA" | grep -qxF "$nome"; then
+		rm -rf "$w"
+		REMOVIDAS+=("$nome")
+	fi
+done
+[ ${#REMOVIDAS[@]} -gt 0 ] && ok "Removidas as ações de nome antigo: ${REMOVIDAS[*]}."
+
 instaladas=0
 while IFS=$'\t' read -r tecla nome; do
 	[ -n "$nome" ] || continue
@@ -109,6 +123,11 @@ if ! defaults export pbs "$TMP" 2>/dev/null || ! plutil -lint -s "$TMP" >/dev/nu
 PLIST
 fi
 plutil -insert NSServicesStatus -json '{}' "$TMP" 2>/dev/null
+
+# Tira os atalhos das ações de nome antigo.
+for nome in "${REMOVIDAS[@]}"; do
+	plutil -remove "NSServicesStatus.(null) - $nome - runWorkflowAsService" "$TMP" >/dev/null 2>&1
+done
 
 atalhos_ok=1
 while IFS=$'\t' read -r tecla nome; do

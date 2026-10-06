@@ -12,21 +12,21 @@
 // Instrução fixa para o Claude Design. Fica SEMPRE igual entre jogos,
 // para os cards da comissão saírem no mesmo padrão.
 // Os dados do jogo são colados automaticamente logo abaixo deste texto.
+// <posses> vira, por exemplo, "12 nossas e 9 deles".
 const INSTRUCAO_CLAUDE_DESIGN = `Crie um card visual de pós-jogo do América FC (Pernambuco), no padrão da comissão técnica. Siga sempre este layout:
 
 1. Cabeçalho: escudo/identidade do América FC (verde e branco), "América FC x <adversário>", data, categoria e mando.
 2. Números grandes no topo: finalizações, finalizações concedidas, subidas de pressão e corridas para trás (total do jogo).
 3. Comparação 1º tempo × 2º tempo em barras horizontais lado a lado, para as quatro contagens acima.
-4. Posse de bola (posses principais, escolhidas pelo analista): nº de posses marcadas, duração média e mediana, maior posse, e a distribuição da duração das posses por faixa (0–5s, 5–10s, 10–20s, 20s+) em barras.
-5. Rodapé com a observação: "Posse: <posses> posses marcadas (escolhidas pelo analista). Contagens referem-se ao jogo inteiro."
+4. Duas relações em destaque, com número absoluto e % (ex.: "5 de 9 = 56%"), para 1º T, 2º T e jogo: "Pressões efetivas" (recuperamos a bola logo após a subida de pressão) e "Corridas para trás que viraram finalização sofrida" (em tom de alerta).
+5. Posse de bola (posses principais, escolhidas pelo analista): posses nossas — quantidade, duração média, maior posse e distribuição da duração por faixa (0–5s, 5–10s, 10–20s, 20–60s) em barras; posses deles — quantidade e duração média, ao lado das nossas para comparar.
+6. Rodapé com a observação: "Posse: posses marcadas pelo analista (<posses>; escolhidas, não é o jogo inteiro). Posses acima de 60 s ficam fora da média. Contagens referem-se ao jogo inteiro."
 
 Use apenas os dados abaixo, sem inventar números. Visual limpo, legível no celular, formato retrato.`;
 
-// Posse mais longa que isto (em segundos) é sinalizada para conferir.
-const POSSE_SUSPEITA_SEG = 180;
-
-// Dois registros iguais com menos que isto (s de vídeo) = provável repetição.
-const REPETIDO_SEG = 2;
+// Posse mais longa que isto (s) conta, mas fica fora da média e é sinalizada.
+// Também é o limite de segurança das relações (pressão → ⌃⌥1, corrida → finalização).
+const LIMITE_SEG = 60;
 </script>
 <style>
   :root {
@@ -126,10 +126,12 @@ const REPETIDO_SEG = 2;
 // =====================================================================
 // Leitura do CSV
 // Colunas: evento, segundos_video, tempo, origem, horario
+// (os nomes ganhamos_posse/perdemos_posse ficaram por compatibilidade:
+//  hoje significam "começou a posse nossa" / "começou a posse deles")
 // =====================================================================
 const NOMES = {
-  ganhamos_posse: 'Ganhamos a posse',
-  perdemos_posse: 'Perdemos a posse',
+  ganhamos_posse: 'Posse nossa (⌃⌥1)',
+  perdemos_posse: 'Posse deles (⌃⌥2)',
   finalizacao_nossa: 'Finalização nossa',
   finalizacao_concedida: 'Finalização concedida',
   subida_pressao: 'Subida de pressão',
@@ -144,7 +146,9 @@ const CONTAGENS = [
   ['subida_pressao', 'Subidas de pressão'],
   ['corrida_para_tras', 'Corridas para trás'],
 ];
-const FAIXAS = [['0–5s', 0, 5], ['5–10s', 5, 10], ['10–20s', 10, 20], ['20s+', 20, Infinity]];
+const FAIXAS = [['0–5s', 0, 5], ['5–10s', 5, 10], ['10–20s', 10, 20], ['20–60s', 20, Infinity]];
+const POSSE = ['ganhamos_posse', 'perdemos_posse'];
+const FINALIZACOES = ['finalizacao_nossa', 'finalizacao_concedida'];
 
 let resumoAtual = null;
 
@@ -157,7 +161,8 @@ function lerCSV(texto) {
     const [evento, seg, tempo, origem, horario] = linha.split(',').map(s => (s || '').trim());
     const segundos = parseFloat(seg);
     if (!NOMES[evento]) { avisos.push(`Linha ${i + 1}: evento desconhecido "${evento}" — ignorado.`); return; }
-    if (evento !== 'janela_amostra' && isNaN(segundos)) { avisos.push(`Linha ${i + 1}: tempo do vídeo inválido — ignorada.`); return; }
+    if (evento === 'janela_amostra') return; // só existe em jogos antigos
+    if (isNaN(segundos)) { avisos.push(`Linha ${i + 1}: tempo do vídeo inválido — ignorada.`); return; }
     registros.push({ linha: i + 1, evento, segundos, tempo, origem, horario });
   });
   return { registros, avisos };
@@ -174,80 +179,102 @@ function quando(r) {
   return `${r.tempo ? r.tempo + 'º T, ' : ''}vídeo ${relogio(r.segundos)} (linha ${r.linha})`;
 }
 
-function montarPosses(registros, tempo, avisos) {
-  const posses = [];
-  let aberta = null;
-  registros.filter(r => r.tempo === tempo && (r.evento === 'ganhamos_posse' || r.evento === 'perdemos_posse'))
-    .forEach(r => {
-      if (r.evento === 'ganhamos_posse') {
-        if (aberta) avisos.push(`Dois "ganhamos" seguidos — ${quando(aberta)} e ${quando(r)}. A primeira posse foi ignorada.`);
-        aberta = r;
-      } else {
-        if (!aberta) { avisos.push(`"Perdemos" sem "ganhamos" antes — ${quando(r)}. Ignorado.`); return; }
-        const dur = r.segundos - aberta.segundos;
-        if (dur <= 0) {
-          avisos.push(`Posse com duração zero ou negativa (vídeo voltou?) — ${quando(aberta)}. Ignorada.`);
-        } else {
-          if (dur > POSSE_SUSPEITA_SEG) avisos.push(`Posse de ${fmt(dur)} s (mais de ${POSSE_SUSPEITA_SEG} s) — ${quando(aberta)}. Confira; ela entrou no cálculo.`);
-          posses.push(dur);
-        }
-        aberta = null;
+// Posses de um tempo, pela ordem dos registros.
+// Cada ⌃⌥1/⌃⌥2 começa uma posse e encerra a anterior.
+// Duração = próximo ⌃⌥1/⌃⌥2 − este. Sem duração quando:
+//   a próxima tecla é igual (⌃⌥1…⌃⌥1 ou ⌃⌥2…⌃⌥2) ou é a última posse do tempo.
+function montarPosses(eventos, avisos) {
+  const marcas = eventos.filter(r => POSSE.includes(r.evento));
+  return marcas.map((r, i) => {
+    const prox = marcas[i + 1];
+    const posse = { nossa: r.evento === 'ganhamos_posse', dur: null, longa: false };
+    if (!prox || prox.evento === r.evento) return posse;
+    const dur = prox.segundos - r.segundos;
+    const quem = posse.nossa ? 'nossa' : 'deles';
+    if (dur <= 0) {
+      avisos.push(`Posse ${quem} com duração zero ou negativa (vídeo voltou?) — ${quando(r)}. Contada sem duração.`);
+    } else {
+      posse.dur = dur;
+      if (dur > LIMITE_SEG) {
+        posse.longa = true;
+        avisos.push(`Posse ${quem} de ${fmt(dur)} s (mais de ${LIMITE_SEG} s) — ${quando(r)}. Contada, mas fora da média. Confira.`);
       }
-    });
-  if (aberta) avisos.push(`Posse sem "perdemos" no final — ${quando(aberta)}. Ignorada.`);
-  return posses;
+    }
+    return posse;
+  });
 }
 
-function estatisticas(posses) {
-  const n = posses.length;
-  if (!n) return { n: 0, media: null, mediana: null, maior: null, faixas: FAIXAS.map(() => 0) };
-  const ord = [...posses].sort((a, b) => a - b);
-  const meio = Math.floor(n / 2);
+function estatPosses(posses) {
+  const validas = posses.filter(p => p.dur !== null && !p.longa).map(p => p.dur);
   return {
-    n,
-    media: posses.reduce((a, b) => a + b, 0) / n,
-    mediana: n % 2 ? ord[meio] : (ord[meio - 1] + ord[meio]) / 2,
-    maior: ord[n - 1],
-    faixas: FAIXAS.map(([, min, max]) => posses.filter(d => d >= min && d < max).length),
+    n: posses.length,
+    media: validas.length ? validas.reduce((a, b) => a + b, 0) / validas.length : null,
+    maior: validas.length ? Math.max(...validas) : null,
+    faixas: FAIXAS.map(([, min, max]) => validas.filter(d => d >= min && d < max).length),
+    longas: posses.filter(p => p.longa).length,
+    semDuracao: posses.filter(p => p.dur === null).length,
   };
 }
+
+// Pressão efetiva: o próximo registro depois da subida de pressão é um ⌃⌥1,
+// até LIMITE_SEG s depois. Finalizações no meio são puladas (podem ser marcadas com atraso).
+function pressoesEfetivas(eventos) {
+  let total = 0, efetivas = 0;
+  eventos.forEach((r, i) => {
+    if (r.evento !== 'subida_pressao') return;
+    total++;
+    const prox = eventos.slice(i + 1).find(x => !FINALIZACOES.includes(x.evento));
+    if (prox && prox.evento === 'ganhamos_posse' && Math.abs(prox.segundos - r.segundos) <= LIMITE_SEG) efetivas++;
+  });
+  return { n: efetivas, de: total };
+}
+
+// Corrida que virou finalização sofrida: depois da corrida para trás aparece uma
+// finalização concedida antes do próximo ⌃⌥1, até LIMITE_SEG s depois da corrida.
+function corridasComFinalizacao(eventos) {
+  let total = 0, viraram = 0;
+  eventos.forEach((r, i) => {
+    if (r.evento !== 'corrida_para_tras') return;
+    total++;
+    for (const x of eventos.slice(i + 1)) {
+      if (x.evento === 'ganhamos_posse') break;
+      if (x.evento === 'finalizacao_concedida' && Math.abs(x.segundos - r.segundos) <= LIMITE_SEG) { viraram++; break; }
+    }
+  });
+  return { n: viraram, de: total };
+}
+
+function somar(a, b) { return { n: a.n + b.n, de: a.de + b.de }; }
 
 function calcular(registros, avisosLeitura) {
   const avisos = [...avisosLeitura];
 
-  // Fontes misturadas
   const origens = [...new Set(registros.map(r => r.origem).filter(Boolean))];
   if (origens.length > 1) avisos.push(`O jogo mistura fontes (${origens.join(' e ')}). Confira se é tudo do mesmo jogo.`);
 
-  // "janela_amostra" só existe em jogos antigos (amostra de 15 min) e é ignorada.
-  const eventos = registros.filter(r => r.evento !== 'janela_amostra');
+  const semTempo = registros.filter(r => r.tempo !== '1' && r.tempo !== '2');
+  if (semTempo.length) avisos.push(`${semTempo.length} registro(s) sem 1º/2º tempo marcado (feitos antes do ⌃⌥7). Contam só na coluna "Jogo" das contagens.`);
+  if (!registros.some(r => r.evento === 'inicio_1t')) avisos.push('Falta o início do 1º tempo (⌃⌥7).');
+  if (!registros.some(r => r.evento === 'inicio_2t')) avisos.push('Falta o início do 2º tempo (⌃⌥8).');
 
-  // Registros sem tempo (antes do ⌃⌥7)
-  const semTempo = eventos.filter(r => r.tempo !== '1' && r.tempo !== '2');
-  if (semTempo.length) avisos.push(`${semTempo.length} registro(s) sem 1º/2º tempo marcado (feitos antes do ⌃⌥7). Contam só na coluna "Jogo".`);
+  const doTempo = t => registros.filter(r => r.tempo === t);
+  const posses = { '1': montarPosses(doTempo('1'), avisos), '2': montarPosses(doTempo('2'), avisos) };
+  const todas = [...posses['1'], ...posses['2']];
+  const est = (lista, nossa) => estatPosses(lista.filter(p => p.nossa === nossa));
+  const nossas = { t1: est(posses['1'], true), t2: est(posses['2'], true), jogo: est(todas, true) };
+  const deles = { t1: est(posses['1'], false), t2: est(posses['2'], false), jogo: est(todas, false) };
 
-  if (!eventos.some(r => r.evento === 'inicio_1t')) avisos.push('Falta o início do 1º tempo (⌃⌥7).');
-  if (!eventos.some(r => r.evento === 'inicio_2t')) avisos.push('Falta o início do 2º tempo (⌃⌥8).');
+  const p1 = pressoesEfetivas(doTempo('1')), p2 = pressoesEfetivas(doTempo('2'));
+  const c1 = corridasComFinalizacao(doTempo('1')), c2 = corridasComFinalizacao(doTempo('2'));
+  const relacoes = [
+    { rotulo: 'Pressões efetivas (⌃⌥1 logo após a pressão)', chave: 'pressoes_efetivas', t1: p1, t2: p2, jogo: somar(p1, p2), rel: true },
+    { rotulo: '⚠ Corridas para trás que viraram finalização sofrida', chave: 'corridas_viraram_finalizacao_sofrida', t1: c1, t2: c2, jogo: somar(c1, c2), rel: true },
+  ];
 
-  // Prováveis repetições (mesmo evento, mesmo tempo, quase o mesmo instante do vídeo)
-  const vistos = {};
-  eventos.forEach(r => {
-    const chave = r.evento + '|' + r.tempo;
-    const ant = vistos[chave];
-    if (ant && Math.abs(r.segundos - ant.segundos) < REPETIDO_SEG && !r.evento.startsWith('inicio')) {
-      avisos.push(`"${NOMES[r.evento]}" registrado duas vezes quase no mesmo lance — ${quando(ant)} e linha ${r.linha}. Se foi engano, apague uma no CSV.`);
-    }
-    vistos[chave] = r;
-  });
-
-  const p1 = montarPosses(eventos, '1', avisos);
-  const p2 = montarPosses(eventos, '2', avisos);
-  const posse = { t1: estatisticas(p1), t2: estatisticas(p2), jogo: estatisticas([...p1, ...p2]) };
-
-  const contar = (ev, tempo) => eventos.filter(r => r.evento === ev && (tempo ? r.tempo === tempo : true)).length;
+  const contar = (ev, tempo) => registros.filter(r => r.evento === ev && (tempo ? r.tempo === tempo : true)).length;
   const contagens = CONTAGENS.map(([ev, rotulo]) => ({ ev, rotulo, t1: contar(ev, '1'), t2: contar(ev, '2'), jogo: contar(ev) }));
 
-  return { posse, contagens, avisos, origens };
+  return { nossas, deles, relacoes, contagens, avisos, origens };
 }
 
 // =====================================================================
@@ -255,22 +282,32 @@ function calcular(registros, avisosLeitura) {
 // =====================================================================
 function fmt(x) {
   if (x === null || x === undefined) return '–';
+  if (typeof x === 'object') return x.de ? `${x.n} de ${x.de} = ${Math.round(100 * x.n / x.de)}%` : '0 de 0';
   return Number.isInteger(x) ? String(x) : x.toFixed(1).replace('.', ',');
 }
 
+function textoPosses(res) {
+  return `${res.nossas.jogo.n} nossas e ${res.deles.jogo.n} deles`;
+}
+
 function linhasDaTabela(res) {
-  const { posse, contagens } = res;
+  const { nossas, deles, relacoes, contagens } = res;
+  const de = (grupo, v) => ({ t1: v(grupo.t1), t2: v(grupo.t2), jogo: v(grupo.jogo) });
   const L = [];
-  L.push({ secao: `Posse — ${posse.jogo.n} posses marcadas (escolhidas pelo analista)` });
-  L.push({ rotulo: 'Nº de posses marcadas', v: s => s.n });
-  L.push({ rotulo: 'Duração média (s)', v: s => s.media });
-  L.push({ rotulo: 'Duração mediana (s)', v: s => s.mediana });
-  L.push({ rotulo: 'Maior posse (s)', v: s => s.maior });
-  FAIXAS.forEach(([nome], i) => L.push({ rotulo: `Posses de ${nome}`, v: s => s.faixas[i] }));
-  const linhas = L.map(l => l.secao ? l : { rotulo: l.rotulo, t1: l.v(posse.t1), t2: l.v(posse.t2), jogo: l.v(posse.jogo) });
-  linhas.push({ secao: 'Contagens — jogo inteiro' });
-  contagens.forEach(c => linhas.push(c));
-  return linhas;
+  L.push({ secao: 'Contagens — jogo inteiro' });
+  contagens.forEach(c => L.push(c));
+  L.push({ secao: `Relações — pela ordem dos registros, até ${LIMITE_SEG} s` });
+  relacoes.forEach(r => L.push(r));
+  L.push({ secao: `Posse — ${textoPosses(res)} marcadas (escolhidas pelo analista)` });
+  L.push({ rotulo: 'Posses nossas', ...de(nossas, s => s.n) });
+  L.push({ rotulo: 'Duração média — nossas (s)', ...de(nossas, s => s.media) });
+  L.push({ rotulo: 'Maior posse nossa (s)', ...de(nossas, s => s.maior) });
+  FAIXAS.forEach(([nome], i) => L.push({ rotulo: `Nossas de ${nome}`, ...de(nossas, s => s.faixas[i]) }));
+  L.push({ rotulo: `Nossas acima de ${LIMITE_SEG}s (fora da média)`, ...de(nossas, s => s.longas) });
+  L.push({ rotulo: 'Nossas sem duração', ...de(nossas, s => s.semDuracao) });
+  L.push({ rotulo: 'Posses deles', ...de(deles, s => s.n) });
+  L.push({ rotulo: 'Duração média — deles (s)', ...de(deles, s => s.media) });
+  return L;
 }
 
 function desenhar(res) {
@@ -333,11 +370,7 @@ function abrir(arquivo) {
   const leitor = new FileReader();
   leitor.onload = () => {
     const { registros, avisos } = lerCSV(leitor.result);
-    if (!registros.length) {
-      document.getElementById('status').innerHTML = '';
-      alert('Esse arquivo não tem registros do scout.');
-      return;
-    }
+    if (!registros.length) { alert('Esse arquivo não tem registros do scout.'); return; }
     resumoAtual = calcular(registros, avisos);
     preencherCampos(dadosDoNome(arquivo.name));
     desenhar(resumoAtual);
@@ -351,7 +384,7 @@ function abrir(arquivo) {
 function textoClaudeDesign() {
   const info = infoDoJogo();
   const res = resumoAtual;
-  const instrucao = INSTRUCAO_CLAUDE_DESIGN.replaceAll('<posses>', res.posse.jogo.n);
+  const instrucao = INSTRUCAO_CLAUDE_DESIGN.replaceAll('<posses>', textoPosses(res));
   const linhas = linhasDaTabela(res).map(l =>
     l.secao ? `\n${l.secao}:` : `- ${l.rotulo}: 1º T ${fmt(l.t1)} | 2º T ${fmt(l.t2)} | Jogo ${fmt(l.jogo)}`);
   return `${instrucao}
@@ -361,7 +394,9 @@ Adversário: ${info.adversario || '(não informado)'}
 Data: ${info.data || '(não informada)'}
 Categoria: ${info.categoria || '(não informada)'}
 Mando: ${info.mando || '(não informado)'}
-${linhas.join('\n')}`;
+${linhas.join('\n')}
+
+Como ler as relações: "Pressões efetivas" = subidas de pressão em que o registro seguinte foi uma posse nossa (⌃⌥1), até ${LIMITE_SEG} s depois. "Corridas que viraram finalização sofrida" = corridas para trás seguidas de finalização concedida antes da nossa próxima posse, até ${LIMITE_SEG} s depois.`;
 }
 
 async function copiar(texto) {
@@ -397,12 +432,19 @@ document.getElementById('btn-sheets').addEventListener('click', () => {
   const val = [info.data, info.adversario, info.categoria, info.mando];
   const chave = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+  // Vírgula decimal, para o Google Sheets em português reconhecer como número.
+  const num = v => v === null ? '' : (Number.isInteger(v) ? v : v.toFixed(1).replace('.', ','));
   linhasDaTabela(resumoAtual).filter(l => !l.secao).forEach(l => {
     ['t1', 't2', 'jogo'].forEach(col => {
-      cab.push(`${chave(l.rotulo)}_${col}`);
+      const base = `${l.chave || chave(l.rotulo)}_${col}`;
       const v = l[col];
-      // Vírgula decimal, para o Google Sheets em português reconhecer como número.
-      val.push(v === null ? '' : (Number.isInteger(v) ? v : v.toFixed(1).replace('.', ',')));
+      if (l.rel) {
+        cab.push(base, `${base}_total`, `${base}_pct`);
+        val.push(v.n, v.de, v.de ? Math.round(100 * v.n / v.de) : '');
+      } else {
+        cab.push(base);
+        val.push(num(v));
+      }
     });
   });
   const esc = v => /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : v;

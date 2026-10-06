@@ -12,7 +12,7 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>Scout 1 - Ganhamos posse</string>
+				<string>Scout 1 - Posse nossa</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>runWorkflowAsService</string>

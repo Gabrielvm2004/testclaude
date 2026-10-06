@@ -13,8 +13,8 @@ from pathlib import Path
 # tecla, nome da Ação Rápida, evento passado ao scout.applescript
 ATALHOS = [
     ("0", "Scout 0 - Desfazer", "desfazer"),
-    ("1", "Scout 1 - Ganhamos posse", "ganhamos_posse"),
-    ("2", "Scout 2 - Perdemos posse", "perdemos_posse"),
+    ("1", "Scout 1 - Posse nossa", "ganhamos_posse"),
+    ("2", "Scout 2 - Posse deles", "perdemos_posse"),
     ("3", "Scout 3 - Finalizacao nossa", "finalizacao_nossa"),
     ("4", "Scout 4 - Finalizacao concedida", "finalizacao_concedida"),
     ("5", "Scout 5 - Subida de pressao", "subida_pressao"),

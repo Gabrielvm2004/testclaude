@@ -1,6 +1,6 @@
 0	Scout 0 - Desfazer
-1	Scout 1 - Ganhamos posse
-2	Scout 2 - Perdemos posse
+1	Scout 1 - Posse nossa
+2	Scout 2 - Posse deles
 3	Scout 3 - Finalizacao nossa
 4	Scout 4 - Finalizacao concedida
 5	Scout 5 - Subida de pressao
