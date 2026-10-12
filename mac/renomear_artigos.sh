@@ -10,6 +10,7 @@
 # - Cria um script para DESFAZER tudo.
 #
 # Como usar (no Terminal):  bash ~/Downloads/renomear_artigos.sh
+# VERSAO 2 (com TCC/Referências)
 
 case "${LC_ALL:-${LC_CTYPE:-$LANG}}" in *UTF-8*|*utf8*) ;; *) export LC_ALL=en_US.UTF-8 ;; esac
 
@@ -114,8 +115,8 @@ Documents/Estudos/A classificar/5390796299 1734092186780.pdf	EFFECTIVENESS OF PH
 Documents/Estudos/A classificar/5533001807 1734093766676.pdf	RESERVATÓRIO DE DOPAMINA - PLANILHA CAMINHADA COM TROTE 1.pdf	Estudos/Neurociência/Reservatório de Dopamina
 Documents/Estudos/A classificar/ARTIGO BASQ..pdf	BASQUETE - ARTIGO 119 FIEP (2014).pdf	
 Documents/Estudos/A classificar/Bernardo Morais.pdf	FICHA DE ATLETA - BERNARDO MORAIS (2013) - VOLANTE.pdf	Trabalhos Anteriores/Tubarões/Jogadores
-Documents/Estudos/A classificar/ClementePetiotCoutinho-C1FoundationsofSSG.pdf	FOUNDATIONS OF SMALL-SIDED GAMES - Clemente, Petiot e Coutinho (2025).pdf	Estudos/Futebol
-Documents/Estudos/A classificar/Engenharia do Jogo.pdf	ENGENHARIA DO JOGO.pdf	Estudos/Futebol
+Documents/Estudos/A classificar/ClementePetiotCoutinho-C1FoundationsofSSG.pdf	FOUNDATIONS OF SMALL-SIDED GAMES - Clemente, Petiot e Coutinho (2025).pdf	TCC/Referências
+Documents/Estudos/A classificar/Engenharia do Jogo.pdf	ENGENHARIA DO JOGO.pdf	TCC/Referências
 Documents/Estudos/A classificar/Gabriel Vitor.pdf	CARTA PESSOAL - GABRIEL VITOR.pdf	Pessoal
 Documents/Estudos/A classificar/Gabriel-Vitor.pdf	CARTA PESSOAL - GABRIEL VITOR.pdf	Pessoal
 Documents/Estudos/A classificar/La planificacion futbolistica española.pdf · versión 1.pdf	LA PLANIFICACIÓN FUTBOLÍSTICA ESPAÑOLA (2018).pdf	Estudos/Futebol
@@ -150,7 +151,7 @@ Documents/Estudos/Aprendizagem Motora/8917830167 1734092273954.pdf	THE INFLUENCE
 Documents/Estudos/Aprendizagem Motora/A-IMPORTÂNCIA-DA-PERCEPÇÃO-PARA-A-PRÁTICA-DO-FUTEBOL.pdf	A IMPORTÂNCIA DA PERCEPÇÃO PARA A PRÁTICA DO FUTEBOL - Carvalho (2010).pdf	
 Documents/Estudos/Aprendizagem Motora/Amatria et al..pdf	OTIMIZAÇÃO DOS FORMATOS DE JOGO NO FUTEBOL SUB-10 - Amatria et al. (2016) [PT].pdf	Estudos/Futebol
 Documents/Estudos/Aprendizagem Motora/Aprendizagem motora e prática constante- variada LAGE.pdf	AUMENTO GRADUAL DA VARIABILIDADE DE PRÁTICA - Januário et al. (2016).pdf	
-Documents/Estudos/Aprendizagem Motora/ArtgGreh (1).pdf	ABORDAGEM SISTÊMICA DO JOGO DE FUTEBOL - MODA OU NECESSIDADE - Garganta e Gréhaigne (1999).pdf	Estudos/Futebol
+Documents/Estudos/Aprendizagem Motora/ArtgGreh (1).pdf	ABORDAGEM SISTÊMICA DO JOGO DE FUTEBOL - MODA OU NECESSIDADE - Garganta e Gréhaigne (1999).pdf	TCC/Referências
 Documents/Estudos/Aprendizagem Motora/ArtgGreh.pdf	ABORDAGEM SISTÊMICA DO JOGO DE FUTEBOL - MODA OU NECESSIDADE - Garganta e Gréhaigne (1999).pdf	Estudos/Futebol
 Documents/Estudos/Aprendizagem Motora/Artigo-EspecializaoPrecoce-RevistaMdica.pdf	O QUE O PEDIATRA PRECISA SABER SOBRE O PROCESSO DE INICIAÇÃO ESPORTIVA - Pereira et al. (2019).pdf	Estudos/Pedagogia do Esporte
 Documents/Estudos/Aprendizagem Motora/As dinamicas de cooperacao no seio das e.pdf	AS DINÂMICAS DE COOPERAÇÃO NAS EQUIPAS - FORMAÇÃO NO CLUBE (2023).pdf	
@@ -208,7 +209,7 @@ Documents/Estudos/Aprendizagem Motora/lbassis,+MARCO+PAULO+STIGGER.pdf	POLÍTICA
 Documents/Estudos/Aprendizagem Motora/nahasetal 2010.pdf	LAZER ATIVO - PROGRAMA DE PROMOÇÃO DE ESTILOS DE VIDA ATIVOS PARA O TRABALHADOR DA INDÚSTRIA - Nahas et al. (2010).pdf	Estudos/Fisiologia e Treinamento
 Documents/Estudos/Aprendizagem Motora/paper u bb2a00a2-aa78-447f-b3b2-6f0ca8c9d820 (1).pdf	TOMADA DE DECISÕES NO ESPORTE - INFLUÊNCIA DA COMPLEXIDADE NA APRENDIZAGEM IMPLÍCITA E EXPLÍCITA - Raab (2003) [PT].pdf	
 Documents/Estudos/Aprendizagem Motora/paper u bb2a00a2-aa78-447f-b3b2-6f0ca8c9d820.pdf	DECISION MAKING IN SPORTS - INFLUENCE OF COMPLEXITY ON IMPLICIT AND EXPLICIT LEARNING - Raab (2003).pdf	
-Documents/Estudos/Aprendizagem Motora/petiot-et-al-2023-the-key-role-of-context-in-team-sports-training-the-value-of-played-form-activities-in-practice.pdf	THE KEY ROLE OF CONTEXT IN TEAM SPORTS TRAINING - THE VALUE OF PLAYED-FORM ACTIVITIES - Petiot et al. (2023).pdf	Estudos/Futebol
+Documents/Estudos/Aprendizagem Motora/petiot-et-al-2023-the-key-role-of-context-in-team-sports-training-the-value-of-played-form-activities-in-practice.pdf	THE KEY ROLE OF CONTEXT IN TEAM SPORTS TRAINING - THE VALUE OF PLAYED-FORM ACTIVITIES - Petiot et al. (2023).pdf	TCC/Referências
 Documents/Estudos/Aprendizagem Motora/pre+print.pdf	EDUCAÇÃO FÍSICA DESENVOLVIMENTISTA NA EDUCAÇÃO INFANTIL E HABILIDADES MOTORAS FUNDAMENTAIS - Briet e Polastri (preprint).pdf	
 Documents/Estudos/Aprendizagem Motora/precisao de CR.pdf	PRECISÃO DE CONHECIMENTO DE RESULTADOS NA APRENDIZAGEM MOTORA EM CRIANÇAS E ADULTOS - Beltrão et al. (2011).pdf	
 Documents/Estudos/Aprendizagem Motora/psicomurcia,+(258-267)+Performance+of+e-Sports+Games+with+Data+Envelopment+Analysis (1).pdf	PERFORMANCE OF E-SPORTS GAMES WITH DATA ENVELOPMENT ANALYSIS (2022) [PT].pdf	Estudos/A classificar
@@ -265,28 +266,28 @@ Documents/Estudos/Fisiologia e Treinamento/core.pdf	DEDICATED TRAINING OF EXPLOS
 Documents/Estudos/Fisiologia e Treinamento/download.pdf	RUNNING INTRALIMB COORDINATION AFTER A FOOT CORE EXERCISE PROGRAM IN RECREATIONAL RUNNERS (2024).pdf	
 Documents/Estudos/Fisiologia e Treinamento/fisiologia do trio.pdf	FACULDADE - APRESENTAÇÃO - FISIOLOGIA DA FUNÇÃO RENAL - Souza et al. (2024).pdf	Faculdade
 Documents/Estudos/Fisiologia e Treinamento/optimal reactive strength index is it an accurate.1.pdf	OPTIMAL REACTIVE STRENGTH INDEX - IS IT AN ACCURATE VARIABLE TO OPTIMIZE PLYOMETRIC TRAINING.pdf	
-Documents/Estudos/Futebol/01Dissertacao-CaiquedeNovaesAndrade-2023-Completo.pdf	A INFLUÊNCIA DA MANIPULAÇÃO DE TAREFA EM JOGOS REDUZIDOS SOBRE O COMPORTAMENTO CRIATIVO - Andrade (2023) (dissertação).pdf	
+Documents/Estudos/Futebol/01Dissertacao-CaiquedeNovaesAndrade-2023-Completo.pdf	A INFLUÊNCIA DA MANIPULAÇÃO DE TAREFA EM JOGOS REDUZIDOS SOBRE O COMPORTAMENTO CRIATIVO - Andrade (2023) (dissertação).pdf	TCC/Referências
 Documents/Estudos/Futebol/1-s2.0-S2667239122000570-main.pdf	TEAM DECISION-MAKING BEHAVIOR - AN ECOLOGICAL DYNAMICS APPROACH - Araújo et al. (2022).pdf	
 Documents/Estudos/Futebol/162-AOTeste de conhecimento tatico do levantador de voleibol.pdf	TESTE DE CONHECIMENTO TÁTICO DECLARATIVO PARA O LEVANTADOR DE VOLEIBOL - Matias e Greco (2009).pdf	
 Documents/Estudos/Futebol/170204-Textodoartigo-418475-1-10-20200705.pdf	PEQUENOS JOGOS NO FUTEBOL - PRINCÍPIOS TÁTICOS EM SUPERIORIDADE NUMÉRICA - Praça, Teoldo e Greco (2018).pdf	
 Documents/Estudos/Futebol/1737553639541LIC C TREINADOR DE FUTEBOL.pdf	LICENÇA C - TREINADOR DE FUTEBOL (2025).pdf	
 Documents/Estudos/Futebol/2017.BritoeSousaetal.RBFF.pdf	AVALIAÇÃO DE JOGADORES DE FUTEBOL - Brito, Sousa et al. (2017).pdf	
 Documents/Estudos/Futebol/2018-Dambrozetal-Existerelaoentreaqualidadedasaestticaseonmerodeaceleraesedesaceleraesdejogadoresdefutebol.pdf	EXISTE RELAÇÃO ENTRE A QUALIDADE DAS AÇÕES TÁTICAS E O NÚMERO DE ACELERAÇÕES E DESACELERAÇÕES - Dambroz et al. (2018).pdf	
-Documents/Estudos/Futebol/2019-Ainfluencianoresultadomomentaneodapartidanaamplitudeeprofundidadedacirculacaodabolaempequenosjogosnofutebl.pdf	INFLUÊNCIA DO RESULTADO MOMENTÂNEO NA AMPLITUDE E PROFUNDIDADE DA CIRCULAÇÃO DA BOLA EM PEQUENOS JOGOS (2019).pdf	
-Documents/Estudos/Futebol/2019Bettegaetal Formartreinadoresejogadoresnascategoriasdebase.pdf	FORMAR O TREINADOR E O JOGADOR NAS CATEGORIAS DE BASE DO FUTEBOL - Bettega et al. (2019).pdf	
+Documents/Estudos/Futebol/2019-Ainfluencianoresultadomomentaneodapartidanaamplitudeeprofundidadedacirculacaodabolaempequenosjogosnofutebl.pdf	INFLUÊNCIA DO RESULTADO MOMENTÂNEO NA AMPLITUDE E PROFUNDIDADE DA CIRCULAÇÃO DA BOLA EM PEQUENOS JOGOS (2019).pdf	TCC/Referências
+Documents/Estudos/Futebol/2019Bettegaetal Formartreinadoresejogadoresnascategoriasdebase.pdf	FORMAR O TREINADOR E O JOGADOR NAS CATEGORIAS DE BASE DO FUTEBOL - Bettega et al. (2019).pdf	TCC/Referências
 Documents/Estudos/Futebol/2020 Clemente Castillo Arcos.pdf	TACTICAL ANALYSIS ACCORDING TO AGE-LEVEL GROUPS DURING A 4 VS 4 PLUS GOALKEEPERS SMALL-SIDED GAME - Clemente, Castillo e Los Arcos (2020).pdf	
 Documents/Estudos/Futebol/2020Machadoetal TacticalBehaviourofYouthSoccerPlayers-DifferencesDependingonTaskConstraintModificationAgeandSkillLevel.pdf	TACTICAL BEHAVIOUR OF YOUTH SOCCER PLAYERS - TASK CONSTRAINT MODIFICATION, AGE AND SKILL LEVEL - Machado et al. (2020).pdf	
 Documents/Estudos/Futebol/2022-Junioretal-Comparaodacapacidadedetomadadedecisodejogadoresdefuteboldascategoriassub-11esub-13deescolasdefutebol.pdf	COMPARAÇÃO DA CAPACIDADE DE TOMADA DE DECISÃO DE JOGADORES SUB-11 E SUB-13 - Junior, Machado e Teoldo (2022).pdf	
-Documents/Estudos/Futebol/2025.Analysingtheinfluenceofnumericalimbalanceonindividualtacticalbehaviour.Nunes.pdf	ANALYSING THE INFLUENCE OF NUMERICAL IMBALANCE ON INDIVIDUAL TACTICAL BEHAVIOUR IN SOCCER - Nunes et al. (2025).pdf	
+Documents/Estudos/Futebol/2025.Analysingtheinfluenceofnumericalimbalanceonindividualtacticalbehaviour.Nunes.pdf	ANALYSING THE INFLUENCE OF NUMERICAL IMBALANCE ON INDIVIDUAL TACTICAL BEHAVIOUR IN SOCCER - Nunes et al. (2025).pdf	TCC/Referências
 Documents/Estudos/Futebol/2025.Observationalresearchinfootball.FoundationsperformanceanalysisandpurposefuluseofAI.Praa.pdf	OBSERVATIONAL RESEARCH IN FOOTBALL - FOUNDATIONS, PERFORMANCE ANALYSIS AND PURPOSEFUL USE OF AI - Praça et al. (2025).pdf	
-Documents/Estudos/Futebol/28662-148180-1-PB.pdf	COMPORTAMENTO TÁTICO EM PEQUENOS JOGOS NO FUTEBOL - CONHECIMENTO TÁTICO E SUPERIORIDADE NUMÉRICA - Praça et al. (2016).pdf	
+Documents/Estudos/Futebol/28662-148180-1-PB.pdf	COMPORTAMENTO TÁTICO EM PEQUENOS JOGOS NO FUTEBOL - CONHECIMENTO TÁTICO E SUPERIORIDADE NUMÉRICA - Praça et al. (2016).pdf	TCC/Referências
 Documents/Estudos/Futebol/3.5.1.25 Casanovaetal..pdf	THE GAZE BEHAVIOURS AND DEFENSIVE TACTICAL PERFORMANCE OF FOOTBALL PLAYERS DURING SMALL-SIDED GAMES - Casanova et al. (2022).pdf	
 Documents/Estudos/Futebol/4048067687 1734092259960.pdf	THE ASSOCIATION OF RECREATIONAL AND COMPETITIVE RUNNING WITH HIP AND KNEE OSTEOARTHRITIS - Alentorn-Geli et al. (2017).pdf	Estudos/Fisiologia e Treinamento
 Documents/Estudos/Futebol/4935-Texto do Artigo-23300-1-10-20150104.pdf	REVISTA CINERGIS - ARTIGO (2014).pdf	
 Documents/Estudos/Futebol/59 - Futebol - referências sobre a organização do jogo.pdf	FUTEBOL - REFERÊNCIAS PARA A ORGANIZAÇÃO DO JOGO - Quina (2001).pdf	
 Documents/Estudos/Futebol/859-Texto do artigo-3849-1-10-20200907.pdf	ANÁLISE DO TREINAMENTO TÁTICO PROCESSUAL NO FUTEBOL - RBFF (2020).pdf	
 Documents/Estudos/Futebol/923-Texto do artigo-4379-1-10-20210509.pdf	A INFLUÊNCIA DOS ASPECTOS COGNITIVOS SUBJACENTES À TOMADA DE DECISÃO - RBFF (2021).pdf	
-Documents/Estudos/Futebol/A Emergencia da Tomada de Decisao no Futebol da De.pdf	A EMERGÊNCIA DA TOMADA DE DECISÃO NO FUTEBOL - DA DECISÃO INDIVIDUAL PARA A COLETIVA - Duarte et al. (2010).pdf	
+Documents/Estudos/Futebol/A Emergencia da Tomada de Decisao no Futebol da De.pdf	A EMERGÊNCIA DA TOMADA DE DECISÃO NO FUTEBOL - DA DECISÃO INDIVIDUAL PARA A COLETIVA - Duarte et al. (2010).pdf	TCC/Referências
 Documents/Estudos/Futebol/A Tomada de Decisão no Futsal (Bruno Travassos).pdf	A TOMADA DE DECISÃO NO FUTSAL - Travassos (livro).pdf	
 Documents/Estudos/Futebol/A competicao na iniciacao ao futebol consideracoes.pdf	A COMPETIÇÃO NA INICIAÇÃO AO FUTEBOL - ORGANIZAÇÃO DO JOGO E AMBIENTE COMPETITIVO (2020).pdf	
 Documents/Estudos/Futebol/ARTIGO BASQ. (1) pt.pdf	AVALIAÇÃO DO CONHECIMENTO TÁTICO PROCESSUAL - KORA - APLICAÇÃO NO BASQUETEBOL - Morales et al. (2006) [PT].pdf	
@@ -294,12 +295,12 @@ Documents/Estudos/Futebol/ARTIGO MET.1.pdf	EVIDÊNCIA DE VALIDADE DO TESTE DE CO
 Documents/Estudos/Futebol/AVALIAÇÃO COMP TÁTICO ARTIGO.pdf	PROPOSTA DE AVALIAÇÃO DO COMPORTAMENTO TÁTICO BASEADA EM PRINCÍPIOS FUNDAMENTAIS DO JOGO - Teoldo, Garganta e Greco (2011).pdf	
 Documents/Estudos/Futebol/AVALIAÇÃO FISICA FUTEBOL SUB 20 ARTIGO.pdf	AVALIAÇÃO DE POTÊNCIA, FLEXIBILIDADE, FADIGA E ESTABILIDADE EM ATLETAS SUB-20 DE FUTEBOL (2024).pdf	
 Documents/Estudos/Futebol/AVANÇOS ENSINO DOS JEC ARTIGO 2017.pdf	O ENSINO DOS JOGOS ESPORTIVOS COLETIVOS - AVANÇOS METODOLÓGICOS - Galatti et al. (2017).pdf	
-Documents/Estudos/Futebol/Almeidaetal.2017.pdf	INFLUENCE OF SCORING MODE AND AGE GROUP ON PASSING ACTIONS DURING SMALL-SIDED GAMES - Almeida et al. (2017).pdf	
+Documents/Estudos/Futebol/Almeidaetal.2017.pdf	INFLUENCE OF SCORING MODE AND AGE GROUP ON PASSING ACTIONS DURING SMALL-SIDED GAMES - Almeida et al. (2017).pdf	TCC/Referências
 Documents/Estudos/Futebol/Amatria et al..pdf	OPTIMIZATION OF GAME FORMATS IN U-10 SOCCER USING LOGISTIC REGRESSION ANALYSIS - Amatria et al. (2016).pdf	
 Documents/Estudos/Futebol/Andre Villas Boas.pdf	ANDRÉ VILLAS-BOAS (livro).pdf	
-Documents/Estudos/Futebol/Applying Different Strategies of Task Constraint M.pdf	APPLYING DIFFERENT STRATEGIES OF TASK CONSTRAINT MANIPULATION IN SMALL-SIDED AND CONDITIONED GAMES - Machado et al. (2022).pdf	
+Documents/Estudos/Futebol/Applying Different Strategies of Task Constraint M.pdf	APPLYING DIFFERENT STRATEGIES OF TASK CONSTRAINT MANIPULATION IN SMALL-SIDED AND CONDITIONED GAMES - Machado et al. (2022).pdf	TCC/Referências
 Documents/Estudos/Futebol/Arajo et al 2025.pdf	THE ECOLOGICAL DYNAMICS OF COGNIZANT ACTION IN SPORT - Araújo et al. (2025).pdf	
-Documents/Estudos/Futebol/AraujoRenshawDavids2020 Tenenbaum.pdf	COGNITION, EMOTION AND ACTION IN SPORT - AN ECOLOGICAL DYNAMICS PERSPECTIVE - Araújo, Davids e Renshaw (2020).pdf	
+Documents/Estudos/Futebol/AraujoRenshawDavids2020 Tenenbaum.pdf	COGNITION, EMOTION AND ACTION IN SPORT - AN ECOLOGICAL DYNAMICS PERSPECTIVE - Araújo, Davids e Renshaw (2020).pdf	TCC/Referências
 Documents/Estudos/Futebol/ArtigoFutebol2.pdf	ARTIGO FUTEBOL 2 (2025).pdf	
 Documents/Estudos/Futebol/AspectosBiolgicosnoFutebolv.2FINAL.pdf	ASPECTOS BIOLÓGICOS NO FUTEBOL - UNIVERSO DO FUTEBOL - Ferrari et al. (2025) (livro).pdf	
 Documents/Estudos/Futebol/BS Art 51815-10.pdf	CONTEMPORARY PRACTICES OF PORTUGUESE AND BRAZILIAN COACHES IN DESIGNING SMALL-SIDED GAMES - Clemente et al. (2023).pdf	
@@ -309,43 +310,43 @@ Documents/Estudos/Futebol/COMP.TÁTICO E INF. PEQUENOS JOGOS NO CONHECIMENTO.pd
 Documents/Estudos/Futebol/COMPARAÇÃO JOGOS REDUZIDOS X OFICIAL.pdf	COMPARING THE TACTICAL BEHAVIOR OF YOUNG SOCCER PLAYERS IN FULL- AND SMALL-SIDED GAMES (2024).pdf	
 Documents/Estudos/Futebol/CONCEITOS MODELO DE JOGO....pdf	MODELO DE JOGO, ESTRATÉGIA, ESTILO E TÁTICA DE JOGO - CONCEPÇÕES PARA COMPREENDER O JOGO ESPORTIVO (2022).pdf	
 Documents/Estudos/Futebol/Capitulo5.JogosReduzidoscomomeiodetreinamentonoFuteboleFutsal.pdf	TREINANDO POR MEIO DE JOGOS NO FUTEBOL E NO FUTSAL - Aquino e Machado (2021) (capítulo 5).pdf	
-Documents/Estudos/Futebol/Capturing homeostatic behaviour in elite football (1) (1) (1).pdf	ANALISANDO O COMPORTAMENTO HOMEOSTÁTICO EM EQUIPES DE FUTEBOL DE ELITE (2026) [PT].pdf	
+Documents/Estudos/Futebol/Capturing homeostatic behaviour in elite football (1) (1) (1).pdf	ANALISANDO O COMPORTAMENTO HOMEOSTÁTICO EM EQUIPES DE FUTEBOL DE ELITE (2026) [PT].pdf	TCC/Referências
 Documents/Estudos/Futebol/Capturing homeostatic behaviour in elite football (1) (1).pdf	ANALISANDO O COMPORTAMENTO HOMEOSTÁTICO EM EQUIPES DE FUTEBOL DE ELITE (2026) [PT].pdf	
 Documents/Estudos/Futebol/Capturing homeostatic behaviour in elite football.pdf	CAPTURING HOMEOSTATIC BEHAVIOUR IN ELITE FOOTBALL TEAMS - SYNCHRONISATION TENDENCIES (2026).pdf	
-Documents/Estudos/Futebol/Casoetal.2026Anecologicalperspectiveonintra-teamcommunicationinteamsports.pdf	AN ECOLOGICAL PERSPECTIVE ON INTRA-TEAM COMMUNICATION IN TEAM SPORTS - Caso et al. (2026).pdf	
+Documents/Estudos/Futebol/Casoetal.2026Anecologicalperspectiveonintra-teamcommunicationinteamsports.pdf	AN ECOLOGICAL PERSPECTIVE ON INTRA-TEAM COMMUNICATION IN TEAM SPORTS - Caso et al. (2026).pdf	TCC/Referências
 Documents/Estudos/Futebol/Chmura Gabbettetal 2025 FootballWorldCupeditorial FootballStudies.pdf	FIFA WORLD CUP 2026 - PERFORMANCE UNDER PRESSURE - SCIENTIFIC GUIDELINES - Chmura, Gabbett et al. (2025).pdf	
-Documents/Estudos/Futebol/Contextualization of soccer analysis with tactical.pdf	CONTEXTUALIZATION OF SOCCER ANALYSIS WITH TACTICAL PERIODIZATION AND MACHINE LEARNING - Biermann et al. (2025).pdf	
-Documents/Estudos/Futebol/DINÂMICA ECOLOGICA DA AÇÃO CONSCIENTE.pdf	THE ECOLOGICAL DYNAMICS OF COGNIZANT ACTION IN SPORT - Araújo et al. (2025).pdf	
-Documents/Estudos/Futebol/DTP FutebolSeusContextos Digital.pdf	FUTEBOL E SEUS CONTEXTOS - Oliveira e Haiachi (2023) (livro).pdf	
+Documents/Estudos/Futebol/Contextualization of soccer analysis with tactical.pdf	CONTEXTUALIZATION OF SOCCER ANALYSIS WITH TACTICAL PERIODIZATION AND MACHINE LEARNING - Biermann et al. (2025).pdf	TCC/Referências
+Documents/Estudos/Futebol/DINÂMICA ECOLOGICA DA AÇÃO CONSCIENTE.pdf	THE ECOLOGICAL DYNAMICS OF COGNIZANT ACTION IN SPORT - Araújo et al. (2025).pdf	TCC/Referências
+Documents/Estudos/Futebol/DTP FutebolSeusContextos Digital.pdf	FUTEBOL E SEUS CONTEXTOS - Oliveira e Haiachi (2023) (livro).pdf	TCC/Referências
 Documents/Estudos/Futebol/Defensivetransitioninelitemensfootballkeyfactorsimpactingballrecoveryandmatchoutcomes.pdf	DEFENSIVE TRANSITION IN ELITE MEN'S FOOTBALL - KEY FACTORS IMPACTING BALL RECOVERY AND MATCH OUTCOMES (2025).pdf	
 Documents/Estudos/Futebol/Dialnet-IniciacaoEFormacaoDeAtletasEmFutsalDesenvolvimento-5712054.pdf	INICIAÇÃO E FORMAÇÃO DE ATLETAS EM FUTSAL - DESENVOLVIMENTO TÉCNICO-TÁTICO - RBFF (2016).pdf	
 Documents/Estudos/Futebol/Dialnet-SearchingForMemories-9287283.pdf	SEARCHING FOR MEMORIES - NARRATIVES - Retos (2024).pdf	
-Documents/Estudos/Futebol/Diferentes estratégias de manip.pdf	APLICANDO DIFERENTES ESTRATÉGIAS DE MANIPULAÇÃO DE RESTRIÇÕES EM JOGOS REDUZIDOS - Góes, Machado et al. (2022) [PT].pdf	
-Documents/Estudos/Futebol/EFEITO DO CORINGA NO JOGO DE FUTEBOL.pdf	EFFECT OF AN INSIDE FLOATER ON SOCCER PLAYERS TACTICAL BEHAVIOUR IN SMALL SIDED GAMES - Moniz et al. (2020).pdf	
+Documents/Estudos/Futebol/Diferentes estratégias de manip.pdf	APLICANDO DIFERENTES ESTRATÉGIAS DE MANIPULAÇÃO DE RESTRIÇÕES EM JOGOS REDUZIDOS - Góes, Machado et al. (2022) [PT].pdf	TCC/Referências
+Documents/Estudos/Futebol/EFEITO DO CORINGA NO JOGO DE FUTEBOL.pdf	EFFECT OF AN INSIDE FLOATER ON SOCCER PLAYERS TACTICAL BEHAVIOUR IN SMALL SIDED GAMES - Moniz et al. (2020).pdf	TCC/Referências
 Documents/Estudos/Futebol/EFEITOS DOS JOGOS SUCESSIVOS.pdf	O EFEITO DE JOGOS SUCESSIVOS NOS PARÂMETROS DE DESEMPENHO FÍSICO DE JOVENS JOGADORES - Zanetti (2018) (dissertação).pdf	
 Documents/Estudos/Futebol/EXPLICANDO O 'JOGO DE POSIÇÃO'.pdf	EXPLICANDO O JOGO DE POSIÇÃO - Andrade (2017).pdf	
 Documents/Estudos/Futebol/EXPLORATORY TACTICAL .en.pt.pdf	ESCALAS DE TEMPO PARA COMPORTAMENTO TÁTICO EXPLORATÓRIO EM JOGOS DE FUTEBOL (2015) [PT].pdf	
-Documents/Estudos/Futebol/Ecological Dynamic Approach and Young Soccer Playe.pdf	ECOLOGICAL DYNAMIC APPROACH AND YOUNG SOCCER PLAYER TRAINING - THE AIM IS THE FLEXIBLE BEHAVIOR - Sannicandro (2023).pdf	
+Documents/Estudos/Futebol/Ecological Dynamic Approach and Young Soccer Playe.pdf	ECOLOGICAL DYNAMIC APPROACH AND YOUNG SOCCER PLAYER TRAINING - THE AIM IS THE FLEXIBLE BEHAVIOR - Sannicandro (2023).pdf	TCC/Referências
 Documents/Estudos/Futebol/Ecological dynamics of cognizant action.pdf	THE ECOLOGICAL DYNAMICS OF COGNIZANT ACTION IN SPORT - Araújo et al. (2025).pdf	
-Documents/Estudos/Futebol/Effects of a Creative Teaching-Based Training Prog.pdf	EFFECTS OF A CREATIVE TEACHING-BASED TRAINING PROGRAMME ON TACTICAL KNOWLEDGE - Duda et al. (2026).pdf	
-Documents/Estudos/Futebol/Em busca de padroes de jogo da fase ofensiva em pe.pdf	EM BUSCA DE PADRÕES DE JOGO DA FASE OFENSIVA EM PEQUENOS JOGOS DE FUTEBOL - Praça et al. (2017).pdf	
+Documents/Estudos/Futebol/Effects of a Creative Teaching-Based Training Prog.pdf	EFFECTS OF A CREATIVE TEACHING-BASED TRAINING PROGRAMME ON TACTICAL KNOWLEDGE - Duda et al. (2026).pdf	TCC/Referências
+Documents/Estudos/Futebol/Em busca de padroes de jogo da fase ofensiva em pe.pdf	EM BUSCA DE PADRÕES DE JOGO DA FASE OFENSIVA EM PEQUENOS JOGOS DE FUTEBOL - Praça et al. (2017).pdf	TCC/Referências
 Documents/Estudos/Futebol/Evolution of playing styles in UEFA European championships- trends from 2012 to 2024.pdf	EVOLUTION OF PLAYING STYLES IN UEFA EUROPEAN CHAMPIONSHIPS - TRENDS FROM 2012 TO 2024 (2025).pdf	
 Documents/Estudos/Futebol/FUTSAL TEMPO DE RALLY.pdf	TEMPO DOS RALLYS NO FUTSAL E SEU VIÉS FISIOLÓGICO (2022).pdf	
 Documents/Estudos/Futebol/Filipa Dias (2005) Practica deliberada - Entrevista a Frade.pdf	DE PRINCIPIANTE A EXPERTO - PRÁTICA DELIBERADA - ENTREVISTA A FRADE - Dias (2005).pdf	
-Documents/Estudos/Futebol/Football AConstraints-LedApproach.pdf	FOOTBALL - A CONSTRAINTS-LED APPROACH (PORTUGAL) - Ribeiro et al. (2025) (capítulo).pdf	
+Documents/Estudos/Futebol/Football AConstraints-LedApproach.pdf	FOOTBALL - A CONSTRAINTS-LED APPROACH (PORTUGAL) - Ribeiro et al. (2025) (capítulo).pdf	TCC/Referências
 Documents/Estudos/Futebol/How Do Young Soccer Players Train A 5-Year Analysis of Weekly Training Load and its Variability Between Age Groups in an Elite Youth Academy.pdf	HOW DO YOUNG SOCCER PLAYERS TRAIN - 5-YEAR ANALYSIS OF WEEKLY TRAINING LOAD IN AN ELITE YOUTH ACADEMY (2024).pdf	
-Documents/Estudos/Futebol/HowDoestheAdjustmentofTrainingTaskDifficultyLevelInfluenceTacticalBehaviorinSoccer-1.pdf	HOW DOES THE ADJUSTMENT OF TRAINING TASK DIFFICULTY LEVEL INFLUENCE TACTICAL BEHAVIOR IN SOCCER (2019).pdf	
-Documents/Estudos/Futebol/IJSS Casanovaetal..pdf	THE CONTRIBUTION OF PERCEPTUAL AND COGNITIVE SKILLS IN ANTICIPATION PERFORMANCE - Casanova et al. (2014).pdf	
-Documents/Estudos/Futebol/Impact of the number of players on the emergence o.pdf	IMPACT OF THE NUMBER OF PLAYERS ON CREATIVE MOVEMENTS IN SMALL-SIDED SOCCER GAMES - Ueda et al. (2023).pdf	
+Documents/Estudos/Futebol/HowDoestheAdjustmentofTrainingTaskDifficultyLevelInfluenceTacticalBehaviorinSoccer-1.pdf	HOW DOES THE ADJUSTMENT OF TRAINING TASK DIFFICULTY LEVEL INFLUENCE TACTICAL BEHAVIOR IN SOCCER (2019).pdf	TCC/Referências
+Documents/Estudos/Futebol/IJSS Casanovaetal..pdf	THE CONTRIBUTION OF PERCEPTUAL AND COGNITIVE SKILLS IN ANTICIPATION PERFORMANCE - Casanova et al. (2014).pdf	TCC/Referências
+Documents/Estudos/Futebol/Impact of the number of players on the emergence o.pdf	IMPACT OF THE NUMBER OF PLAYERS ON CREATIVE MOVEMENTS IN SMALL-SIDED SOCCER GAMES - Ueda et al. (2023).pdf	TCC/Referências
 Documents/Estudos/Futebol/JOGOS COM X SEM LIMITAÇÃO DE PASSES.pdf	JOGOS REDUZIDOS DE FUTSAL - COM E SEM LIMITAÇÃO DE PASSES (2021).pdf	
 Documents/Estudos/Futebol/JOGOS REDUZIDOS E APRENDIZAGEM NO FUTSAL.pdf	JOGOS REDUZIDOS E APRENDIZAGEM NO FUTSAL - Novaes (2022) (tese).pdf	
-Documents/Estudos/Futebol/JOGOS REDUZIDOS MARCOS REIS.pdf	JOGOS REDUZIDOS COMO HÓLONS NO FUTEBOL - ABORDAGEM SISTÊMICA HIERÁRQUICA - Reis (2021).pdf	
-Documents/Estudos/Futebol/LÓGICA DO JOGO DE FUTEBOL.pdf	O ENSINO DOS JOGOS ESPORTIVOS COLETIVOS - COMPETÊNCIAS ESSENCIAIS E LÓGICA DO JOGO - Scaglia et al. (2013).pdf	
-Documents/Estudos/Futebol/MARCOS REIS.pdf	EMBODIED COGNITION WITH AND WITHOUT MENTAL REPRESENTATIONS - EMBODIED CHOICES IN SPORTS - Raab (2019).pdf	
+Documents/Estudos/Futebol/JOGOS REDUZIDOS MARCOS REIS.pdf	JOGOS REDUZIDOS COMO HÓLONS NO FUTEBOL - ABORDAGEM SISTÊMICA HIERÁRQUICA - Reis (2021).pdf	TCC/Referências
+Documents/Estudos/Futebol/LÓGICA DO JOGO DE FUTEBOL.pdf	O ENSINO DOS JOGOS ESPORTIVOS COLETIVOS - COMPETÊNCIAS ESSENCIAIS E LÓGICA DO JOGO - Scaglia et al. (2013).pdf	TCC/Referências
+Documents/Estudos/Futebol/MARCOS REIS.pdf	EMBODIED COGNITION WITH AND WITHOUT MENTAL REPRESENTATIONS - EMBODIED CHOICES IN SPORTS - Raab (2019).pdf	TCC/Referências
 Documents/Estudos/Futebol/MEC.pdf	FACULDADE - METODOLOGIA DOS ESPORTES COLETIVOS - ATIVIDADES - Grupo Gabriel Vitor.pdf	Faculdade
 Documents/Estudos/Futebol/MET. 3.pdf	EVIDÊNCIA DE VALIDADE DO TESTE DE CONHECIMENTO TÁTICO PROCESSUAL - TCTP-OE - Greco et al. (2015).pdf	
 Documents/Estudos/Futebol/MODALIDADE FUTSAL.pdf	FACULDADE - PLANO MODALIDADE FUTSAL (2026).pdf	Faculdade
-Documents/Estudos/Futebol/MachadoGonzlez-VlloraRocaTeoldo IJPAS2024Developingcognitivemotordecision-makingskillsthroughtacticalprinciplesandSSGsinyouthsoccer.pdf	DEVELOPING COGNITIVE AND MOTOR DECISION-MAKING THROUGH TACTICAL PRINCIPLES AND SSGS IN YOUTH SOCCER - Machado et al. (2024).pdf	
+Documents/Estudos/Futebol/MachadoGonzlez-VlloraRocaTeoldo IJPAS2024Developingcognitivemotordecision-makingskillsthroughtacticalprinciplesandSSGsinyouthsoccer.pdf	DEVELOPING COGNITIVE AND MOTOR DECISION-MAKING THROUGH TACTICAL PRINCIPLES AND SSGS IN YOUTH SOCCER - Machado et al. (2024).pdf	TCC/Referências
 Documents/Estudos/Futebol/Match Analysis in Team Ball Sports An Umbrella Review of Systematic Reviews and Meta-Analyses (1) (1).pdf	ANÁLISE DE PARTIDAS EM ESPORTES COLETIVOS - REVISÃO GUARDA-CHUVA - Sarmento et al. (2022) [PT].pdf	
 Documents/Estudos/Futebol/Match Analysis in Team Ball Sports An Umbrella Review of Systematic Reviews and Meta-Analyses.pdf	MATCH ANALYSIS IN TEAM BALL SPORTS - AN UMBRELLA REVIEW - Sarmento et al. (2022).pdf	
 Documents/Estudos/Futebol/Mestrado FernandoSeabra.pdf	IDENTIFICAÇÃO E ANÁLISE DE PADRÕES DE CIRCULAÇÃO DA BOLA NO FUTEBOL - Seabra (2010) (dissertação).pdf	
@@ -355,46 +356,46 @@ Documents/Estudos/Futebol/O-ensino-do-futebol JULIO GARGANTA.pdf	O ENSINO DO FUT
 Documents/Estudos/Futebol/OS FRUTOS DO COMPORTAMENTO CRIATIVO EM ESPORTES COLETIVOS.pdf	THE SPAWNS OF CREATIVE BEHAVIOR IN TEAM SPORTS - A CREATIVITY DEVELOPMENTAL FRAMEWORK - Santos et al. (2016).pdf	
 Documents/Estudos/Futebol/PLANILHA GABRIEL VITOR-2 - 1..pdf	FACULDADE - FICHA ANTROPOMÉTRICA - Gabriel Vitor e Vinicius Branco (2025).pdf	Faculdade
 Documents/Estudos/Futebol/Praa 2024 Kinesiology.pdf	QUANTIFYING WITHIN-MATCHES TACTICAL BEHAVIORS USING POSITION DATA - THE EFFECT OF GOAL SCORING - Praça et al. (2024).pdf	
-Documents/Estudos/Futebol/PrePrint ChallengeFrameworkforCOACHING dEC2021 JSS.pdf	AN EXTENDED CHALLENGE-BASED FRAMEWORK FOR PRACTICE DESIGN IN SPORTS COACHING - Hodges e Lohse (2021).pdf	
-Documents/Estudos/Futebol/RGPublishedinAJSPOSituationAwareness.pdf	SITUATION AWARENESS - SENSEMAKING AND DECISION MAKING IN PHYSICAL ACTIVITIES - Godbout (2023).pdf	
-Documents/Estudos/Futebol/Raab et al 2009 IJSE Discovery learning in sports.pdf	DISCOVERY LEARNING IN SPORTS - Raab et al. (2009).pdf	
-Documents/Estudos/Futebol/Re-FramingPerformanceAnalysisinSportScienceandPsychologyfromanEcologicalDynamicsPerspective-TowardaCorresponsiveRelationalandCulturallySituatedPractice.pdf	RE-FRAMING PERFORMANCE ANALYSIS FROM AN ECOLOGICAL DYNAMICS PERSPECTIVE (2025).pdf	
-Documents/Estudos/Futebol/Reconceptualizing movement behavior in sport as a.pdf	(RE)CONCEPTUALIZING MOVEMENT BEHAVIOR IN SPORT AS A PROBLEM-SOLVING ACTIVITY - Myszka, Yearby e Davids (2023).pdf	
+Documents/Estudos/Futebol/PrePrint ChallengeFrameworkforCOACHING dEC2021 JSS.pdf	AN EXTENDED CHALLENGE-BASED FRAMEWORK FOR PRACTICE DESIGN IN SPORTS COACHING - Hodges e Lohse (2021).pdf	TCC/Referências
+Documents/Estudos/Futebol/RGPublishedinAJSPOSituationAwareness.pdf	SITUATION AWARENESS - SENSEMAKING AND DECISION MAKING IN PHYSICAL ACTIVITIES - Godbout (2023).pdf	TCC/Referências
+Documents/Estudos/Futebol/Raab et al 2009 IJSE Discovery learning in sports.pdf	DISCOVERY LEARNING IN SPORTS - Raab et al. (2009).pdf	TCC/Referências
+Documents/Estudos/Futebol/Re-FramingPerformanceAnalysisinSportScienceandPsychologyfromanEcologicalDynamicsPerspective-TowardaCorresponsiveRelationalandCulturallySituatedPractice.pdf	RE-FRAMING PERFORMANCE ANALYSIS FROM AN ECOLOGICAL DYNAMICS PERSPECTIVE (2025).pdf	TCC/Referências
+Documents/Estudos/Futebol/Reconceptualizing movement behavior in sport as a.pdf	(RE)CONCEPTUALIZING MOVEMENT BEHAVIOR IN SPORT AS A PROBLEM-SOLVING ACTIVITY - Myszka, Yearby e Davids (2023).pdf	TCC/Referências
 Documents/Estudos/Futebol/RelativeAgeEffectSportsHelsenEtAl 2005.pdf	THE RELATIVE AGE EFFECT IN YOUTH SOCCER ACROSS EUROPE - Helsen et al. (2005).pdf	
-Documents/Estudos/Futebol/Restrições de tarefa para diferentes faixas etárias.pdf	DESENVOLVENDO RESTRIÇÕES DE TAREFAS PARA DIFERENTES FAIXAS ETÁRIAS NO FUTEBOL - REGRAS PARA FLUTUADORES [PT].pdf	
-Documents/Estudos/Futebol/SINERGIAS GRUPAIS.pdf	TEAM SYNERGIES IN SPORT - THEORY AND MEASURES - Araújo e Davids (2016).pdf	
+Documents/Estudos/Futebol/Restrições de tarefa para diferentes faixas etárias.pdf	DESENVOLVENDO RESTRIÇÕES DE TAREFAS PARA DIFERENTES FAIXAS ETÁRIAS NO FUTEBOL - REGRAS PARA FLUTUADORES [PT].pdf	TCC/Referências
+Documents/Estudos/Futebol/SINERGIAS GRUPAIS.pdf	TEAM SYNERGIES IN SPORT - THEORY AND MEASURES - Araújo e Davids (2016).pdf	TCC/Referências
 Documents/Estudos/Futebol/SISTEMATIZAÇÃO ENSINO TÁTICO 10-11 ANOS.pdf	PROPOSTA DE SISTEMATIZAÇÃO DO ENSINO DO FUTEBOL BASEADA EM JOGOS - 10 A 11 ANOS (2015).pdf	
 Documents/Estudos/Futebol/Seifert Araujo Davids PDF.pdf	UNDERSTANDING SKILLED ADAPTIVE BEHAVIOR - ROLE OF ACTION AND PERCEPTION - Seifert, Araújo e Davids (2022).pdf	
 Documents/Estudos/Futebol/Sistema inteligente de apoio a decisao tatica no f.pdf	SISTEMA INTELIGENTE DE APOIO À DECISÃO TÁTICA NO FUTEBOL (2025).pdf	
 Documents/Estudos/Futebol/Sport Practitioners as Sport Ecology Designers How.pdf	SPORT PRACTITIONERS AS SPORT ECOLOGY DESIGNERS - Woods et al. (2020).pdf	
-Documents/Estudos/Futebol/Sportpedagogyinplayed-formpracticeinsoccerthearticulationbetweencontentsandcontexts.pdf	SPORT PEDAGOGY IN PLAYED-FORM PRACTICE IN SOCCER - CONTENTS AND CONTEXTS (2024).pdf	
-Documents/Estudos/Futebol/TESE DOUTORADO MARCOS REIS.pdf	A HABILIDADE MOTORA PASSE E A ORGANIZAÇÃO HIERÁRQUICA EM EQUIPES DE FUTEBOL - Reis (2022) (tese).pdf	
+Documents/Estudos/Futebol/Sportpedagogyinplayed-formpracticeinsoccerthearticulationbetweencontentsandcontexts.pdf	SPORT PEDAGOGY IN PLAYED-FORM PRACTICE IN SOCCER - CONTENTS AND CONTEXTS (2024).pdf	TCC/Referências
+Documents/Estudos/Futebol/TESE DOUTORADO MARCOS REIS.pdf	A HABILIDADE MOTORA PASSE E A ORGANIZAÇÃO HIERÁRQUICA EM EQUIPES DE FUTEBOL - Reis (2022) (tese).pdf	TCC/Referências
 Documents/Estudos/Futebol/TOMADA DE DECISÃO.pdf	THE ASSOCIATION BETWEEN PERCEPTUAL-COGNITIVE PROCESSES AND RESPONSE TIME IN DECISION MAKING - Cardoso et al. (2021).pdf	
 Documents/Estudos/Futebol/Talent Development in Sport Requires Athlete Enric.pdf	TALENT DEVELOPMENT IN SPORT REQUIRES ATHLETE ENRICHMENT - NONLINEAR PEDAGOGY AND ATHLETIC SKILLS MODEL (2021).pdf	
-Documents/Estudos/Futebol/Talento Cérebro Decisão Futebol.pdf	TALENTO, CÉREBRO E DECISÃO NO FUTEBOL.pdf	
+Documents/Estudos/Futebol/Talento Cérebro Decisão Futebol.pdf	TALENTO, CÉREBRO E DECISÃO NO FUTEBOL.pdf	TCC/Referências
 Documents/Estudos/Futebol/The enjoyment of small-sided games a narrative rev.pdf	THE ENJOYMENT OF SMALL-SIDED GAMES - A NARRATIVE REVIEW - Clemente et al. (2025).pdf	
 Documents/Estudos/Futebol/The influence of the field orientation on the repr.pdf	THE INFLUENCE OF FIELD ORIENTATION ON POSITIONAL DYNAMICS IN SOCCER SMALL-SIDED GAMES - Couto et al. (2024).pdf	
 Documents/Estudos/Futebol/The key role of context in team sports training Th.pdf	THE KEY ROLE OF CONTEXT IN TEAM SPORTS TRAINING - THE VALUE OF PLAYED-FORM ACTIVITIES - Petiot et al. (2023).pdf	
 Documents/Estudos/Futebol/There is no copy and paste but there is resonation and inhabitation Integrating a contemporary player development framework in football from a compl (2).pdf	THERE IS NO COPY AND PASTE BUT THERE IS RESONATION AND INHABITATION - PLAYER DEVELOPMENT FRAMEWORK (2025) [PT].pdf	
 Documents/Estudos/Futebol/There is no copy and paste but there is resonation and inhabitation Integrating a contemporary player development framework in football from a compl.pdf	THERE IS NO COPY AND PASTE BUT THERE IS RESONATION AND INHABITATION - PLAYER DEVELOPMENT FRAMEWORK (2025).pdf	
-Documents/Estudos/Futebol/ThevalueofopposedandunopposedpracticeAnecologicaldynamicsrationaleforskilldevelopment (1) (1).pdf	O VALOR DA PRÁTICA COM E SEM OPOSIÇÃO - DINÂMICA ECOLÓGICA (2025) [PT].pdf	
+Documents/Estudos/Futebol/ThevalueofopposedandunopposedpracticeAnecologicaldynamicsrationaleforskilldevelopment (1) (1).pdf	O VALOR DA PRÁTICA COM E SEM OPOSIÇÃO - DINÂMICA ECOLÓGICA (2025) [PT].pdf	TCC/Referências
 Documents/Estudos/Futebol/ThevalueofopposedandunopposedpracticeAnecologicaldynamicsrationaleforskilldevelopment.pdf	THE VALUE OF OPPOSED AND UNOPPOSED PRACTICE - AN ECOLOGICAL DYNAMICS RATIONALE FOR SKILL DEVELOPMENT (2025).pdf	
 Documents/Estudos/Futebol/Tom. de decisao futebol e fustsal (1).pdf	THE ECOLOGICAL AND COGNITIVE APPROACHES TO DECISION MAKING IN FOOTBALL AND FUTSAL - RBFF (2021) [PT].pdf	
-Documents/Estudos/Futebol/Tom. de decisao futebol e fustsal.pdf	THE ECOLOGICAL AND COGNITIVE APPROACHES TO DECISION MAKING IN FOOTBALL AND FUTSAL - RBFF (2021).pdf	
+Documents/Estudos/Futebol/Tom. de decisao futebol e fustsal.pdf	THE ECOLOGICAL AND COGNITIVE APPROACHES TO DECISION MAKING IN FOOTBALL AND FUTSAL - RBFF (2021).pdf	TCC/Referências
 Documents/Estudos/Futebol/Tomada de decisão criativa por meio do passe (1).pdf	TCC - CRIATIVIDADE NO FUTEBOL - DIFERENCIAÇÃO DE METAS EM JOGOS REDUZIDOS - Gabriel Vitor (apresentação v2).pdf	TCC
 Documents/Estudos/Futebol/Tomada de decisão criativa por meio do passe (2).pdf	TCC - CRIATIVIDADE NO FUTEBOL - DIFERENCIAÇÃO DE METAS EM JOGOS REDUZIDOS - Gabriel Vitor (apresentação v3).pdf	TCC
 Documents/Estudos/Futebol/Tomada de decisão criativa por meio do passe.pdf	TCC - TOMADA DE DECISÃO CRIATIVA POR MEIO DO PASSE - Gabriel Vitor (apresentação v1).pdf	TCC
-Documents/Estudos/Futebol/Travassosetal 2012 Representativedesign JSS.pdf	INCREASING UNCERTAINTY IMPROVES REPRESENTATIVE DESIGN OF PASSING PRACTICE TASKS - Travassos et al. (2012).pdf	
+Documents/Estudos/Futebol/Travassosetal 2012 Representativedesign JSS.pdf	INCREASING UNCERTAINTY IMPROVES REPRESENTATIVE DESIGN OF PASSING PRACTICE TASKS - Travassos et al. (2012).pdf	TCC/Referências
 Documents/Estudos/Futebol/UCL Technical-Report 2025 DIGITAL compressed compressed (1).pdf	UEFA CHAMPIONS LEAGUE TECHNICAL REPORT 2024-25 (comprimido).pdf	
 Documents/Estudos/Futebol/UCL Technical-Report 2025 DIGITAL compressed compressed removed.pdf	UEFA CHAMPIONS LEAGUE TECHNICAL REPORT 2024-25 (comprimido, páginas removidas).pdf	
 Documents/Estudos/Futebol/UCL Technical-Report 2025 DIGITAL compressed compressed.pdf	UEFA CHAMPIONS LEAGUE TECHNICAL REPORT 2024-25 (comprimido).pdf	
 Documents/Estudos/Futebol/UCL Technical-Report 2025 DIGITAL compressed.pdf	UEFA CHAMPIONS LEAGUE TECHNICAL REPORT 2024-25 (comprimido).pdf	
 Documents/Estudos/Futebol/UCL Technical-Report 2025 DIGITAL.pdf	UEFA CHAMPIONS LEAGUE TECHNICAL REPORT 2024-25.pdf	
 Documents/Estudos/Futebol/Watrick_2016_INICIACAO E FORMACAO DE ATLETAS EM FUTSAL  DESENVOLVIMENTO TECNICO TATICO E METODOLOGIAS DE ENSINO.pdf	INICIAÇÃO E FORMAÇÃO DE ATLETAS EM FUTSAL - DESENVOLVIMENTO TÉCNICO-TÁTICO - Watrick (2016).pdf	
-Documents/Estudos/Futebol/WhattolookforinsettingsportstrainingtasksforyoungplayersAnalysisofthenumericalconfigurationofplayersandcourtsizeconstraintson.pdf	WHAT TO LOOK FOR IN SETTING SPORTS TRAINING TASKS FOR YOUNG PLAYERS - NUMERICAL CONFIGURATION AND COURT SIZE (2023).pdf	
-Documents/Estudos/Futebol/Woodsetal.2020 Wayfinding.pdf	WAYFINDING - ECOLOGICAL PERSPECTIVES OF NAVIGATING DYNAMIC ENVIRONMENTS - Woods et al. (2020).pdf	
+Documents/Estudos/Futebol/WhattolookforinsettingsportstrainingtasksforyoungplayersAnalysisofthenumericalconfigurationofplayersandcourtsizeconstraintson.pdf	WHAT TO LOOK FOR IN SETTING SPORTS TRAINING TASKS FOR YOUNG PLAYERS - NUMERICAL CONFIGURATION AND COURT SIZE (2023).pdf	TCC/Referências
+Documents/Estudos/Futebol/Woodsetal.2020 Wayfinding.pdf	WAYFINDING - ECOLOGICAL PERSPECTIVES OF NAVIGATING DYNAMIC ENVIRONMENTS - Woods et al. (2020).pdf	TCC/Referências
 Documents/Estudos/Futebol/apresentação OTÁVIO AUGUSTO - DARWIN.pdf	APRESENTAÇÃO - OTÁVIO AUGUSTO - TREINADOR NÁUTICO SUB-17 (2021).pdf	
-Documents/Estudos/Futebol/artigo cooperação futebol.pdf	YOU'LL NEVER WALK ALONE - A COOPERAÇÃO COMO PARADIGMA DAS DINÂMICAS NO FUTEBOL (2013).pdf	
+Documents/Estudos/Futebol/artigo cooperação futebol.pdf	YOU'LL NEVER WALK ALONE - A COOPERAÇÃO COMO PARADIGMA DAS DINÂMICAS NO FUTEBOL (2013).pdf	TCC/Referências
 Documents/Estudos/Futebol/artigo keith davids.pdf	THE CONSTRAINT-LED APPROACH TO ENHANCING TEAM SYNERGIES IN SPORT - Ramos et al. (2020).pdf	
 Documents/Estudos/Futebol/artigo recup posse de bola.pdf	HOW DO ELITE SOCCER TEAMS PERFORM TO BALL RECOVERY - Fernandes et al. (2020).pdf	
 Documents/Estudos/Futebol/comportamento visual futebol.pdf	SELF-REPORTED VISUAL SYMPTOMS AND HIGH VISUAL DEMAND ACTIVITIES IN PROFESSIONAL FOOTBALL PLAYERS - Jorge et al. (2023) [PT].pdf	
@@ -403,9 +404,9 @@ Documents/Estudos/Futebol/evando,+Artigo+14^J+FUT^J+v.+27^J+n.+1^J+2023+-+pronto
 Documents/Estudos/Futebol/fphys-15-1341791.pdf	FRONTIERS IN PHYSIOLOGY 15-1341791 - Branquinho et al. (2024).pdf	
 Documents/Estudos/Futebol/fpsyg-07-01282.pdf	THE SPAWNS OF CREATIVE BEHAVIOR IN TEAM SPORTS - A CREATIVITY DEVELOPMENTAL FRAMEWORK - Santos et al. (2016).pdf	
 Documents/Estudos/Futebol/fpsyg-07-01449.pdf	TEAM SYNERGIES IN SPORT - THEORY AND MEASURES - Araújo e Davids (2016).pdf	
-Documents/Estudos/Futebol/fpsyg-08-01387.pdf	LONG-TERM PRACTICE WITH DOMAIN-SPECIFIC TASK CONSTRAINTS INFLUENCES PERCEPTUAL SKILLS - Oppici et al. (2017).pdf	
+Documents/Estudos/Futebol/fpsyg-08-01387.pdf	LONG-TERM PRACTICE WITH DOMAIN-SPECIFIC TASK CONSTRAINTS INFLUENCES PERCEPTUAL SKILLS - Oppici et al. (2017).pdf	TCC/Referências
 Documents/Estudos/Futebol/fpsyg-10-01825.pdf	EMBODIED COGNITION WITH AND WITHOUT MENTAL REPRESENTATIONS - EMBODIED CHOICES IN SPORTS - Raab (2019).pdf	
-Documents/Estudos/Futebol/fpsyg-10-02090.pdf	DEVELOPING CREATIVITY TO ENHANCE HUMAN POTENTIAL IN SPORT - A WICKED TRANSDISCIPLINARY CHALLENGE - Vaughan et al. (2019).pdf	
+Documents/Estudos/Futebol/fpsyg-10-02090.pdf	DEVELOPING CREATIVITY TO ENHANCE HUMAN POTENTIAL IN SPORT - A WICKED TRANSDISCIPLINARY CHALLENGE - Vaughan et al. (2019).pdf	TCC/Referências
 Documents/Estudos/Futebol/fpsyg-11-00654.pdf	SPORT PRACTITIONERS AS SPORT ECOLOGY DESIGNERS - Woods et al. (2020).pdf	
 Documents/Estudos/Futebol/fpsyg-12-578332.pdf	IDENTIFICATION OF PATTERNS IN OFFENSIVE SEQUENCES THAT END IN A GOAL IN EUROPEAN FUTSAL - Murillo et al. (2021).pdf	
 Documents/Estudos/Futebol/fpsyg-12-637085.pdf	CONTRASTING LEARNING PSYCHOLOGY THEORIES APPLIED TO THE TEACHING OF TACTICS IN SOCCER - Petiot et al. (2021).pdf	
@@ -416,9 +417,9 @@ Documents/Estudos/Futebol/fspor-06-1376024.pdf	SPACE AND PLAYERS' NUMBER CONSTRA
 Documents/Estudos/Futebol/fspor-06-1441125.pdf	IMPACT OF IMPLICIT VS EXPLICIT INSTRUCTIONS ON TACTICAL PERFORMANCE IN UNDER-20 SOCCER PLAYERS - Abreu et al. (2024).pdf	
 Documents/Estudos/Futebol/ijerph-19-00711.pdf	ALWAYS PAY ATTENTION TO WHICH MODEL OF MOTOR LEARNING YOU ARE USING - Schöllhorn et al. (2022).pdf	
 Documents/Estudos/Futebol/jphyseduc v29i1 2974.pdf	CONHECIMENTO TÁTICO DECLARATIVO E PROCESSUAL NO FUTEBOL - SUB-14 E SUB-15 - Silva et al. (2018).pdf	
-Documents/Estudos/Futebol/klatt2019.pdf	CREATIVE AND INTUITIVE DECISION-MAKING PROCESSES - BRAZILIAN AND GERMAN SOCCER COACHES AND PLAYERS - Klatt et al. (2019).pdf	
+Documents/Estudos/Futebol/klatt2019.pdf	CREATIVE AND INTUITIVE DECISION-MAKING PROCESSES - BRAZILIAN AND GERMAN SOCCER COACHES AND PLAYERS - Klatt et al. (2019).pdf	TCC/Referências
 Documents/Estudos/Futebol/machado2019.pdf	HOW DOES THE ADJUSTMENT OF TRAINING TASK DIFFICULTY LEVEL INFLUENCE TACTICAL BEHAVIOR IN SOCCER - Machado et al. (2019).pdf	
-Documents/Estudos/Futebol/mannetal2007metajsep.pdf	PERCEPTUAL-COGNITIVE EXPERTISE IN SPORT - A META-ANALYSIS - Mann et al. (2007).pdf	
+Documents/Estudos/Futebol/mannetal2007metajsep.pdf	PERCEPTUAL-COGNITIVE EXPERTISE IN SPORT - A META-ANALYSIS - Mann et al. (2007).pdf	TCC/Referências
 Documents/Estudos/Futebol/mehta-et-al-2023-examining-how-data-becomes-information-for-an-upcoming-opponent-in-football.pdf	EXAMINING HOW DATA BECOMES INFORMATION FOR AN UPCOMING OPPONENT IN FOOTBALL - Mehta et al. (2023).pdf	
 Documents/Estudos/Futebol/motrizef,+ITC form.pdf	PRINCÍPIOS TÁTICOS DO JOGO DE FUTEBOL - CONCEITOS E APLICAÇÃO - Teoldo, Garganta e Greco (2009).pdf	
 Documents/Estudos/Futebol/ngarrido,+MOT v16n4 393-399.pdf	COMPARISON BETWEEN UNDER-13 AND UNDER-15 SOCCER PLAYERS IN SMALL-SIDED AND CONDITIONED GAMES - Silva et al. (2021).pdf	
@@ -432,7 +433,7 @@ Documents/Estudos/Futebol/s40798-022-00454-7.pdf	MATCH ANALYSIS IN TEAM BALL SPO
 Documents/Estudos/Futebol/s41598-019-49969-2.pdf	DEFINING A HISTORIC FOOTBALL TEAM - NETWORK SCIENCE AND GUARDIOLA'S FC BARCELONA - Buldú et al. (2019).pdf	
 Documents/Estudos/Futebol/santos-et-al-2025-capturing-meso-level-synchronisation-tendencies-in-elite-football-teams-a-novel-method-for-analysing.pdf	CAPTURING MESO-LEVEL SYNCHRONISATION TENDENCIES IN ELITE FOOTBALL TEAMS - Santos et al. (2025).pdf	
 Documents/Estudos/Futebol/scaglia jogos coletivos.pdf	O ENSINO DOS JOGOS ESPORTIVOS COLETIVOS - COMPETÊNCIAS ESSENCIAIS E LÓGICA DO JOGO - Scaglia et al. (2013).pdf	
-Documents/Estudos/Futebol/sensors-22-04435.pdf	APPLYING DIFFERENT STRATEGIES OF TASK CONSTRAINT MANIPULATION IN SMALL-SIDED AND CONDITIONED GAMES - Machado et al. (2022).pdf	
+Documents/Estudos/Futebol/sensors-22-04435.pdf	APPLYING DIFFERENT STRATEGIES OF TASK CONSTRAINT MANIPULATION IN SMALL-SIDED AND CONDITIONED GAMES - Machado et al. (2022).pdf	TCC/Referências
 Documents/Estudos/Futebol/traduzir.pdf	DESENVOLVENDO RESTRIÇÕES DE TAREFAS PARA DIFERENTES FAIXAS ETÁRIAS NO FUTEBOL - REGRAS PARA FLUTUADORES [PT].pdf	
 Documents/Estudos/Inglês/20 questions, english evaluation..pdf	INGLÊS - 20 QUESTIONS - ENGLISH EVALUATION.pdf	
 Documents/Estudos/Inglês/english questions variety.pdf	INGLÊS - ENGLISH QUESTIONS VARIETY.pdf	
@@ -495,7 +496,7 @@ Documents/Estudos/Neurociência/Expertise and perceptual-cognitive performance i
 Documents/Estudos/Neurociência/Expertise and perceptual-cognitive performance in (3).pdf	EXPERTISE AND PERCEPTUAL-COGNITIVE PERFORMANCE IN SOCCER - A REVIEW [PT].pdf	
 Documents/Estudos/Neurociência/FUNCIONAMENTO COGNITIVO JOGO IDOSOS E ADOLESCENTES.pdf	O FUNCIONAMENTO COGNITIVO DE IDOSOS E ADOLESCENTES NUM CONTEXTO DE JOGO DE REGRAS - Santos, Rossetti e Ortega (2008).pdf	
 Documents/Estudos/Neurociência/FUTEBOL E FUNÇÕES EXECUTIVAS.pdf	EFEITO DA PRÁTICA DO FUTEBOL NAS FUNÇÕES EXECUTIVAS DE CRIANÇAS (2021).pdf	
-Documents/Estudos/Neurociência/Flexible Defense Succeeds Creative Attacks-A Simul.pdf	FLEXIBLE DEFENSE SUCCEEDS CREATIVE ATTACKS - SIMULATION BASED ON POSITION DATA - Memmert, Imkamp e Perl (2021).pdf	Estudos/Futebol
+Documents/Estudos/Neurociência/Flexible Defense Succeeds Creative Attacks-A Simul.pdf	FLEXIBLE DEFENSE SUCCEEDS CREATIVE ATTACKS - SIMULATION BASED ON POSITION DATA - Memmert, Imkamp e Perl (2021).pdf	TCC/Referências
 Documents/Estudos/Neurociência/Fluxograma de processos.pdf	FLUXOGRAMA DE PROCESSOS - ANÁLISE DE DESEMPENHO (2026).pdf	América-PE
 Documents/Estudos/Neurociência/Fraquezas do "perceptuak cognitive training.pdf	EVALUATING WEAKNESSES OF PERCEPTUAL-COGNITIVE TRAINING AND BRAIN TRAINING IN SPORT - Renshaw et al. (2019).pdf	
 Documents/Estudos/Neurociência/Fraquezas do perceptuak cognitive training.pdf	EVALUATING WEAKNESSES OF PERCEPTUAL-COGNITIVE TRAINING AND BRAIN TRAINING IN SPORT - Renshaw et al. (2019) [PT].pdf	
