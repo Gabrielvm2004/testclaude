@@ -20,9 +20,11 @@ AM="$DOC/América-PE"
 BEN="$DOC/Benfica"
 ANT="$DOC/Trabalhos Anteriores"
 TUB="$ANT/Tubarões"
+ARQ="$DOC/Arquivo (antes de 2026)"
 
 # Clube: o nome manda; se o nome não diz, manda a data em que o arquivo foi baixado.
-CHEGADA_AMERICA="2026-07-26"           # a partir desta data -> América-PE; antes -> Tubarões
+CHEGADA_AMERICA="2026-07-26"           # a partir desta data -> América-PE
+INICIO_TUBAROES="2026-01-01"           # daqui até a chegada ao América -> Tubarões; antes -> Arquivo
 PALAVRAS_AMERICA="america"
 PALAVRAS_TUBAROES="tubaroes, tub"
 
@@ -60,7 +62,8 @@ $EST/Futebol/Vídeos de Referência | barcelona, city, palmeiras, inter vs, ned 
 {CLUBE}/Jogos                    | america, tubaroes, tub, amistoso, 1 tempo, 2 tempo, 1o tempo, primeiro tempo, segundo tempo, x | mov, mp4, m4v
 {CLUBE}/Relatórios               | america, tubaroes, autoanalise, elenco, relatorio dados, controle de cartoes, boletim
 {CLUBE}/Modelo de Jogo           | slide deck, principios para tarefas
-{CLUBE}/Treinos                  | plano de treino, plano treino, planilhas de treino, mini campinho, microciclo, treino diego, diego avelar
+$DOC/Pessoal/Diego Avelar        | diego avelar, treino diego
+{CLUBE}/Treinos                  | plano de treino, plano treino, planilhas de treino, mini campinho, microciclo
 {CLUBE}/Adversários/Retrô        | retro
 {CLUBE}/Adversários/Treze        | treze
 {CLUBE}/Adversários/Náutico      | nautico
@@ -75,7 +78,7 @@ $EST/Futebol/Vídeos de Referência | barcelona, city, palmeiras, inter vs, ned 
 {CLUBE}/Adversários/CT Lúcio     | ct lucio
 {CLUBE}/Adversários/Maitá        | maita
 {CLUBE}/Adversários/Geral        | adversario, adversarios
-{CLUBE}/Wyscout                  | wyplaylist, wyscout, playlist
+$EST/Futebol/Wyscout            | wyplaylist, wyscout, playlist
 $DOC/Projetos Claude             | claude, testclaude, dashboard, codigo, canvas, banco de exercicios, instagram card, guia compartilhamento, future model, apresentacao atletas
 $EST/Neurociência        | neuro, cerebr, cognic, cognit, plasticid, kandel, sapolsky, funcoes executivas, executive, brain, memoria, atencao, psiquiatr, saude mental, kahneman, rapido e devagar, cortical, inibitorio, flexib | | s
 $EST/Aprendizagem Motora | motor, motora, motric, aprendizagem, coordenac, coordenativ, habilidade, controle postural, desenvolvimento motor, gallahue, timming, timing, pratica, practice, skill, contextual, feedback, dupla tarefa | | s
@@ -83,7 +86,7 @@ $EST/Pedagogia do Esporte | pedagogia, iniciacao esportiva, ludic, ludo, brincar
 $EST/Futebol             | futebol, futsal, football, soccer, tatic, tactic, jogo de posicao, jogos reduzidos, small sided, ssg, tomada de decisao, decision, ecologic, constraint, restricoes, modelo de jogo, match analysis, performance analysis, ucl, villas boas, garganta, travassos, uefa, world cup, talent, talento | | s
 $EST/Fisiologia e Treinamento | fisiolog, treinamento, corrida, core, anatomia, biomecanic, guyton, silverthorn, mcardle, vo2, sono, sleep, lesoes, propriocep, somatotip, condromalac, periodiz, muscular, strength, genetica, nutri | | s
 $EST/Inglês              | english, present continuous, questions
-$DOC/Faculdade            | estagio, bacharelado, aula, cdh, prova, monitoria, apostila, termo de compromisso, termo de encaminhamento, ficha de, plano de atividade, relatorio das atividades, avaliacoes, atividade, estratificacao, diabetes, promocao, pnps, conferencia, tept, plano de aula, modelo de plano, roteiro, estudo de caso, declaracao, termo de anuencia, termo assentimento, documentos estagio, esef, upe
+$DOC/Faculdade            | swot, gestao, estagio, bacharelado, aula, cdh, prova, monitoria, apostila, termo de compromisso, termo de encaminhamento, ficha de, plano de atividade, relatorio das atividades, avaliacoes, atividade, estratificacao, diabetes, promocao, pnps, conferencia, tept, plano de aula, modelo de plano, roteiro, estudo de caso, declaracao, termo de anuencia, termo assentimento, documentos estagio, esef, upe
 $DOC/Pessoal              | curriculo, carro, harry potter, whatsapp image, photo, fotos compradas, assinatura digital, logo safadinha, corridinha
 "
 
@@ -205,7 +208,9 @@ decidir_clube() {
   if tem_palavra "$texto" "$KW_AM"; then CLUBE="$AM"; CLUBE_POR="nome"; return; fi
   if tem_palavra "$texto" "$KW_TUB"; then CLUBE="$TUB"; CLUBE_POR="nome"; return; fi
   d="$(data_adicao "$item")"
-  if [ -n "$d" ] && [ "$d" \< "$CHEGADA_AMERICA" ]; then CLUBE="$TUB"; else CLUBE="$AM"; fi
+  if [ -z "$d" ] || ! [ "$d" \< "$CHEGADA_AMERICA" ]; then CLUBE="$AM"
+  elif ! [ "$d" \< "$INICIO_TUBAROES" ]; then CLUBE="$TUB"
+  else CLUBE="$ARQ"; fi
   CLUBE_POR="baixado em $d"
 }
 
@@ -252,7 +257,7 @@ case "$ETAPA" in 1|2|3|4) ;; *) echo "Opção inválida."; exit 1 ;; esac
 etapa_de() {   # destino -> 1, 2 ou 3
   case "$1" in
     "$DL/Instaladores (pode apagar)"|"$DUPLICADOS"|"$ZIPS"|*"/Capturas de Tela"|*"/Gravações de Tela") echo 1 ;;
-    "$AM"|"$AM/"*|"$ANT"|"$ANT/"*|"$BEN"|"$BEN/"*) echo 2 ;;
+    "$AM"|"$AM/"*|"$ANT"|"$ANT/"*|"$BEN"|"$BEN/"*|"$ARQ"|"$ARQ/"*) echo 2 ;;
     *) echo 3 ;;
   esac
 }
@@ -334,7 +339,7 @@ for item in "${itens[@]}"; do
   manter="$(limpar_nome "$base_nfc" manter)"
   # Nome sem espaços e comprido (ex.: "8VPm6d5Jqmz3FZd8C8jzVVp") -> título interno do PDF.
   case "$tirar" in
-    *" "*) ;;
+    *" "*|*-*) ;;
     *) if [ "$tipo" = "pdf" ] && [ ${#tirar} -ge 15 ] && command -v mdls >/dev/null 2>&1; then
          t="$(mdls -raw -name kMDItemTitle "$item" 2>/dev/null)"
          if [ -n "$t" ] && [ "$t" != "(null)" ] && [ ${#t} -le 90 ]; then
@@ -348,7 +353,8 @@ for item in "${itens[@]}"; do
   PTS=(); MOT=()
   k=0
   while [ $k -lt ${#KW_T[@]} ]; do
-    case "$texto" in *" ${KW_T[$k]}"*) r=${KW_R[$k]}; PTS[$r]=$(( ${PTS[$r]:-0} + 3 )); MOT[$r]="${MOT[$r]} \"${KW_T[$k]}\"" ;; esac
+    kw="${KW_T[$k]}"; [ ${#kw} -le 2 ] && kw="$kw "
+    case "$texto" in *" $kw"*) r=${KW_R[$k]}; PTS[$r]=$(( ${PTS[$r]:-0} + 3 )); MOT[$r]="${MOT[$r]} \"${KW_T[$k]}\"" ;; esac
     k=$((k + 1))
   done
   melhor=-1; melhor_pts=0
