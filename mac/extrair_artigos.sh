@@ -3,6 +3,7 @@
 # para depois sugerir nomes melhores (TÍTULO - Autor (Ano)).
 #
 # NÃO MUDA NADA: só cria o arquivo "artigos_info.tsv" na Mesa.
+# VERSAO 2
 #
 # Como usar (no Terminal):  bash ~/Downloads/extrair_artigos.sh
 # Outra pasta (opcional):    bash ~/Downloads/extrair_artigos.sh ~/Documents/TCC
@@ -27,7 +28,7 @@ function texto(obj) {
   try { return String(ObjC.unwrap(obj)); } catch (e) { return ''; }
 }
 function limpa(s) {
-  return String(s || '').replace(/[\t\r\n  ]+/g, ' | ').replace(/\s+/g, ' ').trim();
+  return String(s || '').replace(/[\t\r\n]+/g, ' | ').replace(/\s+/g, ' ').trim();
 }
 
 function run(argv) {
