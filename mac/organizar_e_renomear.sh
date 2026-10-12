@@ -116,10 +116,13 @@ DUPLICADOS="$DL/Duplicados (pode apagar)"
 ZIPS="$DL/Zips já extraídos (pode apagar)"
 SEP=$'\x1f'
 
-normalizar() {
-  # O iconv do Mac escreve "ó" como "'o": as marcas são removidas antes do tr.
-  echo "$1" | iconv -f UTF-8 -t ASCII//TRANSLIT 2>/dev/null | tr -d "'\"^\`~" \
-    | tr '[:upper:]' '[:lower:]' | tr -c 'a-z0-9\n' ' ' | tr -s ' '
+# O Mac pode guardar "ç" como "c" + sinal separado (forma NFD). O perl junta/remove
+# os sinais, para "Gravação", "Náutico" etc. serem reconhecidos de qualquer forma.
+normalizar() {   # sem acento, minúsculas, só letras/números separados por um espaço
+  printf '%s\n' "$1" | perl -CSD -MUnicode::Normalize -pe '$_ = lc NFD($_); s/\pM//g; s/[^a-z0-9\n]+/ /g'
+}
+nfc() {   # forma "normal" dos acentos, para os nomes novos e as limpezas
+  printf '%s\n' "$1" | perl -CSD -MUnicode::Normalize -pe '$_ = NFC($_)'
 }
 aparar() { local s="$1"; s="${s#"${s%%[![:space:]]*}"}"; echo "${s%"${s##*[![:space:]]}"}"; }
 minusculas() { echo "$1" | tr '[:upper:]' '[:lower:]'; }
@@ -255,8 +258,9 @@ etapa_de() {   # destino -> 1, 2 ou 3
 }
 
 # ---------- Monta o plano ----------
-PL_ORIG=(); PL_DIR=(); PL_TIRAR=(); PL_MANTER=(); PL_MOTIVO=()
-planejar() { PL_ORIG+=("$1"); PL_DIR+=("$2"); PL_TIRAR+=("$3"); PL_MANTER+=("$4"); PL_MOTIVO+=("$5"); }
+# PL_ONFC = nome original na forma "normal" dos acentos (para comparar nomes).
+PL_ORIG=(); PL_DIR=(); PL_TIRAR=(); PL_MANTER=(); PL_MOTIVO=(); PL_ONFC=()
+planejar() { PL_ORIG+=("$1"); PL_DIR+=("$2"); PL_TIRAR+=("$3"); PL_MANTER+=("$4"); PL_MOTIVO+=("$5"); PL_ONFC+=("${6:-${1##*/}}"); }
 
 # Pastas antigas de Documentos
 while IFS='|' read -r antiga nova; do
@@ -325,15 +329,16 @@ for item in "${itens[@]}"; do
     planejar "$item" "$DUPLICADOS" "$nome" "$nome" "idêntico byte a byte a \"$sem$EXT\""; continue
   fi
 
-  tirar="$(limpar_nome "$BASE")"
-  manter="$(limpar_nome "$BASE" manter)"
+  base_nfc="$(nfc "$BASE")"
+  tirar="$(limpar_nome "$base_nfc")"
+  manter="$(limpar_nome "$base_nfc" manter)"
   # Nome sem espaços e comprido (ex.: "8VPm6d5Jqmz3FZd8C8jzVVp") -> título interno do PDF.
   case "$tirar" in
     *" "*) ;;
     *) if [ "$tipo" = "pdf" ] && [ ${#tirar} -ge 15 ] && command -v mdls >/dev/null 2>&1; then
          t="$(mdls -raw -name kMDItemTitle "$item" 2>/dev/null)"
          if [ -n "$t" ] && [ "$t" != "(null)" ] && [ ${#t} -le 90 ]; then
-           t="$(limpar_nome "$t")"; [ ${#t} -ge 6 ] && { tirar="$t"; manter="$t"; }
+           t="$(limpar_nome "$(nfc "$t")")"; [ ${#t} -ge 6 ] && { tirar="$t"; manter="$t"; }
          fi
        fi ;;
   esac
@@ -380,7 +385,7 @@ for item in "${itens[@]}"; do
     dest="${dest//\{CLUBE\}/$CLUBE}"
     motivo="$motivo; clube pelo $CLUBE_POR"
   esac
-  planejar "$item" "$dest" "$tirar$EXT" "$manter$EXT" "$motivo"
+  planejar "$item" "$dest" "$tirar$EXT" "$manter$EXT" "$motivo" "$base_nfc$EXT"
 done
 
 # ---------- Nomes: só tira o "(2)" se isso não juntar versões diferentes ----------
@@ -402,6 +407,8 @@ while [ $i -lt ${#PL_ORIG[@]} ]; do
   if [ -n "${PL_DIR[$i]}" ] && [ -e "${PL_DIR[$i]}/$nome" ] && ! iguais "${PL_ORIG[$i]}" "${PL_DIR[$i]}/$nome"; then
     nome="${PL_MANTER[$i]}"
   fi
+  # Nome que só mudaria o formato do acento continua exatamente igual.
+  [ "$nome" = "${PL_ONFC[$i]}" ] && nome="${PL_ORIG[$i]##*/}"
   PL_NOME+=("$nome")
   i=$((i + 1))
 done
