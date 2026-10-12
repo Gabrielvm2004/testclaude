@@ -11,6 +11,7 @@
 # - Não mexe na pasta Scout nem em arquivos .csv (automação do Scout).
 #
 # Como usar (no Terminal):  bash ~/Downloads/organizar_e_renomear.sh
+# VERSAO 5
 
 # ======================= CONFIGURE AQUI =======================
 DOC="$HOME/Documents"
@@ -142,13 +143,14 @@ separar() {   # "foto.jpg" -> BASE="foto" EXT=".jpg"
 # Deixa o nome mais legível. Com "manter", os números de versão "(2)" ficam.
 limpar_nome() {
   local n="$1" numeros='s/([[:space:]]*\( ?[0-9]+\)[[:space:]]*)+$//'   # só no final do nome
-  [ "$2" = "manter" ] && numeros='s/[[:space:]]+\(/ (/g'
+  local copia='s/^(Cópia|Copia|cópia|copia) de //; s/^(Copy|copy) of //'
+  # "manter": nome usado quando há outro arquivo parecido -> mantém "(2)" e "Cópia de".
+  [ "$2" = "manter" ] && { numeros='s/[[:space:]]+\(/ (/g'; copia=''; }
   case "$n" in YTDown.com_*) n="$(echo "$n" | sed -E 's/^YTDown\.com_YouTube_//; s/_Media_.*$//; s/-/ /g')" ;; esac
   n="$(echo "$n" | sed -E "
     s/%20/ /g
     s/_+/ /g
-    s/^(Cópia|Copia|cópia|copia) de //
-    s/^(Copy|copy) of //
+    $copia
     s/^Microsoft (Word|PowerPoint|Excel) - //
     s/ -- [0-9a-f]{32}//g
     s/ -- Anna.s Archive$//
