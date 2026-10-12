@@ -1,0 +1,45 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Mapa das pastas</title>
+<style>
+@page{size:A4;margin:16mm 16mm}
+:root{--fg:#1d2420;--muted:#5d6a63;--line:#dde3de;--tcc:#b4471f;--am:#1f6f54;--est:#2f5fa8;--fac:#7a4a9c;--pes:#8a6d1d;--arq:#6b7570}
+body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--fg);font-size:10.5pt;line-height:1.38;margin:0}
+h1{font-size:22pt;margin:0 0 2pt;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 12pt}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9pt}
+.box{border:1px solid var(--line);border-left:5px solid var(--c);border-radius:6px;padding:8pt 10pt;break-inside:avoid}
+.box h2{font-size:12.5pt;margin:0 0 2pt;color:var(--c)}
+.box p{margin:0 0 4pt;color:var(--muted);font-size:9.5pt}
+.box ul{margin:0;padding-left:13pt;font-size:9.5pt}
+.box li{margin:1pt 0}
+.full{grid-column:1/-1}
+.tip{margin-top:12pt;border-top:1px solid var(--line);padding-top:8pt;font-size:9.5pt;color:var(--muted)}
+.tip b{color:var(--fg)}
+code{font-family:Menlo,monospace;font-size:9pt}
+</style></head><body>
+<h1>Mapa das pastas</h1>
+<p class="sub">Documentos do Gabriel · organizado em outubro de 2026 · os números colocam as pastas na ordem de uso</p>
+<div class="grid">
+ <div class="box" style="--c:var(--tcc)"><h2>1 TCC</h2><p>Criatividade e tomada de decisão em jogos reduzidos.</p><ul>
+  <li><b>Escrita</b>: projeto, versões do texto, apresentações, termos, parecer, fichamentos</li>
+  <li><b>Coleta de Dados</b>: vídeos do CRB</li>
+  <li><b>Referências</b>: Criatividade · Jogos reduzidos e restrições · Tomada de decisão e cognição · Dinâmica ecológica e ensino</li></ul></div>
+ <div class="box" style="--c:var(--am)"><h2>2 América-PE</h2><p>Trabalho atual. Primeiro a categoria, depois o tipo.</p><ul>
+  <li><b>Profissional</b> e <b>Sub-20</b>: Jogos e Cortes · Adversários (uma pasta por time) · Relatórios e Treinos</li>
+  <li><b>Clube</b>: escudo, fluxograma, modelo de jogo da base</li>
+  <li><b>A definir</b>: o que ainda não sei se é Sub-20 ou Profissional</li></ul></div>
+ <div class="box" style="--c:var(--am)"><h2>3 Benfica</h2><p>Trabalho atual na iniciação. Planos de aula, fotos e vídeos.</p></div>
+ <div class="box" style="--c:var(--pes)"><h2>4 Alunos</h2><p>Atletas que treino por fora. Uma pasta por aluno (ex.: Diego Avelar).</p></div>
+ <div class="box" style="--c:var(--est)"><h2>5 Estudos</h2><p>Artigos e livros, no formato <i>Autor (Ano) - Título</i>.</p><ul>
+  <li>Futebol (com Wyscout e Vídeos de Referência) · Neurociência (com Reservatório de Dopamina)</li>
+  <li>Aprendizagem Motora · Pedagogia do Esporte · Fisiologia e Treinamento · Inglês</li>
+  <li><b>A classificar</b>: o que ainda não tem lugar</li></ul></div>
+ <div class="box" style="--c:var(--fac)"><h2>6 Faculdade</h2><ul>
+  <li><b>Estágio</b>: termos, declarações, fichas, planos de atividade, relatórios</li>
+  <li><b>Disciplinas</b>: aulas, trabalhos, apresentações, provas</li></ul></div>
+ <div class="box" style="--c:var(--pes)"><h2>7 Pessoal</h2><p>Currículos, documentos, fotos, livros de lazer, corrida.</p></div>
+ <div class="box" style="--c:var(--arq)"><h2>8 Projetos</h2><p>Dashboards, códigos e testes feitos com o Claude.</p></div>
+ <div class="box" style="--c:var(--arq)"><h2>9 Arquivo</h2><ul><li><b>Tubarões</b> (jan. a jul. 2026) · <b>AABB</b> · <b>Antes de 2026</b></li></ul></div>
+ <div class="box" style="--c:var(--am)"><h2>Scout</h2><p>Automação de scout dos jogos. <b>Não renomear nem mover</b>: a automação depende deste caminho.</p></div>
+</div>
+<div class="tip"><b>Onde salvar algo novo?</b> Artigo → 5 Estudos (ou 1 TCC › Referências, se for do TCC). Vídeo ou relatório de jogo → 2 América-PE › categoria › tipo. Material da faculdade → 6 Faculdade. Na dúvida, deixe em Downloads e rode o organizador (<code>bash ~/Downloads/organizar_e_renomear.sh</code>).</div>
+</body></html>
