@@ -1,19 +1,30 @@
 #!/bin/bash
-# Organiza Downloads, Mesa e Documentos de uma vez, com um PLANO para revisar antes.
+# Organiza Downloads, Mesa e Documentos por ETAPAS, com um PLANO para revisar antes.
 #
-# 1. Analisa cada item (nome + conteúdo dos PDFs pelo Spotlight) e decide o destino.
-# 2. Mostra o plano completo (abre no TextEdit) e só aplica se você confirmar.
-# 3. Cópias idênticas vão para "Downloads/Duplicados (pode apagar)".
-# 4. Nunca apaga nada, nunca sobrescreve, e cria um script para DESFAZER tudo.
-# 5. Não mexe na pasta Scout nem em arquivos .csv (automação do Scout).
+# - Analisa cada item (nome + conteúdo dos PDFs pelo Spotlight) e decide o destino.
+# - Arquivos de trabalho sem nome de clube vão para o clube da época em que foram
+#   baixados (antes da chegada ao América = Tubarões).
+# - Mostra o plano (abre no TextEdit) e só aplica se você confirmar.
+# - Só vão para "Duplicados" arquivos 100% IDÊNTICOS (comparados byte a byte).
+#   Versões com mudanças mantêm o número no nome e nunca são juntadas.
+# - Nunca apaga nada, nunca sobrescreve, e cria um script para DESFAZER.
+# - Não mexe na pasta Scout nem em arquivos .csv (automação do Scout).
 #
 # Como usar (no Terminal):  bash ~/Downloads/organizar_e_renomear.sh
 
 # ======================= CONFIGURE AQUI =======================
 DOC="$HOME/Documents"
-AM="$DOC/América-PE"
-EST="$DOC/Estudos"
 DL="$HOME/Downloads"
+EST="$DOC/Estudos"
+AM="$DOC/América-PE"
+BEN="$DOC/Benfica"
+ANT="$DOC/Trabalhos Anteriores"
+TUB="$ANT/Tubarões"
+
+# Clube: o nome manda; se o nome não diz, manda a data em que o arquivo foi baixado.
+CHEGADA_AMERICA="2026-07-26"           # a partir desta data -> América-PE; antes -> Tubarões
+PALAVRAS_AMERICA="america"
+PALAVRAS_TUBAROES="tubaroes, tub"
 
 # Pastas que serão organizadas (só os itens soltos nelas, não o que já está em subpastas).
 ORIGENS=("$DL" "$HOME/Desktop")
@@ -23,10 +34,17 @@ MIGRAR="
 $DOC/NEURO               | $EST/Neurociência
 $DOC/APREND. MOTORA      | $EST/Aprendizagem Motora
 $DOC/FUTEBOL             | $EST/Futebol
-$DOC/JOGOS CAMERA ABERTA | $AM/Nossa Equipe/Jogos/Câmera Aberta
+$DOC/JOGOS CAMERA ABERTA | $AM/Jogos/Câmera Aberta
+"
+
+# Pastas criadas vazias, prontas para usar.
+CRIAR="
+$BEN/Planos de Aula e Treinos
+$BEN/Fotos e Vídeos
 "
 
 # Regras:  destino | palavras-chave | tipos aceitos (vazio = todos) | ler conteúdo? (s)
+# - {CLUBE} = América-PE ou Trabalhos Anteriores/Tubarões (pelo nome ou pela data).
 # - Palavra no nome = 3 pontos; no conteúdo do PDF = 2. Ganha quem tiver mais pontos;
 #   no empate, ganha a regra que aparece primeiro.
 # - As palavras pegam o começo das palavras do nome ("neuro" pega "neurociência").
@@ -36,24 +54,28 @@ $DL/Instaladores (pode apagar)   | | dmg, pkg, mpkg, exe, app
 $HOME/Pictures/Capturas de Tela  | captura de tela, screenshot
 $HOME/Movies/Gravações de Tela   | gravacao de tela
 $DOC/TCC                         | tcc, monografia, orientador, orientacao voluntaria, termo de aceite, projeto de pesquisa, preprojeto, pre projeto, relatorio de andamento, parecer orientador
-$DOC/Outros Trabalhos/Tubarões   | tubaroes, tub, barao, ct lucio, maita, sub 13, sub13, sub 14, sub 15, sub15, u 16
-$DOC/Outros Trabalhos/AABB       | aabb
-$AM/Nossa Equipe/Jogos           | america, amistoso, 1 tempo, 2 tempo, 1o tempo, primeiro tempo, segundo tempo | mov, mp4, m4v
-$AM/Nossa Equipe/Relatórios     | america, autoanalise, elenco, relatorio dados, controle de cartoes, boletim
-$AM/Nossa Equipe/Modelo de Jogo  | modelo de jogo america, slide deck, principios para tarefas
-$AM/Nossa Equipe/Treinos         | plano de treino, plano treino, planilhas de treino, mini campinho, microciclo, treino diego, diego avelar
-$AM/Adversários/Retrô            | retro
-$AM/Adversários/Treze            | treze
-$AM/Adversários/Náutico          | nautico
-$AM/Adversários/Sport            | sport | mov, mp4, m4v, pasta, png, jpg, jpeg
-$AM/Adversários/CRB              | crb
-$AM/Adversários/Santa Cruz       | santa cruz
-$AM/Adversários/Petrolina        | petrolina
-$AM/Adversários/Torres           | torres
-$AM/Adversários/Santa Fé         | santa fe
-$AM/Adversários/Geral            | adversario, adversarios
-$AM/Wyscout                      | wyplaylist, wyscout, playlist
+$ANT/AABB                        | aabb
+$BEN                             | benfica
 $EST/Futebol/Vídeos de Referência | barcelona, city, palmeiras, inter vs, ned v jap, cotinthians, corinthians, tactical cam | mov, mp4, m4v
+{CLUBE}/Jogos                    | america, tubaroes, tub, amistoso, 1 tempo, 2 tempo, 1o tempo, primeiro tempo, segundo tempo, x | mov, mp4, m4v
+{CLUBE}/Relatórios               | america, tubaroes, autoanalise, elenco, relatorio dados, controle de cartoes, boletim
+{CLUBE}/Modelo de Jogo           | slide deck, principios para tarefas
+{CLUBE}/Treinos                  | plano de treino, plano treino, planilhas de treino, mini campinho, microciclo, treino diego, diego avelar
+{CLUBE}/Adversários/Retrô        | retro
+{CLUBE}/Adversários/Treze        | treze
+{CLUBE}/Adversários/Náutico      | nautico
+{CLUBE}/Adversários/Sport        | sport | mov, mp4, m4v, pasta, png, jpg, jpeg
+{CLUBE}/Adversários/CRB          | crb
+{CLUBE}/Adversários/Santa Cruz   | santa cruz
+{CLUBE}/Adversários/Petrolina    | petrolina
+{CLUBE}/Adversários/Torres       | torres
+{CLUBE}/Adversários/Santa Fé     | santa fe
+{CLUBE}/Adversários/Jaguar       | jaguar
+{CLUBE}/Adversários/Barão        | barao
+{CLUBE}/Adversários/CT Lúcio     | ct lucio
+{CLUBE}/Adversários/Maitá        | maita
+{CLUBE}/Adversários/Geral        | adversario, adversarios
+{CLUBE}/Wyscout                  | wyplaylist, wyscout, playlist
 $DOC/Projetos Claude             | claude, testclaude, dashboard, codigo, canvas, banco de exercicios, instagram card, guia compartilhamento, future model, apresentacao atletas
 $EST/Neurociência        | neuro, cerebr, cognic, cognit, plasticid, kandel, sapolsky, funcoes executivas, executive, brain, memoria, atencao, psiquiatr, saude mental, kahneman, rapido e devagar, cortical, inibitorio, flexib | | s
 $EST/Aprendizagem Motora | motor, motora, motric, aprendizagem, coordenac, coordenativ, habilidade, controle postural, desenvolvimento motor, gallahue, timming, timing, pratica, practice, skill, contextual, feedback, dupla tarefa | | s
@@ -67,7 +89,7 @@ $DOC/Pessoal              | curriculo, carro, harry potter, whatsapp image, phot
 
 # Para onde vai o que nenhuma regra reconheceu (por tipo). O resto fica onde está.
 PADRAO="
-mov, mp4, m4v, avi, mkv            | $AM/Cortes de Vídeo
+mov, mp4, m4v, avi, mkv            | {CLUBE}/Cortes de Vídeo
 pdf, epub, doc, docx, pptx, ppt    | $EST/A classificar
 png, jpg, jpeg, heic, webp, gif    | $HOME/Pictures/Imagens dos Downloads
 html, gs, md, txt                  | $DOC/Projetos Claude
@@ -78,6 +100,7 @@ DESTAQUES="
 $DOC/TCC | 2
 $DOC/Scout | 4
 $AM | 6
+$BEN | 6
 $EST | 3
 $EST/Aprendizagem Motora | 5
 "
@@ -90,8 +113,8 @@ DATA="$(date +%Y-%m-%d_%H-%M-%S)"
 DESFAZER="$DL/DESFAZER_organizacao_$DATA.sh"
 PLANO="$DL/PLANO_organizacao_$DATA.txt"
 DUPLICADOS="$DL/Duplicados (pode apagar)"
+ZIPS="$DL/Zips já extraídos (pode apagar)"
 SEP=$'\x1f'
-NL=$'\n'
 
 normalizar() {
   # O iconv do Mac escreve "ó" como "'o": as marcas são removidas antes do tr.
@@ -110,11 +133,12 @@ separar() {   # "foto.jpg" -> BASE="foto" EXT=".jpg"
   esac
 }
 
-# Deixa o nome mais legível.
+# Deixa o nome mais legível. Com "manter", os números de versão "(2)" ficam.
 limpar_nome() {
-  local n="$1"
+  local n="$1" numeros='s/([[:space:]]*\( ?[0-9]+\)[[:space:]]*)+$//'   # só no final do nome
+  [ "$2" = "manter" ] && numeros='s/[[:space:]]+\(/ (/g'
   case "$n" in YTDown.com_*) n="$(echo "$n" | sed -E 's/^YTDown\.com_YouTube_//; s/_Media_.*$//; s/-/ /g')" ;; esac
-  n="$(echo "$n" | sed -E '
+  n="$(echo "$n" | sed -E "
     s/%20/ /g
     s/_+/ /g
     s/^(Cópia|Copia|cópia|copia) de //
@@ -124,13 +148,13 @@ limpar_nome() {
     s/ -- Anna.s Archive$//
     s/ ?\(Z-Library\)//
     s/[\/:]/-/g
-    s/[[:space:]]*\( ?[0-9]+\)//g
+    $numeros
     s/[[:space:]]+$//
     s/\.(docx|doc|pdf|png|mov)$//
     s/\.(docx|doc)$//
     s/[[:space:]]+(copy|Copy|COPY|copia|Copia|cópia|Cópia)$//
     s/[[:space:]]+-[[:space:]]*$//
-    s/[[:space:]]+/ /g')"
+    s/[[:space:]]+/ /g")"
   n="$(aparar "$n")"
   [ -n "$n" ] && echo "$n" || echo "$1"
 }
@@ -143,10 +167,43 @@ destino_livre() {   # dir nome eh_pasta -> caminho que ainda não existe
   echo "$dir/$b ($k)$e"
 }
 
-iguais() {   # dois arquivos (ou pastas) com o mesmo conteúdo?
+iguais() {   # mesmo conteúdo, byte a byte?
   if [ -d "$1" ] && [ -d "$2" ]; then diff -rq "$1" "$2" >/dev/null 2>&1; return; fi
   [ -f "$1" ] && [ -f "$2" ] || return 1
   [ "$(tamanho "$1")" = "$(tamanho "$2")" ] && cmp -s "$1" "$2"
+}
+
+data_adicao() {   # data em que o arquivo chegou ao Mac (AAAA-MM-DD)
+  local d=""
+  command -v mdls >/dev/null 2>&1 && d="$(mdls -raw -name kMDItemDateAdded "$1" 2>/dev/null)"
+  case "$d" in [0-9][0-9][0-9][0-9]-*) echo "${d:0:10}"; return ;; esac
+  date -r "$1" +%Y-%m-%d 2>/dev/null
+}
+
+lista_norm() {   # "a, b c" -> " a | b c |" (palavras normalizadas)
+  local out="" p
+  IFS=',' read -r -a _l <<< "$1"
+  for p in "${_l[@]}"; do p="$(aparar "$(normalizar "$p")")"; [ -n "$p" ] && out="$out$p$SEP"; done
+  echo "$out"
+}
+tem_palavra() {   # texto lista -> verdadeiro se alguma palavra aparece no começo de uma palavra do texto
+  local p resto="$2"
+  while [ -n "$resto" ]; do
+    p="${resto%%"$SEP"*}"; resto="${resto#*"$SEP"}"
+    case "$1" in *" $p"*) return 0 ;; esac
+  done
+  return 1
+}
+
+# Decide o clube: pelo nome; se o nome não diz, pela data. Define CLUBE e CLUBE_POR.
+KW_AM="$(lista_norm "$PALAVRAS_AMERICA")"; KW_TUB="$(lista_norm "$PALAVRAS_TUBAROES")"
+decidir_clube() {
+  local texto="$1" item="$2" d
+  if tem_palavra "$texto" "$KW_AM"; then CLUBE="$AM"; CLUBE_POR="nome"; return; fi
+  if tem_palavra "$texto" "$KW_TUB"; then CLUBE="$TUB"; CLUBE_POR="nome"; return; fi
+  d="$(data_adicao "$item")"
+  if [ -n "$d" ] && [ "$d" \< "$CHEGADA_AMERICA" ]; then CLUBE="$TUB"; else CLUBE="$AM"; fi
+  CLUBE_POR="baixado em $d"
 }
 
 # ---------- Lê a configuração ----------
@@ -176,20 +233,41 @@ done <<EOF
 $PADRAO
 EOF
 
-# ---------- Monta o plano ----------
-PL_ORIG=(); PL_DIR=(); PL_NOME=(); PL_MOTIVO=()
-planejar() { PL_ORIG+=("$1"); PL_DIR+=("$2"); PL_NOME+=("$3"); PL_MOTIVO+=("$4"); }
+# ---------- Escolhe a etapa ----------
+echo
+echo "Qual etapa você quer fazer agora?"
+echo "  1) Limpeza: instaladores, cópias 100% idênticas, zips já extraídos,"
+echo "     capturas e gravações de tela  (a mais segura; libera espaço)"
+echo "  2) Trabalho: América-PE, Tubarões, AABB e Benfica"
+echo "  3) Estudos, TCC, Faculdade, Pessoal, Projetos e o resto"
+echo "  4) Tudo de uma vez"
+printf "Etapa [1]: "
+read -r ETAPA
+[ -z "$ETAPA" ] && ETAPA=1
+case "$ETAPA" in 1|2|3|4) ;; *) echo "Opção inválida."; exit 1 ;; esac
 
-# 1) Pastas antigas de Documentos
+etapa_de() {   # destino -> 1, 2 ou 3
+  case "$1" in
+    "$DL/Instaladores (pode apagar)"|"$DUPLICADOS"|"$ZIPS"|"$HOME/Pictures/Capturas de Tela"|"$HOME/Movies/Gravações de Tela") echo 1 ;;
+    "$AM"|"$AM/"*|"$ANT"|"$ANT/"*|"$BEN"|"$BEN/"*) echo 2 ;;
+    *) echo 3 ;;
+  esac
+}
+
+# ---------- Monta o plano ----------
+PL_ORIG=(); PL_DIR=(); PL_TIRAR=(); PL_MANTER=(); PL_MOTIVO=()
+planejar() { PL_ORIG+=("$1"); PL_DIR+=("$2"); PL_TIRAR+=("$3"); PL_MANTER+=("$4"); PL_MOTIVO+=("$5"); }
+
+# Pastas antigas de Documentos
 while IFS='|' read -r antiga nova; do
   antiga="$(aparar "$antiga")"; nova="$(aparar "$nova")"
   [ -z "$antiga" ] && continue
-  [ -d "$antiga" ] && [ ! -e "$nova" ] && planejar "$antiga" "${nova%/*}" "${nova##*/}" "pasta antiga reorganizada"
+  [ -d "$antiga" ] && [ ! -e "$nova" ] && planejar "$antiga" "${nova%/*}" "${nova##*/}" "${nova##*/}" "pasta antiga reorganizada"
 done <<EOF
 $MIGRAR
 EOF
 
-# 2) Itens soltos
+# Itens soltos
 itens=()
 for origem in "${ORIGENS[@]}"; do
   [ -d "$origem" ] || continue
@@ -198,8 +276,8 @@ for origem in "${ORIGENS[@]}"; do
     nome="${f##*/}"
     case "$nome" in
       "$ESTE_SCRIPT"|organizar_*.sh|DESFAZER_organizacao_*|PLANO_organizacao_*|lista_finder.txt) continue ;;
-      "Duplicados (pode apagar)"|"Instaladores (pode apagar)") continue ;;
-      *.download|*.crdownload|*.part|"~\$"*) continue ;;   # download em andamento / arquivo temporário do Word
+      "Duplicados (pode apagar)"|"Instaladores (pode apagar)"|"Zips já extraídos (pode apagar)") continue ;;
+      *.download|*.crdownload|*.part|"~\$"*) continue ;;   # download em andamento / temporário do Word
       *.csv|*.CSV) continue ;;                              # dados do Scout
     esac
     [ -L "$f" ] && continue
@@ -207,30 +285,28 @@ for origem in "${ORIGENS[@]}"; do
   done
 done
 
-if [ ${#itens[@]} -eq 0 ] && [ ${#PL_ORIG[@]} -eq 0 ]; then
-  echo "Nada solto para organizar. Já está tudo em ordem!"; exit 0
-fi
-
 # Conteúdo dos arquivos pelo Spotlight (só nos Downloads, só regras marcadas com "s").
 CONT=()
-if command -v mdfind >/dev/null 2>&1; then
-  echo "Lendo o conteúdo dos PDFs pelo Spotlight (1 a 2 minutos)..."
-  k=0
-  while [ $k -lt ${#KW_T[@]} ]; do
-    r=${KW_R[$k]}
-    if [ "${R_CONT[$r]}" = "s" ]; then
-      achados="$(mdfind -onlyin "$DL" "kMDItemTextContent == \"${KW_T[$k]}*\"cdw" 2>/dev/null \
-        | awk -v d="$DL/" 'index($0,d)==1 && index(substr($0,length(d)+1),"/")==0')"
-      while IFS= read -r a; do [ -n "$a" ] && CONT[$r]="${CONT[$r]}$SEP$a$SEP"; done <<< "$achados"
-    fi
-    k=$((k + 1))
-  done
+if [ "$ETAPA" = 3 ] || [ "$ETAPA" = 4 ]; then
+  if command -v mdfind >/dev/null 2>&1; then
+    echo "Lendo o conteúdo dos PDFs pelo Spotlight (1 a 2 minutos)..."
+    k=0
+    while [ $k -lt ${#KW_T[@]} ]; do
+      r=${KW_R[$k]}
+      if [ "${R_CONT[$r]}" = "s" ]; then
+        achados="$(mdfind -onlyin "$DL" "kMDItemTextContent == \"${KW_T[$k]}*\"cdw" 2>/dev/null \
+          | awk -v d="$DL/" 'index($0,d)==1 && index(substr($0,length(d)+1),"/")==0')"
+        while IFS= read -r a; do [ -n "$a" ] && CONT[$r]="${CONT[$r]}$SEP$a$SEP"; done <<< "$achados"
+      fi
+      k=$((k + 1))
+    done
+  fi
 fi
 
 echo "Analisando ${#itens[@]} itens..."
 n=0
 for item in "${itens[@]}"; do
-  n=$((n + 1)); [ $((n % 100)) -eq 0 ] && echo "  ... $n"
+  n=$((n + 1)); [ $((n % 200)) -eq 0 ] && echo "  ... $n"
   nome="${item##*/}"; dir="${item%/*}"
 
   if [ -d "$item" ]; then
@@ -240,33 +316,30 @@ for item in "${itens[@]}"; do
     separar "$nome"; tipo="$(minusculas "${EXT#.}")"
   fi
 
-  # --- Duplicados ---
-  dup=""
+  # --- Cópias 100% idênticas e zips já extraídos ---
   if [ "$tipo" = "zip" ] && [ -d "$dir/$BASE" ]; then
-    dup="zip já extraído (a pasta \"$BASE\" existe)"
-  else
-    sem="$(echo "$BASE" | sed -E 's/[[:space:]]*\( ?[0-9]+\)//g; s/ [0-9]$//; s/[[:space:]]+$//')"
-    if [ "$sem" != "$BASE" ] && [ -e "$dir/$sem$EXT" ] && iguais "$item" "$dir/$sem$EXT"; then
-      dup="cópia idêntica de \"$sem$EXT\""
-    fi
+    planejar "$item" "$ZIPS" "$nome" "$nome" "a pasta \"$BASE\" já tem o conteúdo extraído"; continue
   fi
-  if [ -n "$dup" ]; then planejar "$item" "$DUPLICADOS" "$nome" "$dup"; continue; fi
+  sem="$(echo "$BASE" | sed -E 's/[[:space:]]*\( ?[0-9]+\)//g; s/ [0-9]$//; s/[[:space:]]+$//')"
+  if [ "$sem" != "$BASE" ] && [ -e "$dir/$sem$EXT" ] && iguais "$item" "$dir/$sem$EXT"; then
+    planejar "$item" "$DUPLICADOS" "$nome" "$nome" "idêntico byte a byte a \"$sem$EXT\""; continue
+  fi
 
-  novo_base="$(limpar_nome "$BASE")"
+  tirar="$(limpar_nome "$BASE")"
+  manter="$(limpar_nome "$BASE" manter)"
   # Nome sem espaços e comprido (ex.: "8VPm6d5Jqmz3FZd8C8jzVVp") -> título interno do PDF.
-  case "$novo_base" in
+  case "$tirar" in
     *" "*) ;;
-    *) if [ "$tipo" = "pdf" ] && [ ${#novo_base} -ge 15 ] && command -v mdls >/dev/null 2>&1; then
+    *) if [ "$tipo" = "pdf" ] && [ ${#tirar} -ge 15 ] && command -v mdls >/dev/null 2>&1; then
          t="$(mdls -raw -name kMDItemTitle "$item" 2>/dev/null)"
          if [ -n "$t" ] && [ "$t" != "(null)" ] && [ ${#t} -le 90 ]; then
-           t="$(limpar_nome "$t")"; [ ${#t} -ge 6 ] && novo_base="$t"
+           t="$(limpar_nome "$t")"; [ ${#t} -ge 6 ] && { tirar="$t"; manter="$t"; }
          fi
        fi ;;
   esac
-  novo="$novo_base$EXT"
 
   # --- Pontuação ---
-  texto=" $(normalizar "$nome $novo_base") "
+  texto=" $(normalizar "$nome $tirar") "
   PTS=(); MOT=()
   k=0
   while [ $k -lt ${#KW_T[@]} ]; do
@@ -291,58 +364,97 @@ for item in "${itens[@]}"; do
   done
 
   if [ $melhor -ge 0 ]; then
-    planejar "$item" "${R_DEST[$melhor]}" "$novo" "${MOT[$melhor]:- tipo .$tipo}"
-    continue
+    dest="${R_DEST[$melhor]}"; motivo="${MOT[$melhor]:- tipo .$tipo}"
+  else
+    dest=""; motivo=""
+    r=0
+    while [ $r -lt ${#P_DEST[@]} ]; do
+      case "${P_TIPOS[$r]}" in *",$tipo,"*) dest="${P_DEST[$r]}"; motivo=" nenhuma palavra; padrão para .$tipo"; break ;; esac
+      r=$((r + 1))
+    done
   fi
-  # Nenhuma regra: destino padrão pelo tipo
-  achou=0; r=0
-  while [ $r -lt ${#P_DEST[@]} ]; do
-    case "${P_TIPOS[$r]}" in *",$tipo,"*)
-      planejar "$item" "${P_DEST[$r]}" "$novo" " padrão para .$tipo"; achou=1; break ;;
-    esac
-    r=$((r + 1))
-  done
-  [ $achou = 0 ] && planejar "$item" "" "$nome" ""   # fica onde está
+  if [ -z "$dest" ]; then planejar "$item" "" "$nome" "$nome" ""; continue; fi   # fica onde está
+
+  case "$dest" in *"{CLUBE}"*)
+    decidir_clube "$texto" "$item"
+    dest="${dest//\{CLUBE\}/$CLUBE}"
+    motivo="$motivo; clube pelo $CLUBE_POR"
+  esac
+  planejar "$item" "$dest" "$tirar$EXT" "$manter$EXT" "$motivo"
 done
 
-# ---------- Mostra o plano ----------
+# ---------- Nomes: só tira o "(2)" se isso não juntar versões diferentes ----------
+# Se dois itens ficariam com o mesmo nome na mesma pasta, os dois mantêm o número.
+COLIDE="$(
+  i=0
+  while [ $i -lt ${#PL_ORIG[@]} ]; do
+    [ -n "${PL_DIR[$i]}" ] && printf '%s\n' "${PL_DIR[$i]}/${PL_TIRAR[$i]}"
+    i=$((i + 1))
+  done | sort | uniq -d | while IFS= read -r l; do printf '%s' "$SEP$l$SEP"; done
+)"
+PL_NOME=()
+i=0
+while [ $i -lt ${#PL_ORIG[@]} ]; do
+  alvo="${PL_DIR[$i]}/${PL_TIRAR[$i]}"
+  nome="${PL_TIRAR[$i]}"
+  case "$COLIDE" in *"$SEP$alvo$SEP"*) nome="${PL_MANTER[$i]}" ;; esac
+  # Já existe um arquivo DIFERENTE com esse nome no destino? Mantém o número.
+  if [ -n "${PL_DIR[$i]}" ] && [ -e "${PL_DIR[$i]}/$nome" ] && ! iguais "${PL_ORIG[$i]}" "${PL_DIR[$i]}/$nome"; then
+    nome="${PL_MANTER[$i]}"
+  fi
+  PL_NOME+=("$nome")
+  i=$((i + 1))
+done
+
+# ---------- Mostra o plano da etapa ----------
+na_etapa() {   # índice -> verdadeiro se pertence à etapa escolhida
+  [ "$ETAPA" = 4 ] && return 0
+  [ -z "${PL_DIR[$1]}" ] && [ "$ETAPA" = 3 ] && return 0
+  [ -n "${PL_DIR[$1]}" ] && [ "$(etapa_de "${PL_DIR[$1]}")" = "$ETAPA" ]
+}
 {
-  echo "PLANO DE ORGANIZAÇÃO — $DATA"
+  echo "PLANO DE ORGANIZAÇÃO — etapa $ETAPA — $DATA"
   echo "Nada foi mudado ainda. Volte ao Terminal para confirmar."
+  echo "Entre [colchetes] está o motivo de cada decisão."
   echo
   i=0
   while [ $i -lt ${#PL_ORIG[@]} ]; do
-    if [ -n "${PL_DIR[$i]}" ]; then
-      d="$(relativo "${PL_DIR[$i]}")"; o="${PL_ORIG[$i]##*/}"
-      if [ "$o" = "${PL_NOME[$i]}" ]; then l="$o"; else l="$o   →   ${PL_NOME[$i]}"; fi
-      printf '%s\t%s   [%s ]\n' "$d" "$l" "${PL_MOTIVO[$i]# }"
-    else
-      printf '%s\t%s\n' "~ FICA ONDE ESTÁ (não identifiquei)" "$(relativo "${PL_ORIG[$i]}")"
+    if na_etapa $i; then
+      if [ -n "${PL_DIR[$i]}" ]; then
+        o="${PL_ORIG[$i]##*/}"
+        if [ "$o" = "${PL_NOME[$i]}" ]; then l="$o"; else l="$o   →   ${PL_NOME[$i]}"; fi
+        printf '%s\t%s   [%s ]\n' "$(relativo "${PL_DIR[$i]}")" "$l" "${PL_MOTIVO[$i]# }"
+      else
+        printf '%s\t%s\n' "~ FICA ONDE ESTÁ (não identifiquei)" "$(relativo "${PL_ORIG[$i]}")"
+      fi
     fi
     i=$((i + 1))
   done | sort | awk -F'\t' '$1!=g{g=$1; print "\n=== " g " ==="} {print "   " $2}'
 } > "$PLANO"
 
 echo
-echo "================ RESUMO DO PLANO ================"
+echo "============ RESUMO DO PLANO (etapa $ETAPA) ============"
+total=0
 i=0
 while [ $i -lt ${#PL_ORIG[@]} ]; do
-  [ -n "${PL_DIR[$i]}" ] && echo "$(relativo "${PL_DIR[$i]}")" || echo "~ fica onde está"
+  if na_etapa $i; then
+    [ -n "${PL_DIR[$i]}" ] && echo "$(relativo "${PL_DIR[$i]}")" || echo "~ fica onde está"
+  fi
   i=$((i + 1))
 done | sort | uniq -c | sort -rn
-echo "================================================="
+echo "========================================================"
 echo "O plano completo (arquivo por arquivo) está em:"
 echo "  $PLANO"
 open -e "$PLANO" 2>/dev/null
 echo
-printf "Aplicar o plano? (s = sim / n = não) "
+printf "Aplicar esta etapa? (s = sim / n = não) "
 read -r ok
 if [ "$ok" != "s" ] && [ "$ok" != "S" ]; then
   echo "Cancelado. Nada foi alterado. (O arquivo do plano pode ser apagado.)"; exit 0
 fi
 
 # ---------- Aplica ----------
-# O desfazer precisa voltar os passos na ORDEM INVERSA (ex.: tirar os arquivos de
+# O desfazer volta os passos na ORDEM INVERSA (ex.: tira os arquivos de
 # "Estudos/Neurociência" antes de devolver a pasta para "NEURO"). Ele é gerado
 # no final, ou se o script for interrompido no meio.
 PASSOS="$DESFAZER.passos"
@@ -351,20 +463,26 @@ gerar_desfazer() {
   [ -f "$PASSOS" ] || return
   {
     echo "#!/bin/bash"
-    echo "# Desfaz a organização feita em $DATA"
+    echo "# Desfaz a organização (etapa $ETAPA) feita em $DATA"
     awk '{a[NR]=$0} END{for(i=NR;i>=1;i--) print a[i]}' "$PASSOS"
   } > "$DESFAZER"
   rm -f "$PASSOS"
 }
 trap gerar_desfazer EXIT
+
+if [ "$ETAPA" = 2 ] || [ "$ETAPA" = 4 ]; then
+  while IFS= read -r p; do p="$(aparar "$p")"; [ -n "$p" ] && mkdir -p "$p"; done <<EOF
+$CRIAR
+EOF
+fi
+
 movidos=0; renomeados=0; duplicados=0; erros=0
 i=0
 while [ $i -lt ${#PL_ORIG[@]} ]; do
   orig="${PL_ORIG[$i]}"; dest="${PL_DIR[$i]}"; novo="${PL_NOME[$i]}"
+  if ! na_etapa $i || [ -z "$dest" ] || [ ! -e "$orig" ]; then i=$((i + 1)); continue; fi
   i=$((i + 1))
-  [ -z "$dest" ] && continue
-  [ -e "$orig" ] || continue
-  # Já existe um arquivo idêntico com esse nome no destino? Então é duplicado.
+  # Já existe um arquivo IDÊNTICO com esse nome no destino? Então é cópia.
   if [ "$dest" != "$DUPLICADOS" ] && [ -e "$dest/$novo" ] && iguais "$orig" "$dest/$novo"; then
     dest="$DUPLICADOS"; novo="${orig##*/}"
   fi
@@ -373,11 +491,10 @@ while [ $i -lt ${#PL_ORIG[@]} ]; do
   alvo="$(destino_livre "$dest" "$novo" "$eh")"
   if mv "$orig" "$alvo"; then
     printf 'mkdir -p %q && mv -n %q %q\n' "${orig%/*}" "$alvo" "$orig" >> "$PASSOS"
-    if [ "$dest" = "$DUPLICADOS" ]; then duplicados=$((duplicados + 1))
-    else
-      movidos=$((movidos + 1))
-      [ "${alvo##*/}" != "${orig##*/}" ] && renomeados=$((renomeados + 1))
-    fi
+    case "$dest" in
+      "$DUPLICADOS"|"$ZIPS") duplicados=$((duplicados + 1)) ;;
+      *) movidos=$((movidos + 1)); [ "${alvo##*/}" != "${orig##*/}" ] && renomeados=$((renomeados + 1)) ;;
+    esac
   else
     erros=$((erros + 1))
   fi
@@ -393,9 +510,8 @@ $DESTAQUES
 EOF
 
 echo
-echo "Pronto! $movidos itens organizados ($renomeados renomeados) e $duplicados duplicados separados."
+echo "Etapa $ETAPA pronta! $movidos itens organizados ($renomeados renomeados) e $duplicados cópias/zips separados."
 [ $erros -gt 0 ] && echo "Atenção: $erros itens não puderam ser movidos (veja as mensagens acima)."
-[ $duplicados -gt 0 ] && echo "Confira \"Downloads/Duplicados (pode apagar)\" e jogue no Lixo se estiver tudo certo."
-echo "Para voltar tudo como estava:"
+[ $duplicados -gt 0 ] && echo "Confira as pastas \"(pode apagar)\" em Downloads antes de jogar no Lixo."
+echo "Para voltar esta etapa como estava:"
 echo "  bash \"$DESFAZER\""
-open "$DOC" 2>/dev/null
