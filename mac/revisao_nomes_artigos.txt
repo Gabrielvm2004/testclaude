@@ -1,0 +1,1000 @@
+REVISÃO DOS NOVOS NOMES DOS ARTIGOS
+Cada item: NOVO NOME  <-  nome atual
+Itens marcados com 'vem de' também mudam de pasta.
+
+
+=== América-PE  (1) ===
+  1. FLUXOGRAMA DE PROCESSOS - ANÁLISE DE DESEMPENHO (2026).pdf
+       <- Fluxograma de processos.pdf   (vem de: Estudos/Neurociência)
+
+=== Estudos/A classificar  (7) ===
+  2. ALÉM DO ATLÂNTICO NEGRO - ARTES VISUAIS - Monteiro (2023).pdf
+       <- 53509-Texto do Artigo-210753-1-10-20230324.pdf   (vem de: Estudos/Neurociência)
+  3. BASQUETE - ARTIGO 119 FIEP (2014).pdf
+       <- ARTIGO BASQ..pdf
+  4. BASQUETE - ARTIGO 119 FIEP (2014).pdf
+       <- fiepgeral,+Artigo+119+-+Pag+444+a+447.pdf
+  5. PERFORMANCE OF E-SPORTS GAMES WITH DATA ENVELOPMENT ANALYSIS (2022) [PT].pdf
+       <- psicomurcia,+(258-267)+Performance+of+e-Sports+Games+with+Data+Envelopment+Analysis (1).pdf   (vem de: Estudos/Aprendizagem Motora)
+  6. PERFORMANCE OF E-SPORTS GAMES WITH DATA ENVELOPMENT ANALYSIS (2022).pdf
+       <- psicomurcia,+(258-267)+Performance+of+e-Sports+Games+with+Data+Envelopment+Analysis.pdf   (vem de: Estudos/Aprendizagem Motora)
+  7. PERSPECTIVAS SOBRE A RELAÇÃO ENTRE ÉTICA E RELIGIÃO - Veliq (2021).pdf
+       <- outramargem,+1.+PERSPECTIVAS+SOBRE+A+RELAÇÃO+ENTRE+ÉTICA+E+RELIGIÃO.pdf   (vem de: Estudos/Neurociência)
+  8. SISTEMAS DE PROTEÇÃO AMBIENTAL EM ATERROS SANITÁRIOS - Medeiros, Cabral e Lima (2023).pdf
+       <- 210+FOCO.pdf   (vem de: Estudos/Aprendizagem Motora)
+
+=== Estudos/Aprendizagem Motora  (38) ===
+  9. A EDUCAÇÃO FÍSICA E O DESENVOLVIMENTO MOTOR E COGNITIVO DO ALUNO ATRAVÉS DO LÚDICO - Faria et al. (2020).pdf
+       <- DESENVOLVIMENTO MOTOR E COGNITIVO ATRAVÉS DO LÚDICO.pdf
+ 10. A IMPORTÂNCIA DA PERCEPÇÃO PARA A PRÁTICA DO FUTEBOL - Carvalho (2010).pdf
+       <- A-IMPORTÂNCIA-DA-PERCEPÇÃO-PARA-A-PRÁTICA-DO-FUTEBOL.pdf
+ 11. A INFLUÊNCIA DO FUTSAL NO DESENVOLVIMENTO MOTOR EM ADOLESCENTES DE 13 E 14 ANOS - RBFF (2015).pdf
+       <- 279-Texto do artigo-1371-1-10-20150702.pdf
+ 12. A PRÁTICA CONSTANTE-VARIADA E A AQUISIÇÃO DE HABILIDADES MOTORAS - Corrêa (2007) (tese).pdf
+       <- TESE MESTRADO COMPORTAMENTO MOTOR.pdf
+ 13. A UTILIZAÇÃO DE JOGOS EDUCATIVOS PARA O APRENDIZADO DO FUTEBOL NA INICIAÇÃO SUB-11 - RBFF (2012).pdf
+       <- coppinavarro,+72-240-1-CE.pdf
+ 14. ACUTE EXERCISE BEFORE AND AFTER MOTOR PRACTICE ENHANCES MOTOR MEMORY CONSOLIDATION - Jespersen et al. (2023).pdf
+       <- consolidação memoria motora.pdf
+ 15. ADAPTABILIDADE DE RESPOSTAS POSTURAIS AUTOMÁTICAS A PERTURBAÇÕES EXTRÍNSECAS - Azzi (2017).pdf
+       <- CONTROLE POSTURAL.pdf
+ 16. APPLICATION OF MOTOR LEARNING AND NEUROSCIENCE KNOWLEDGE IN BASKETBALL TRAINING - UNDER-13 CASE REPORT (2022).pdf
+       <- 28069-Article-325905-1-10-20220404.pdf
+ 17. APRENDIZAGEM EM TAREFA MOTORA DUAL - EFEITO DA DISTRIBUIÇÃO DE ATENÇÃO ENTRE AS MÃOS - Carvalho (2017).pdf
+       <- DUPLA TAREFA.pdf
+ 18. AS DINÂMICAS DE COOPERAÇÃO NAS EQUIPAS - FORMAÇÃO NO CLUBE (2023).pdf
+       <- As dinamicas de cooperacao no seio das e.pdf
+ 19. ASSOCIAÇÃO ENTRE A COORDENAÇÃO MOTORA GLOBAL E A PRÁTICA ESPORTIVA ORGANIZADA EM CRIANÇAS - Cipriano (2022).pdf
+       <- COORDENAÇÃO MOTORA GLOBAL E ESPORTE.pdf
+ 20. AUMENTO GRADUAL DA VARIABILIDADE DE PRÁTICA - Januário et al. (2016).pdf
+       <- Aprendizagem motora e prática constante- variada LAGE.pdf
+ 21. CONTENT VALIDITY EVIDENCES IN THE MOTOR COORDINATION TEST WITH BALL (2020).pdf
+       <- Evidnciasdevalidadedecontedodotestedecoordenaomotoracombola.pdf
+ 22. COORDENAÇÃO MOTORA E FUNÇÕES EXECUTIVAS - POSSÍVEIS ASSOCIAÇÕES (2022).pdf
+       <- Coordenacao motora e funcoes executivas possiveis.pdf
+ 23. DECISION MAKING IN SPORTS - INFLUENCE OF COMPLEXITY ON IMPLICIT AND EXPLICIT LEARNING - Raab (2003).pdf
+       <- influencia da complexidade tom. de decisão implicita e explicita.pdf
+ 24. DECISION MAKING IN SPORTS - INFLUENCE OF COMPLEXITY ON IMPLICIT AND EXPLICIT LEARNING - Raab (2003).pdf
+       <- paper u bb2a00a2-aa78-447f-b3b2-6f0ca8c9d820.pdf
+ 25. DESENVOLVIMENTO DE HABILIDADES ESPECÍFICAS DO FUTEBOL EM JOGADORES INICIANTES - Fernandes e França.pdf
+       <- DESENVOLVIMENTO DE HABILIDADES ESPECIFICAS DO FUTE.pdf
+ 26. DESENVOLVIMENTO DE TIMING ANTECIPATÓRIO EM CRIANÇAS - Ferraz (dissertação).pdf
+       <- DESENVOLVIMENTO DO TIMMING ANTECIPATÓRIO EM CRIANÇAS.pdf
+ 27. DESENVOLVIMENTO MOTOR NA EDUCAÇÃO INFANTIL ATRAVÉS DA LUDICIDADE - Delvalle et al. (2021).pdf
+       <- DESONVOLVIMENTO MOTOR LUDICIDADE.pdf
+ 28. DOES MOTOR OR VISUAL EXPERIENCE ENHANCE THE DETECTION OF DECEPTIVE MOVEMENTS IN FOOTBALL - Pizzera e Raab (2012).pdf
+       <- PizzeraRaab Doesmotororvisualexperienceenhancethedetectionofdeceptivemovementsinfootball 2012.pdf
+ 29. EDUCAÇÃO FÍSICA DESENVOLVIMENTISTA NA EDUCAÇÃO INFANTIL E HABILIDADES MOTORAS FUNDAMENTAIS - Briet e Polastri (preprint).pdf
+       <- pre+print.pdf
+ 30. EFEITOS DA FREQUÊNCIA DE FEEDBACK NA APRENDIZAGEM DO SAQUE DO VOLEIBOL - Tertuliano et al. (2008).pdf
+       <- Frequencia de Feedback - Tertuliano.pdf
+ 31. ENSINO-APRENDIZAGEM INCIDENTAL E SEUS EFEITOS SOBRE O CONHECIMENTO TÁTICO PROCESSUAL E A COORDENAÇÃO MOTORA COM BOLA - Lages et al. (2021).pdf
+       <- 54132-Article Text-751375230585-1-10-20210728.pdf
+ 32. ENSINO-APRENDIZAGEM INCIDENTAL E SEUS EFEITOS SOBRE O CONHECIMENTO TÁTICO PROCESSUAL E A COORDENAÇÃO MOTORA COM BOLA - Lages et al. (2021).pdf
+       <- GRECO APRENDIZAGEM INCIDENTAL.pdf
+ 33. HOW DO COGNITIVE AND MOTOR DUAL-TASKS DURING SMALL-SIDED GAMES IMPACT THE TACTICAL PERFORMANCE OF YOUTH SOCCER PLAYERS - Moreira et al. (2025).pdf
+       <- DUPLA TAREFA NO DESEMPENHO TÁTICO.pdf
+ 34. IDENTIFICAÇÃO, SELEÇÃO E PROMOÇÃO DE TALENTOS NOS JOGOS DESPORTIVOS - Garganta (2009).pdf
+       <- CORUNHA09.pdf
+ 35. PERCEPTIONS AND ADAPTATION STRATEGIES IN FUNDAMENTAL MOVEMENT SKILLS AMONG CHILDREN WITH PHYSICAL DISABILITIES - Hebinck et al. (2025).pdf
+       <- hebinck-et-al-2025-perceptions-and-adaptation-strategies-in-fundamental-movement-skills-among-children-with-physical.pdf
+ 36. PRACTICE SCHEDULES AND NUMBER OF SKILLS AS CONTEXTUAL INTERFERENCE FACTORS IN THE LEARNING OF POSITIONING TIMING TASKS - Lage et al. (2006).pdf
+       <- Lageetal2006Practiceschedulesandnumberofskillsascontextualinterferencefactorsinthelearningofpos JHMS.pdf   (vem de: Estudos/A classificar)
+ 37. PRECISÃO DE CONHECIMENTO DE RESULTADOS NA APRENDIZAGEM MOTORA EM CRIANÇAS E ADULTOS - Beltrão et al. (2011).pdf
+       <- precisao de CR.pdf
+ 38. PROJETO DE EXTENSÃO JOGANDO PARA APRENDER - CAPACIDADES COORDENATIVAS E TÁTICAS BÁSICAS - Pinheiro et al. (2019).pdf
+       <- almeidapfeifer,+EXT RevExt 17 pdf 4 Projeto+de+extensão+Jogando+para+aprender.pdf
+ 39. PRÁTICA CONSTANTE NA ESTABILIZAÇÃO E ADAPTAÇÃO DAS HABILIDADES MOTORAS - RBFF (2020).pdf
+       <- 782-Texto do artigo-3429-1-10-20200119.pdf
+ 40. TASK ENGAGEMENT AND MENTAL WORKLOAD IN VARIATION AND REPETITION OF A MOTOR SKILL - Lelis-Torres et al. (2017).pdf
+       <- engajamento cognitivo e prática aleatória.pdf
+ 41. TASK ENGAGEMENT AND MENTAL WORKLOAD IN VARIATION AND REPETITION OF A MOTOR SKILL - Lelis-Torres et al. (2017).pdf
+       <- s41598-017-15343-3.pdf
+ 42. TEORIA BIOECOLÓGICA APLICADA AO ESPORTE - UMA REVISÃO INTEGRATIVA - Santos et al. (2019).pdf
+       <- 11358-Texto do artigo-52567-2-10-20210607.pdf
+ 43. THE ROLE OF VISUAL PROCESSING IN MOTOR LEARNING AND CONTROL - INSIGHTS FROM ELECTROENCEPHALOGRAPHY - Krigolson (2015).pdf
+       <- PAPEL DO PROC VISUAL NO CONTROLE MOTOR.pdf
+ 44. TOMADA DE DECISÕES NO ESPORTE - INFLUÊNCIA DA COMPLEXIDADE NA APRENDIZAGEM IMPLÍCITA E EXPLÍCITA - Raab (2003) [PT].pdf
+       <- paper u bb2a00a2-aa78-447f-b3b2-6f0ca8c9d820 (1).pdf
+ 45. TREINAMENTO TÉCNICO - INTERFERÊNCIA CONTEXTUAL NO ENSINO-APRENDIZAGEM DE HABILIDADES ESPORTIVAS - Lage e Benda (2007).pdf
+       <- EIChabilidadesesportivasfinal.pdf
+ 46. VALIDAÇÃO DE CONTEÚDO DE LISTAS DE CHECAGEM PARA HABILIDADES MOTORAS FUNDAMENTAIS - Ribeiro-Silva et al. (2022).pdf
+       <- Ribeiro-Silvaetal2022b.pdf
+
+=== Estudos/Fisiologia e Treinamento  (55) ===
+ 47. 24-HOUR BLOOD RESPONSE - EXERGAMING VS AEROBIC EXERCISE IN TYPE-1 DIABETES - Gomes et al. (2025) [PT].pdf
+       <- Article (1).pdf
+ 48. 24-HOUR BLOOD RESPONSE - EXERGAMING VS AEROBIC EXERCISE IN TYPE-1 DIABETES - Gomes et al. (2025).pdf
+       <- Article.pdf
+ 49. ANATOMIA HUMANA - Marieb, Wilhelm e Mallatt (7ª ed.).pdf
+       <- Anatomia Humana (Elaine Mar (1).pdf
+ 50. ANATOMIA HUMANA - Marieb, Wilhelm e Mallatt (7ª ed.).pdf
+       <- Anatomia Humana (Elaine Mar.pdf
+ 51. ASSOCIATION OF CARDIORESPIRATORY FITNESS WITH LONG-TERM MORTALITY AMONG ADULTS UNDERGOING EXERCISE TREADMILL TESTING - Mandsager et al. (2018).pdf
+       <- 10430044939 1734092167633.pdf   (vem de: Estudos/Aprendizagem Motora)
+ 52. ASSOCIATION OF CARDIORESPIRATORY FITNESS WITH LONG-TERM MORTALITY AMONG ADULTS UNDERGOING EXERCISE TREADMILL TESTING - Mandsager et al. (2018).pdf
+       <- 8900841537 1733940360506.pdf   (vem de: Estudos/Aprendizagem Motora)
+ 53. AVANÇOS NO TREINAMENTO FUNCIONAL - Boyle (2014).pdf
+       <- Avanços-no-Treinamento-Funciona-Michael-Boyle.pdf
+ 54. BAIXO PESO AO NASCER E SUA RELAÇÃO COM OBESIDADE E SÍNDROME METABÓLICA NA INFÂNCIA (2010).pdf
+       <- 5898-Texto do Artigo-16360-1-10-20120326.pdf
+ 55. BIOMECÂNICA BÁSICA.pdf
+       <- BIOMECANICA-BASICA.pdf
+ 56. CARDIORESPIRATORY FITNESS AND MORTALITY RISK ACROSS THE SPECTRA OF AGE, RACE, AND SEX - Kokkinos et al. (2022).pdf
+       <- 1236027618 1733940369775.pdf   (vem de: Estudos/A classificar)
+ 57. CINEANTROPOMETRIA - AULA - Petreça (2023).pdf
+       <- $RK9ZQED.pdf
+ 58. COMPOSIÇÃO CORPORAL - AULA (2023).pdf
+       <- $RGT3CMB.pdf
+ 59. DEDICATED TRAINING OF EXPLOSIVE STRENGTH IN THE ABDOMINAL CORE OF SOCCER PLAYERS (2022).pdf
+       <- core.pdf
+ 60. EFEITO DE DIFERENTES FREQUÊNCIAS DE TREINAMENTO NA FORÇA MÁXIMA E HIPERTROFIA - Neves (2018).pdf
+       <- EFEITOS DE DIFERENTES FREQUENCIAS TREINAMENTO MUSCULAR.pdf
+ 61. EFEITOS DO HIIT E DO TREINAMENTO CONTÍNUO EM RATOS DIABÉTICOS (2022).pdf
+       <- 8VPm6d5Jqmz3FZd8C8jzVVp.pdf
+ 62. EFEITOS DO TREINAMENTO DE CORE VS PLIOMÉTRICO SOBRE O EQUILÍBRIO EM JOVENS JOGADORES DE FUTEBOL (2022).pdf
+       <- core artigo bom.pdf
+ 63. EFFECT OF EXERCISE TRAINING FOR FIVE YEARS ON ALL CAUSE MORTALITY IN OLDER ADULTS - GENERATION 100 - Stensvold et al. (2020).pdf
+       <- 1382663733 1734092175849.pdf
+ 64. EFFECTIVENESS OF PHYSICAL ACTIVITY INTERVENTIONS FOR IMPROVING DEPRESSION, ANXIETY AND DISTRESS - Singh et al. (2023).pdf
+       <- 5390796299 1734092186780.pdf   (vem de: Estudos/A classificar)
+ 65. EXERCÍCIOS TERAPÊUTICOS NA PREVENÇÃO DA CONDROMALÁCIA PATELOFEMORAL EM ATLETAS (2008).pdf
+       <- EXERCICIOS TERAPÊUTICOS CONDROMALÁCIA.pdf
+ 66. FISIOLOGIA DO EXERCÍCIO - NUTRIÇÃO, ENERGIA E DESEMPENHO HUMANO - McArdle, Katch e Katch (8ª ed.).pdf
+       <- Fisiologia do Exercicio Nutri William D. McArdle, Frank I.pdf
+ 67. FISIOLOGIA HUMANA - UMA ABORDAGEM INTEGRADA - Silverthorn (2017) (7ª ed.).pdf
+       <- Dee Unglaub Silverthorn - Fisiologia Humana Uma Abordagem Integrada.pdf
+ 68. FISIOLOGIA HUMANA - UMA ABORDAGEM INTEGRADA - Silverthorn (2017) (7ª ed.).pdf
+       <- Fisiologia Humana - SILVERTHORN.pdf
+ 69. FOOT CORE TRAINING TO PREVENT RUNNING-RELATED INJURIES - Taddei et al. (2020).pdf
+       <- 1614079958 1734092418745.pdf   (vem de: Estudos/Aprendizagem Motora)
+ 70. FÓRMULA DE CORRIDA DE DANIELS - Daniels (2012) (2ª ed.).pdf
+       <- CORRIDA DE DANIELS.pdf
+ 71. GENÉTICA MOLECULAR HUMANA - Strachan e Read (2012) (4ª ed.).pdf
+       <- Genética Molecular Humana -- Tom Strachan, Andrew P Read -- Único, 4, 2012 -- Artmed.pdf
+ 72. INFLUÊNCIA DO TREINAMENTO DE ESTABILIZAÇÃO CENTRAL SOBRE A DOR E ESTABILIDADE LOMBAR - Reinehr, Carpes e Mota (2008).pdf
+       <- TRIENAMENTO CORE DOR LOMBAR.pdf
+ 73. LAZER ATIVO - PROGRAMA DE PROMOÇÃO DE ESTILOS DE VIDA ATIVOS PARA O TRABALHADOR DA INDÚSTRIA - Nahas et al. (2010).pdf
+       <- nahasetal 2010.pdf   (vem de: Estudos/Aprendizagem Motora)
+ 74. LEISURE-TIME RUNNING REDUCES ALL-CAUSE AND CARDIOVASCULAR MORTALITY RISK - Lee et al. (2014).pdf
+       <- 5000387645 1734092196001.pdf   (vem de: Estudos/Aprendizagem Motora)
+ 75. LESÕES NO ESPORTE - UMA ABORDAGEM ANATÔMICA (livro).pdf
+       <- Livro - Lesões no esporte - Uma abordagem anatômica.pdf
+ 76. MARCAÇÃO DE PONTOS DE REFERÊNCIA ANATÔMICOS - Petreça (2023).pdf
+       <- PONTOS ANATOMICOS.pdf   (vem de: Estudos/A classificar)
+ 77. META-ANALYSES OF THE EFFECTS OF HABITUAL RUNNING ON INDICES OF HEALTH IN PHYSICALLY INACTIVE ADULTS - Hespanhol Junior et al. (2015).pdf
+       <- 6993037767 1734092213612.pdf
+ 78. MÉTODOS DE TREINAMENTO DA ESTABILIZAÇÃO CENTRAL (CORE) - Santos e Freitas (2010).pdf
+       <- METODOS DE TREINAMENTO ESTAB. CENTRAL.pdf
+ 79. NUTRITION, SLEEP AND RECOVERY - Halson (2008).pdf
+       <- NutSleepRec.pdf
+ 80. OPTIMAL REACTIVE STRENGTH INDEX - IS IT AN ACCURATE VARIABLE TO OPTIMIZE PLYOMETRIC TRAINING.pdf
+       <- optimal reactive strength index is it an accurate.1.pdf
+ 81. PARADIGMA INFLEXÍVEL - O TREINO DA FLEXIBILIDADE - Vilaça-Alves (2017).pdf
+       <- Af Brochura exs SUMMIT.pdf
+ 82. PERIODIZAÇÃO DA CORRIDA.pdf
+       <- PERIODIZAÇÃO CORRIDA.pdf
+ 83. PERIODIZAÇÃO ESPORTIVA - Lopes (2018) (livro).pdf
+       <- Livro+Periodizao+Esportiva+Prof+Dr+Charles+Lopes+2018.pdf
+ 84. REBUILDING MILO - Horschig (2023).pdf
+       <- Rebuilding Milo - Aaron Horschig.pdf   (vem de: Estudos/A classificar)
+ 85. RESPOSTAS DE INDICADORES FISIOLÓGICOS A UM JOGO DE FUTEBOL - Bezerra et al. (2016).pdf
+       <- ARTIGO INDICADORES FISIOLOGICOS DE UM JOGO.pdf
+ 86. RESPOSTAS DO SONO ÀS CARGAS DE TREINAMENTO EM JOVENS NADADORES DURANTE O POLIMENTO (2022).pdf
+       <- G3 RESPOSTAS DO SONO ÀS CARGAS DE TREINAMENTO.pdf
+ 87. RUNNING AS A KEY LIFESTYLE MEDICINE FOR LONGEVITY - Lee et al. (2017).pdf
+       <- 3402343039 1734092222061.pdf   (vem de: Estudos/Neurociência)
+ 88. RUNNING INTRALIMB COORDINATION AFTER A FOOT CORE EXERCISE PROGRAM IN RECREATIONAL RUNNERS (2024).pdf
+       <- download.pdf
+ 89. RUNNING TECHNIQUE IS AN IMPORTANT COMPONENT OF RUNNING ECONOMY AND PERFORMANCE - Folland et al. (2017).pdf
+       <- 4344968973 1734092703513.pdf   (vem de: Estudos/Aprendizagem Motora)
+ 90. SOMATOTIPO - AULA - Petreça (2024).pdf
+       <- SOMATOTIPO.pdf
+ 91. TEMPO DOS RALLYS NO FUTSAL E SEU VIÉS FISIOLÓGICO (2022).pdf
+       <- 27922-Article-324361-1-10-20220330.pdf
+ 92. THE ASSOCIATION BETWEEN RUNNING INJURIES AND TRAINING PARAMETERS - A SYSTEMATIC REVIEW - Fredette et al. (2022).pdf
+       <- 3988567846 1734094247934.pdf   (vem de: Estudos/Aprendizagem Motora)
+ 93. THE ASSOCIATION OF RECREATIONAL AND COMPETITIVE RUNNING WITH HIP AND KNEE OSTEOARTHRITIS - Alentorn-Geli et al. (2017).pdf
+       <- 4048067687 1734092259960.pdf   (vem de: Estudos/Futebol)
+ 94. THE EFFECT OF PERIODISATION AND TRAINING INTENSITY DISTRIBUTION ON MIDDLE- AND LONG-DISTANCE RUNNING PERFORMANCE - Kenneally et al. (2018).pdf
+       <- 4364748224 1734094260349.pdf
+ 95. THE EFFECTIVENESS OF PROPRIOCEPTIVE TRAINING FOR IMPROVING MOTOR FUNCTION - Aman et al. (2015).pdf
+       <- The effectiveness of proprioceptive training for improving.pdf
+ 96. THE EFFECTS OF MENTAL FATIGUE ON ANAEROBIC POWER AND POWER ENDURANCE PERFORMANCE - Gonzalez et al. (2024).pdf
+       <- The Effects of Mental Fatigue on Anaerobic Power and Power Endurance Performance.pdf   (vem de: Estudos/Aprendizagem Motora)
+ 97. THE INFLUENCE OF RUNNING ON LOWER LIMB CARTILAGE - A SYSTEMATIC REVIEW - Khan et al. (2022).pdf
+       <- 8917830167 1734092273954.pdf   (vem de: Estudos/Aprendizagem Motora)
+ 98. THE MYTH OF CORE STABILITY - Lederman (2010).pdf
+       <- The myth of core stability.pdf
+ 99. TRATADO DE FISIOLOGIA MÉDICA - Guyton e Hall (12ª ed.).pdf
+       <- GUYTON 231228 112249.pdf
+100. TREINAMENTO DE CORRIDA DE RUA - Evangelista (2016).pdf
+       <- Treinamento de corrida de rua (1).pdf
+101. TREINAMENTO DE CORRIDA DE RUA - Evangelista (2016).pdf
+       <- Treinamento de corrida de rua.pdf
+
+=== Estudos/Futebol  (181) ===
+102. (RE)CONCEPTUALIZING MOVEMENT BEHAVIOR IN SPORT AS A PROBLEM-SOLVING ACTIVITY - Myszka, Yearby e Davids (2023).pdf
+       <- Reconceptualizing movement behavior in sport as a.pdf
+103. A COMPETIÇÃO NA INICIAÇÃO AO FUTEBOL - ORGANIZAÇÃO DO JOGO E AMBIENTE COMPETITIVO (2020).pdf
+       <- A competicao na iniciacao ao futebol consideracoes.pdf
+104. A EMERGÊNCIA DA TOMADA DE DECISÃO NO FUTEBOL - DA DECISÃO INDIVIDUAL PARA A COLETIVA - Duarte et al. (2010).pdf
+       <- A Emergencia da Tomada de Decisao no Futebol da De.pdf
+105. A HABILIDADE MOTORA PASSE E A ORGANIZAÇÃO HIERÁRQUICA EM EQUIPES DE FUTEBOL - Reis (2022) (tese).pdf
+       <- TESE DOUTORADO MARCOS REIS.pdf
+106. A INFLUÊNCIA DA MANIPULAÇÃO DE TAREFA EM JOGOS REDUZIDOS SOBRE O COMPORTAMENTO CRIATIVO - Andrade (2023) (dissertação).pdf
+       <- 01Dissertacao-CaiquedeNovaesAndrade-2023-Completo.pdf
+107. A INFLUÊNCIA DOS ASPECTOS COGNITIVOS SUBJACENTES À TOMADA DE DECISÃO - RBFF (2021).pdf
+       <- 923-Texto do artigo-4379-1-10-20210509.pdf
+108. A INFLUÊNCIA DOS MÉTODOS DE ENSINO-APRENDIZAGEM-TREINAMENTO NA INTELIGÊNCIA E CRIATIVIDADE TÁTICA NO FUTSAL - Silva e Greco.pdf
+       <- download.pdf
+109. A INFLUÊNCIA DOS MÉTODOS DE ENSINO-APRENDIZAGEM-TREINAMENTO NO CONHECIMENTO TÁTICO PROCESSUAL NO FUTSAL - Moreira, Matias e Greco (2013).pdf
+       <- MET. 4.pdf   (vem de: Estudos/Aprendizagem Motora)
+110. A TOMADA DE DECISÃO NO FUTSAL - Travassos (livro).pdf
+       <- A Tomada de Decisão no Futsal (Bruno Travassos).pdf
+111. ABORDAGEM SISTÊMICA DO JOGO DE FUTEBOL - MODA OU NECESSIDADE - Garganta e Gréhaigne (1999).pdf
+       <- ArtgGreh (1).pdf   (vem de: Estudos/Aprendizagem Motora)
+112. ABORDAGEM SISTÊMICA DO JOGO DE FUTEBOL - MODA OU NECESSIDADE - Garganta e Gréhaigne (1999).pdf
+       <- ArtgGreh.pdf   (vem de: Estudos/Aprendizagem Motora)
+113. ALWAYS PAY ATTENTION TO WHICH MODEL OF MOTOR LEARNING YOU ARE USING - Schöllhorn et al. (2022).pdf
+       <- ijerph-19-00711.pdf
+114. AN ECOLOGICAL PERSPECTIVE ON INTRA-TEAM COMMUNICATION IN TEAM SPORTS - Caso et al. (2026).pdf
+       <- Casoetal.2026Anecologicalperspectiveonintra-teamcommunicationinteamsports.pdf
+115. AN EXTENDED CHALLENGE-BASED FRAMEWORK FOR PRACTICE DESIGN IN SPORTS COACHING - Hodges e Lohse (2021).pdf
+       <- PrePrint ChallengeFrameworkforCOACHING dEC2021 JSS.pdf
+116. ANALISANDO O COMPORTAMENTO HOMEOSTÁTICO EM EQUIPES DE FUTEBOL DE ELITE (2026) [PT].pdf
+       <- Capturing homeostatic behaviour in elite football (1) (1) (1).pdf
+117. ANALISANDO O COMPORTAMENTO HOMEOSTÁTICO EM EQUIPES DE FUTEBOL DE ELITE (2026) [PT].pdf
+       <- Capturing homeostatic behaviour in elite football (1) (1).pdf
+118. ANALYSING THE INFLUENCE OF NUMERICAL IMBALANCE ON INDIVIDUAL TACTICAL BEHAVIOUR IN SOCCER - Nunes et al. (2025).pdf
+       <- 2025.Analysingtheinfluenceofnumericalimbalanceonindividualtacticalbehaviour.Nunes.pdf
+119. ANDRÉ VILLAS-BOAS (livro).pdf
+       <- Andre Villas Boas.pdf
+120. ANÁLISE DE PARTIDAS EM ESPORTES COLETIVOS - REVISÃO GUARDA-CHUVA - Sarmento et al. (2022) [PT].pdf
+       <- Match Analysis in Team Ball Sports An Umbrella Review of Systematic Reviews and Meta-Analyses (1) (1).pdf
+121. ANÁLISE DO TREINAMENTO TÁTICO PROCESSUAL NO FUTEBOL - RBFF (2020).pdf
+       <- 859-Texto do artigo-3849-1-10-20200907.pdf
+122. APLICANDO DIFERENTES ESTRATÉGIAS DE MANIPULAÇÃO DE RESTRIÇÕES EM JOGOS REDUZIDOS - Góes, Machado et al. (2022) [PT].pdf
+       <- Diferentes estratégias de manip.pdf
+123. APPLYING DIFFERENT STRATEGIES OF TASK CONSTRAINT MANIPULATION IN SMALL-SIDED AND CONDITIONED GAMES - Machado et al. (2022).pdf
+       <- Applying Different Strategies of Task Constraint M.pdf
+124. APPLYING DIFFERENT STRATEGIES OF TASK CONSTRAINT MANIPULATION IN SMALL-SIDED AND CONDITIONED GAMES - Machado et al. (2022).pdf
+       <- sensors-22-04435.pdf
+125. APRESENTAÇÃO - OTÁVIO AUGUSTO - TREINADOR NÁUTICO SUB-17 (2021).pdf
+       <- apresentação OTÁVIO AUGUSTO - DARWIN.pdf
+126. APROFUNDANDO O JOGO - OS DETALHES DO FUTEBOL - PRIMEIRO ENCONTRO (ebook).pdf
+       <- ebook 4aab1b1e-9e8d-4fea-8ede-fc0c14f6cfc4.pdf   (vem de: Estudos/Aprendizagem Motora)
+127. ARTIGO FUTEBOL 2 (2025).pdf
+       <- ArtigoFutebol2.pdf
+128. ASPECTOS BIOLÓGICOS NO FUTEBOL - UNIVERSO DO FUTEBOL - Ferrari et al. (2025) (livro).pdf
+       <- AspectosBiolgicosnoFutebolv.2FINAL.pdf
+129. AVALIAÇÃO DE JOGADORES DE FUTEBOL - Brito, Sousa et al. (2017).pdf
+       <- 2017.BritoeSousaetal.RBFF.pdf
+130. AVALIAÇÃO DE POTÊNCIA, FLEXIBILIDADE, FADIGA E ESTABILIDADE EM ATLETAS SUB-20 DE FUTEBOL (2024).pdf
+       <- AVALIAÇÃO FISICA FUTEBOL SUB 20 ARTIGO.pdf
+131. AVALIAÇÃO DO CONHECIMENTO TÁTICO PROCESSUAL - KORA - APLICAÇÃO NO BASQUETEBOL - Morales et al. (2006) [PT].pdf
+       <- ARTIGO BASQ. (1) pt.pdf
+132. CAPTURING HOMEOSTATIC BEHAVIOUR IN ELITE FOOTBALL TEAMS - SYNCHRONISATION TENDENCIES (2026).pdf
+       <- Capturing homeostatic behaviour in elite football.pdf
+133. CAPTURING MESO-LEVEL SYNCHRONISATION TENDENCIES IN ELITE FOOTBALL TEAMS - Santos et al. (2025).pdf
+       <- santos-et-al-2025-capturing-meso-level-synchronisation-tendencies-in-elite-football-teams-a-novel-method-for-analysing.pdf
+134. COGNITION, EMOTION AND ACTION IN SPORT - AN ECOLOGICAL DYNAMICS PERSPECTIVE - Araújo, Davids e Renshaw (2020).pdf
+       <- AraujoRenshawDavids2020 Tenenbaum.pdf
+135. COMPARAÇÃO DA CAPACIDADE DE TOMADA DE DECISÃO DE JOGADORES SUB-11 E SUB-13 - Junior, Machado e Teoldo (2022).pdf
+       <- 2022-Junioretal-Comparaodacapacidadedetomadadedecisodejogadoresdefuteboldascategoriassub-11esub-13deescolasdefutebol.pdf
+136. COMPARING THE TACTICAL BEHAVIOR OF YOUNG SOCCER PLAYERS IN FULL- AND SMALL-SIDED GAMES (2024).pdf
+       <- COMPARAÇÃO JOGOS REDUZIDOS X OFICIAL.pdf
+137. COMPARISON BETWEEN UNDER-13 AND UNDER-15 SOCCER PLAYERS IN SMALL-SIDED AND CONDITIONED GAMES - Silva et al. (2021).pdf
+       <- ngarrido,+MOT v16n4 393-399.pdf
+138. COMPORTAMENTO TÁTICO EM PEQUENOS JOGOS NO FUTEBOL - CONHECIMENTO TÁTICO E SUPERIORIDADE NUMÉRICA - Praça et al. (2016).pdf
+       <- 28662-148180-1-PB.pdf
+139. COMPORTAMENTO TÁTICO EM PEQUENOS JOGOS NO FUTEBOL - CONHECIMENTO TÁTICO E SUPERIORIDADE NUMÉRICA - Praça et al. (2016).pdf
+       <- COMP.TÁTICO E INF. PEQUENOS JOGOS NO CONHECIMENTO.pdf
+140. CONHECIMENTO TÁTICO DECLARATIVO E PROCESSUAL NO FUTEBOL - SUB-14 E SUB-15 - Silva et al. (2018).pdf
+       <- jphyseduc v29i1 2974.pdf
+141. CONTEMPORARY PRACTICES OF PORTUGUESE AND BRAZILIAN COACHES IN DESIGNING SMALL-SIDED GAMES - Clemente et al. (2023).pdf
+       <- BS Art 51815-10.pdf
+142. CONTEXTUALIZATION OF SOCCER ANALYSIS WITH TACTICAL PERIODIZATION AND MACHINE LEARNING - Biermann et al. (2025).pdf
+       <- Contextualization of soccer analysis with tactical.pdf
+143. CONTRASTING LEARNING PSYCHOLOGY THEORIES APPLIED TO THE TEACHING OF TACTICS IN SOCCER - Petiot et al. (2021).pdf
+       <- fpsyg-12-637085.pdf
+144. COORDENAÇÃO INTERPESSOAL E BUSCA VISUAL NA EXECUÇÃO DO CHUTE NO FUTSAL - Oliveira (2019) (dissertação).pdf
+       <- BUSCA VISUAL CHUTE FUTSAL.pdf
+145. CREATIVE AND INTUITIVE DECISION-MAKING PROCESSES - BRAZILIAN AND GERMAN SOCCER COACHES AND PLAYERS - Klatt et al. (2019).pdf
+       <- klatt2019.pdf
+146. DE PRINCIPIANTE A EXPERTO - PRÁTICA DELIBERADA - ENTREVISTA A FRADE - Dias (2005).pdf
+       <- Filipa Dias (2005) Practica deliberada - Entrevista a Frade.pdf
+147. DEFENDING IN 4-4-2 OR 5-3-2 FORMATION - SMALL DIFFERENCES IN FOOTBALLERS' COLLECTIVE TACTICAL BEHAVIOURS (2021).pdf
+       <- 2021 Defendingin4-4-2or5-3-2formation-smalldifferencesinfootballerscollectivetacticalbehaviours.pdf   (vem de: Estudos/A classificar)
+148. DEFENSIVE TRANSITION IN ELITE MEN'S FOOTBALL - KEY FACTORS IMPACTING BALL RECOVERY AND MATCH OUTCOMES (2025).pdf
+       <- Defensivetransitioninelitemensfootballkeyfactorsimpactingballrecoveryandmatchoutcomes.pdf
+149. DEFINING A HISTORIC FOOTBALL TEAM - NETWORK SCIENCE AND GUARDIOLA'S FC BARCELONA - Buldú et al. (2019).pdf
+       <- s41598-019-49969-2.pdf
+150. DESENVOLVENDO RESTRIÇÕES DE TAREFAS PARA DIFERENTES FAIXAS ETÁRIAS NO FUTEBOL - REGRAS PARA FLUTUADORES [PT].pdf
+       <- Restrições de tarefa para diferentes faixas etárias.pdf
+151. DESENVOLVENDO RESTRIÇÕES DE TAREFAS PARA DIFERENTES FAIXAS ETÁRIAS NO FUTEBOL - REGRAS PARA FLUTUADORES [PT].pdf
+       <- traduzir.pdf
+152. DEVELOPING COGNITIVE AND MOTOR DECISION-MAKING THROUGH TACTICAL PRINCIPLES AND SSGS IN YOUTH SOCCER - Machado et al. (2024).pdf
+       <- MachadoGonzlez-VlloraRocaTeoldo IJPAS2024Developingcognitivemotordecision-makingskillsthroughtacticalprinciplesandSSGsinyouthsoccer.pdf
+153. DEVELOPING CREATIVITY TO ENHANCE HUMAN POTENTIAL IN SPORT - A WICKED TRANSDISCIPLINARY CHALLENGE - Vaughan et al. (2019).pdf
+       <- fpsyg-10-02090.pdf
+154. DISCOVERY LEARNING IN SPORTS - Raab et al. (2009).pdf
+       <- Raab et al 2009 IJSE Discovery learning in sports.pdf
+155. ECOLOGICAL DYNAMIC APPROACH AND YOUNG SOCCER PLAYER TRAINING - THE AIM IS THE FLEXIBLE BEHAVIOR - Sannicandro (2023).pdf
+       <- Ecological Dynamic Approach and Young Soccer Playe.pdf
+156. EFFECT OF AN INSIDE FLOATER ON SOCCER PLAYERS TACTICAL BEHAVIOUR IN SMALL SIDED GAMES - Moniz et al. (2020).pdf
+       <- EFEITO DO CORINGA NO JOGO DE FUTEBOL.pdf
+157. EFFECTS OF A CREATIVE TEACHING-BASED TRAINING PROGRAMME ON TACTICAL KNOWLEDGE - Duda et al. (2026).pdf
+       <- Effects of a Creative Teaching-Based Training Prog.pdf
+158. EM BUSCA DE PADRÕES DE JOGO DA FASE OFENSIVA EM PEQUENOS JOGOS DE FUTEBOL - Praça et al. (2017).pdf
+       <- Em busca de padroes de jogo da fase ofensiva em pe.pdf
+159. EMBODIED COGNITION WITH AND WITHOUT MENTAL REPRESENTATIONS - EMBODIED CHOICES IN SPORTS - Raab (2019).pdf
+       <- MARCOS REIS.pdf
+160. EMBODIED COGNITION WITH AND WITHOUT MENTAL REPRESENTATIONS - EMBODIED CHOICES IN SPORTS - Raab (2019).pdf
+       <- fpsyg-10-01825.pdf
+161. ENGENHARIA DO JOGO.pdf
+       <- Engenharia do Jogo.pdf   (vem de: Estudos/A classificar)
+162. ESCALAS DE TEMPO PARA COMPORTAMENTO TÁTICO EXPLORATÓRIO EM JOGOS DE FUTEBOL (2015) [PT].pdf
+       <- EXPLORATORY TACTICAL .en.pt.pdf
+163. EVIDÊNCIA DE VALIDADE DO TESTE DE CONHECIMENTO TÁTICO PROCESSUAL - TCTP-OE - Greco et al. (2015).pdf
+       <- ARTIGO MET.1.pdf
+164. EVIDÊNCIA DE VALIDADE DO TESTE DE CONHECIMENTO TÁTICO PROCESSUAL - TCTP-OE - Greco et al. (2015).pdf
+       <- MET. 3.pdf
+165. EVOLUTION OF PLAYING STYLES IN UEFA EUROPEAN CHAMPIONSHIPS - TRENDS FROM 2012 TO 2024 (2025).pdf
+       <- Evolution of playing styles in UEFA European championships- trends from 2012 to 2024.pdf
+166. EXAMINING HOW DATA BECOMES INFORMATION FOR AN UPCOMING OPPONENT IN FOOTBALL - Mehta et al. (2023).pdf
+       <- mehta-et-al-2023-examining-how-data-becomes-information-for-an-upcoming-opponent-in-football.pdf
+167. EXISTE RELAÇÃO ENTRE A QUALIDADE DAS AÇÕES TÁTICAS E O NÚMERO DE ACELERAÇÕES E DESACELERAÇÕES - Dambroz et al. (2018).pdf
+       <- 2018-Dambrozetal-Existerelaoentreaqualidadedasaestticaseonmerodeaceleraesedesaceleraesdejogadoresdefutebol.pdf
+168. EXPLICANDO O JOGO DE POSIÇÃO - Andrade (2017).pdf
+       <- EXPLICANDO O 'JOGO DE POSIÇÃO'.pdf
+169. FIFA WORLD CUP 2026 - PERFORMANCE UNDER PRESSURE - SCIENTIFIC GUIDELINES - Chmura, Gabbett et al. (2025).pdf
+       <- Chmura Gabbettetal 2025 FootballWorldCupeditorial FootballStudies.pdf
+170. FLEXIBLE DEFENSE SUCCEEDS CREATIVE ATTACKS - SIMULATION BASED ON POSITION DATA - Memmert, Imkamp e Perl (2021).pdf
+       <- Flexible Defense Succeeds Creative Attacks-A Simul.pdf   (vem de: Estudos/Neurociência)
+171. FOOTBALL - A CONSTRAINTS-LED APPROACH (PORTUGAL) - Ribeiro et al. (2025) (capítulo).pdf
+       <- Football AConstraints-LedApproach.pdf
+172. FORMAR O TREINADOR E O JOGADOR NAS CATEGORIAS DE BASE DO FUTEBOL - Bettega et al. (2019).pdf
+       <- 2019Bettegaetal Formartreinadoresejogadoresnascategoriasdebase.pdf
+173. FORMAÇÃO DE ATLETAS NA CATEGORIA SUB-13 EM UM CLUBE DE GOIÂNIA - ESTUDO DE CASO (2023).pdf
+       <- evando,+Artigo+14^J+FUT^J+v.+27^J+n.+1^J+2023+-+pronto+publicação.pdf
+174. FOUNDATIONS OF SMALL-SIDED GAMES - Clemente, Petiot e Coutinho (2025).pdf
+       <- ClementePetiotCoutinho-C1FoundationsofSSG.pdf   (vem de: Estudos/A classificar)
+175. FRONTIERS IN PHYSIOLOGY 15-1341791 - Branquinho et al. (2024).pdf
+       <- fphys-15-1341791.pdf
+176. FUTEBOL - REFERÊNCIAS PARA A ORGANIZAÇÃO DO JOGO - Quina (2001).pdf
+       <- 59 - Futebol - referências sobre a organização do jogo.pdf
+177. FUTEBOL E SEUS CONTEXTOS - Oliveira e Haiachi (2023) (livro).pdf
+       <- DTP FutebolSeusContextos Digital.pdf
+178. HOW DO ELITE SOCCER TEAMS PERFORM TO BALL RECOVERY - Fernandes et al. (2020).pdf
+       <- artigo recup posse de bola.pdf
+179. HOW DO YOUNG SOCCER PLAYERS TRAIN - 5-YEAR ANALYSIS OF WEEKLY TRAINING LOAD IN AN ELITE YOUTH ACADEMY (2024).pdf
+       <- How Do Young Soccer Players Train A 5-Year Analysis of Weekly Training Load and its Variability Between Age Groups in an Elite Youth Academy.pdf
+180. HOW DOES THE ADJUSTMENT OF TRAINING TASK DIFFICULTY LEVEL INFLUENCE TACTICAL BEHAVIOR IN SOCCER (2019).pdf
+       <- HowDoestheAdjustmentofTrainingTaskDifficultyLevelInfluenceTacticalBehaviorinSoccer-1.pdf
+181. HOW DOES THE ADJUSTMENT OF TRAINING TASK DIFFICULTY LEVEL INFLUENCE TACTICAL BEHAVIOR IN SOCCER - Machado et al. (2019).pdf
+       <- machado2019.pdf
+182. IDENTIFICATION OF PATTERNS IN OFFENSIVE SEQUENCES THAT END IN A GOAL IN EUROPEAN FUTSAL - Murillo et al. (2021).pdf
+       <- fpsyg-12-578332.pdf
+183. IDENTIFICAÇÃO E ANÁLISE DE PADRÕES DE CIRCULAÇÃO DA BOLA NO FUTEBOL - Seabra (2010) (dissertação).pdf
+       <- Mestrado FernandoSeabra.pdf
+184. IMPACT OF IMPLICIT VS EXPLICIT INSTRUCTIONS ON TACTICAL PERFORMANCE IN UNDER-20 SOCCER PLAYERS - Abreu et al. (2024).pdf
+       <- fspor-06-1441125.pdf
+185. IMPACT OF THE NUMBER OF PLAYERS ON CREATIVE MOVEMENTS IN SMALL-SIDED SOCCER GAMES - Ueda et al. (2023).pdf
+       <- Impact of the number of players on the emergence o.pdf
+186. INCREASING UNCERTAINTY IMPROVES REPRESENTATIVE DESIGN OF PASSING PRACTICE TASKS - Travassos et al. (2012).pdf
+       <- Travassosetal 2012 Representativedesign JSS.pdf
+187. INFLUENCE OF SCORING MODE AND AGE GROUP ON PASSING ACTIONS DURING SMALL-SIDED GAMES - Almeida et al. (2017).pdf
+       <- Almeidaetal.2017.pdf
+188. INFLUÊNCIA DO RESULTADO MOMENTÂNEO NA AMPLITUDE E PROFUNDIDADE DA CIRCULAÇÃO DA BOLA EM PEQUENOS JOGOS (2019).pdf
+       <- 2019-Ainfluencianoresultadomomentaneodapartidanaamplitudeeprofundidadedacirculacaodabolaempequenosjogosnofutebl.pdf
+189. INICIAÇÃO E FORMAÇÃO DE ATLETAS EM FUTSAL - DESENVOLVIMENTO TÉCNICO-TÁTICO - RBFF (2016).pdf
+       <- Dialnet-IniciacaoEFormacaoDeAtletasEmFutsalDesenvolvimento-5712054.pdf
+190. INICIAÇÃO E FORMAÇÃO DE ATLETAS EM FUTSAL - DESENVOLVIMENTO TÉCNICO-TÁTICO - Watrick (2016).pdf
+       <- Watrick_2016_INICIACAO E FORMACAO DE ATLETAS EM FUTSAL  DESENVOLVIMENTO TECNICO TATICO E METODOLOGIAS DE ENSINO.pdf
+191. JOGOS REDUZIDOS COMO HÓLONS NO FUTEBOL - ABORDAGEM SISTÊMICA HIERÁRQUICA - Reis (2021).pdf
+       <- JOGOS REDUZIDOS MARCOS REIS.pdf
+192. JOGOS REDUZIDOS DE FUTSAL - COM E SEM LIMITAÇÃO DE PASSES (2021).pdf
+       <- JOGOS COM X SEM LIMITAÇÃO DE PASSES.pdf
+193. JOGOS REDUZIDOS E APRENDIZAGEM NO FUTSAL - Novaes (2022) (tese).pdf
+       <- JOGOS REDUZIDOS E APRENDIZAGEM NO FUTSAL.pdf
+194. LA PLANIFICACIÓN FUTBOLÍSTICA ESPAÑOLA (2018).pdf
+       <- La planificacion futbolistica española.pdf · versión 1.pdf   (vem de: Estudos/A classificar)
+195. LICENÇA C - TREINADOR DE FUTEBOL (2025).pdf
+       <- 1737553639541LIC C TREINADOR DE FUTEBOL.pdf
+196. LONG-TERM PRACTICE WITH DOMAIN-SPECIFIC TASK CONSTRAINTS INFLUENCES PERCEPTUAL SKILLS - Oppici et al. (2017).pdf
+       <- fpsyg-08-01387.pdf
+197. MATCH ANALYSIS IN TEAM BALL SPORTS - AN UMBRELLA REVIEW - Sarmento et al. (2022).pdf
+       <- Match Analysis in Team Ball Sports An Umbrella Review of Systematic Reviews and Meta-Analyses.pdf
+198. MATCH ANALYSIS IN TEAM BALL SPORTS - AN UMBRELLA REVIEW - Sarmento et al. (2022).pdf
+       <- s40798-022-00454-7.pdf
+199. METODOLOGÍA - CUADERNO TÁCTICO - González Fuster (2016).pdf
+       <- Metodología Cuaderno táctico.pdf
+200. MODELO DE JOGO E PROCESSO DE ENSINO NO FUTEBOL - PRINCÍPIOS GLOBAIS E ESPECÍFICOS - Casarin et al. (2011).pdf
+       <- Modelo de jogo e proc. de ensino.pdf
+201. MODELO DE JOGO, ESTRATÉGIA, ESTILO E TÁTICA DE JOGO - CONCEPÇÕES PARA COMPREENDER O JOGO ESPORTIVO (2022).pdf
+       <- CONCEITOS MODELO DE JOGO....pdf
+202. MONITORING AND BEHAVIOR OF BIOMOTOR SKILLS IN FUTSAL ATHLETES DURING A SEASON - Oliveira et al. (2021).pdf
+       <- fpsyg-12-661262.pdf
+203. NIÑOS, APRENDIZAJE Y FÚTBOL - HACIA UN COMPROMISO SALUDABLE - Garganta (2006).pdf
+       <- niosaprendizajeyftbolhaciauncompromisosaludable-110117041103-phpapp01.pdf
+204. O ACTO TÁCTICO NO JOGO (2011).pdf
+       <- o-acto-tc3a1tico-no-jogo.pdf   (vem de: Estudos/A classificar)
+205. O EFEITO DE JOGOS SUCESSIVOS NOS PARÂMETROS DE DESEMPENHO FÍSICO DE JOVENS JOGADORES - Zanetti (2018) (dissertação).pdf
+       <- EFEITOS DOS JOGOS SUCESSIVOS.pdf
+206. O ENSINO DO FUTEBOL - IDEIAS, FUNDAMENTOS E PRÁTICAS - Garganta et al. (2014).pdf
+       <- O-ensino-do-futebol JULIO GARGANTA.pdf
+207. O ENSINO DOS JOGOS ESPORTIVOS COLETIVOS - AVANÇOS METODOLÓGICOS - Galatti et al. (2017).pdf
+       <- AVANÇOS ENSINO DOS JEC ARTIGO 2017.pdf
+208. O ENSINO DOS JOGOS ESPORTIVOS COLETIVOS - COMPETÊNCIAS ESSENCIAIS E LÓGICA DO JOGO - Scaglia et al. (2013).pdf
+       <- ARTIGO BOM SOBRE JOGO- BUSCAR ASSOCIAÇÕES C NEURO.pdf   (vem de: Estudos/Neurociência)
+209. O ENSINO DOS JOGOS ESPORTIVOS COLETIVOS - COMPETÊNCIAS ESSENCIAIS E LÓGICA DO JOGO - Scaglia et al. (2013).pdf
+       <- LÓGICA DO JOGO DE FUTEBOL.pdf
+210. O ENSINO DOS JOGOS ESPORTIVOS COLETIVOS - COMPETÊNCIAS ESSENCIAIS E LÓGICA DO JOGO - Scaglia et al. (2013).pdf
+       <- scaglia jogos coletivos.pdf
+211. O PAPEL FUNDAMENTAL DO CONTEXTO NO TREINAMENTO DE ESPORTES COLETIVOS - Petiot et al. (2024) [PT].pdf
+       <- papel do contexto ativ 1.pdf
+212. O VALOR DA PRÁTICA COM E SEM OPOSIÇÃO - DINÂMICA ECOLÓGICA (2025) [PT].pdf
+       <- ThevalueofopposedandunopposedpracticeAnecologicaldynamicsrationaleforskilldevelopment (1) (1).pdf
+213. OBSERVATIONAL RESEARCH IN FOOTBALL - FOUNDATIONS, PERFORMANCE ANALYSIS AND PURPOSEFUL USE OF AI - Praça et al. (2025).pdf
+       <- 2025.Observationalresearchinfootball.FoundationsperformanceanalysisandpurposefuluseofAI.Praa.pdf
+214. OPTIMIZATION OF GAME FORMATS IN U-10 SOCCER USING LOGISTIC REGRESSION ANALYSIS - Amatria et al. (2016).pdf
+       <- Amatria et al..pdf
+215. OTIMIZAÇÃO DOS FORMATOS DE JOGO NO FUTEBOL SUB-10 - Amatria et al. (2016) [PT].pdf
+       <- Amatria et al..pdf   (vem de: Estudos/Aprendizagem Motora)
+216. PEQUENOS JOGOS NO FUTEBOL - PRINCÍPIOS TÁTICOS EM SUPERIORIDADE NUMÉRICA - Praça, Teoldo e Greco (2018).pdf
+       <- 170204-Textodoartigo-418475-1-10-20200705.pdf
+217. PERCEPTUAL-COGNITIVE EXPERTISE IN SPORT - A META-ANALYSIS - Mann et al. (2007).pdf
+       <- mannetal2007metajsep.pdf
+218. POSITIONING TO WIN - KEY POSITION-BASED PERFORMANCE INDICATORS IN ELITE SOCCER - Praça et al. (2024).pdf
+       <- praca-et-al-2024-positioning-to-win-key-position-based-performance-indicators-in-elite-soccer.pdf
+219. PRINCÍPIOS TÁTICOS DO JOGO DE FUTEBOL - CONCEITOS E APLICAÇÃO - Teoldo, Garganta e Greco (2009).pdf
+       <- motrizef,+ITC form.pdf
+220. PROPOSTA DE AVALIAÇÃO DO COMPORTAMENTO TÁTICO BASEADA EM PRINCÍPIOS FUNDAMENTAIS DO JOGO - Teoldo, Garganta e Greco (2011).pdf
+       <- AVALIAÇÃO COMP TÁTICO ARTIGO.pdf
+221. PROPOSTA DE SISTEMATIZAÇÃO DO ENSINO DO FUTEBOL BASEADA EM JOGOS - 10 A 11 ANOS (2015).pdf
+       <- SISTEMATIZAÇÃO ENSINO TÁTICO 10-11 ANOS.pdf
+222. QUANTIFYING WITHIN-MATCHES TACTICAL BEHAVIORS USING POSITION DATA - THE EFFECT OF GOAL SCORING - Praça et al. (2024).pdf
+       <- Praa 2024 Kinesiology.pdf
+223. RE-FRAMING PERFORMANCE ANALYSIS FROM AN ECOLOGICAL DYNAMICS PERSPECTIVE (2025).pdf
+       <- Re-FramingPerformanceAnalysisinSportScienceandPsychologyfromanEcologicalDynamicsPerspective-TowardaCorresponsiveRelationalandCulturallySituatedPractice.pdf
+224. RELATÓRIO DE JOGO WYSCOUT - MIRASSOL 3X0 SÃO PAULO - PAULISTA (2026-01-12).pdf
+       <- Mirassol - São Paulo 3-0.pdf   (vem de: Estudos/A classificar)
+225. REVISTA CINERGIS - ARTIGO (2014).pdf
+       <- 4935-Texto do Artigo-23300-1-10-20150104.pdf
+226. SEARCHING FOR MEMORIES - NARRATIVES - Retos (2024).pdf
+       <- Dialnet-SearchingForMemories-9287283.pdf
+227. SELF-REPORTED VISUAL SYMPTOMS AND HIGH VISUAL DEMAND ACTIVITIES IN PROFESSIONAL FOOTBALL PLAYERS - Jorge et al. (2023) [PT].pdf
+       <- comportamento visual futebol.pdf
+228. SELF-REPORTED VISUAL SYMPTOMS AND HIGH VISUAL DEMAND ACTIVITIES IN PROFESSIONAL FOOTBALL PLAYERS - Jorge et al. (2023) [PT].pdf
+       <- fspor-05-1256847 (1) (1).pdf   (vem de: Estudos/Aprendizagem Motora)
+229. SELF-REPORTED VISUAL SYMPTOMS AND HIGH VISUAL DEMAND ACTIVITIES IN PROFESSIONAL FOOTBALL PLAYERS - Jorge et al. (2023) [PT].pdf
+       <- fspor-05-1256847 (1).pdf   (vem de: Estudos/Aprendizagem Motora)
+230. SELF-REPORTED VISUAL SYMPTOMS AND HIGH VISUAL DEMAND ACTIVITIES IN PROFESSIONAL FOOTBALL PLAYERS - Jorge et al. (2023).pdf
+       <- fspor-05-1256847.pdf
+231. SISTEMA INTELIGENTE DE APOIO À DECISÃO TÁTICA NO FUTEBOL (2025).pdf
+       <- Sistema inteligente de apoio a decisao tatica no f.pdf
+232. SITUATION AWARENESS - SENSEMAKING AND DECISION MAKING IN PHYSICAL ACTIVITIES - Godbout (2023).pdf
+       <- RGPublishedinAJSPOSituationAwareness.pdf
+233. SKILL-RELATED STUDIES FROM YOUTH TO HIGH-PERFORMANCE FOOTBALL - A SCOPING REVIEW - Sarajärvi et al. (2023).pdf
+       <- Sarajrvietal.2023 Skill-relatedstudiesfromyouthtohigh-performancefootball-ascopingreview.pdf   (vem de: Estudos/Aprendizagem Motora)
+234. SPACE AND PLAYERS' NUMBER CONSTRAINS THE LOAD DEMANDS IN YOUTH FUTSAL - Gomes, Travassos et al. (2024).pdf
+       <- fspor-06-1376024.pdf
+235. SPORT PEDAGOGY IN PLAYED-FORM PRACTICE IN SOCCER - CONTENTS AND CONTEXTS (2024).pdf
+       <- Sportpedagogyinplayed-formpracticeinsoccerthearticulationbetweencontentsandcontexts.pdf
+236. SPORT PRACTITIONERS AS SPORT ECOLOGY DESIGNERS - Woods et al. (2020).pdf
+       <- Sport Practitioners as Sport Ecology Designers How.pdf
+237. SPORT PRACTITIONERS AS SPORT ECOLOGY DESIGNERS - Woods et al. (2020).pdf
+       <- fpsyg-11-00654.pdf
+238. TACTICAL ANALYSIS ACCORDING TO AGE-LEVEL GROUPS DURING A 4 VS 4 PLUS GOALKEEPERS SMALL-SIDED GAME - Clemente, Castillo e Los Arcos (2020).pdf
+       <- 2020 Clemente Castillo Arcos.pdf
+239. TACTICAL BEHAVIOUR OF YOUTH SOCCER PLAYERS - TASK CONSTRAINT MODIFICATION, AGE AND SKILL LEVEL - Machado et al. (2020).pdf
+       <- 2020Machadoetal TacticalBehaviourofYouthSoccerPlayers-DifferencesDependingonTaskConstraintModificationAgeandSkillLevel.pdf
+240. TALENT DEVELOPMENT IN SPORT REQUIRES ATHLETE ENRICHMENT - NONLINEAR PEDAGOGY AND ATHLETIC SKILLS MODEL (2021).pdf
+       <- Talent Development in Sport Requires Athlete Enric.pdf
+241. TALENTO, CÉREBRO E DECISÃO NO FUTEBOL.pdf
+       <- Talento Cérebro Decisão Futebol.pdf
+242. TEAM DECISION-MAKING BEHAVIOR - AN ECOLOGICAL DYNAMICS APPROACH - Araújo et al. (2022).pdf
+       <- 1-s2.0-S2667239122000570-main.pdf
+243. TEAM SYNERGIES IN SPORT - THEORY AND MEASURES - Araújo e Davids (2016).pdf
+       <- SINERGIAS GRUPAIS.pdf
+244. TEAM SYNERGIES IN SPORT - THEORY AND MEASURES - Araújo e Davids (2016).pdf
+       <- fpsyg-07-01449.pdf
+245. TEMPO DE POSSE DE BOLA INDIVIDUAL - RBFF (2022).pdf
+       <- francisco,+FF 720 N54V13 392-401.pdf
+246. TEMPO DOS RALLYS NO FUTSAL E SEU VIÉS FISIOLÓGICO (2022).pdf
+       <- FUTSAL TEMPO DE RALLY.pdf
+247. TESTE DE CONHECIMENTO TÁTICO DECLARATIVO PARA O LEVANTADOR DE VOLEIBOL - Matias e Greco (2009).pdf
+       <- 162-AOTeste de conhecimento tatico do levantador de voleibol.pdf
+248. THE ASSOCIATION BETWEEN PERCEPTUAL-COGNITIVE PROCESSES AND RESPONSE TIME IN DECISION MAKING - Cardoso et al. (2021).pdf
+       <- TOMADA DE DECISÃO.pdf
+249. THE CONSTRAINT-LED APPROACH TO ENHANCING TEAM SYNERGIES IN SPORT - Ramos et al. (2020).pdf
+       <- artigo keith davids.pdf
+250. THE CONTRIBUTION OF PERCEPTUAL AND COGNITIVE SKILLS IN ANTICIPATION PERFORMANCE - Casanova et al. (2014).pdf
+       <- IJSS Casanovaetal..pdf
+251. THE ECOLOGICAL AND COGNITIVE APPROACHES TO DECISION MAKING IN FOOTBALL AND FUTSAL - RBFF (2021) [PT].pdf
+       <- Tom. de decisao futebol e fustsal (1).pdf
+252. THE ECOLOGICAL AND COGNITIVE APPROACHES TO DECISION MAKING IN FOOTBALL AND FUTSAL - RBFF (2021).pdf
+       <- Tom. de decisao futebol e fustsal.pdf
+253. THE ECOLOGICAL DYNAMICS OF COGNIZANT ACTION IN SPORT - Araújo et al. (2025).pdf
+       <- Arajo et al 2025.pdf
+254. THE ECOLOGICAL DYNAMICS OF COGNIZANT ACTION IN SPORT - Araújo et al. (2025).pdf
+       <- DINÂMICA ECOLOGICA DA AÇÃO CONSCIENTE.pdf
+255. THE ECOLOGICAL DYNAMICS OF COGNIZANT ACTION IN SPORT - Araújo et al. (2025).pdf
+       <- Ecological dynamics of cognizant action.pdf
+256. THE EFFECTS OF PHYSIOLOGICAL DEMANDS ON VISUAL SEARCH BEHAVIOURS DURING 2 VS 1 + GK - Casanova et al. (2022).pdf
+       <- BUSCA VISUAL 2X1.pdf
+257. THE ENJOYMENT OF SMALL-SIDED GAMES - A NARRATIVE REVIEW - Clemente et al. (2025).pdf
+       <- The enjoyment of small-sided games a narrative rev.pdf
+258. THE GAZE BEHAVIOURS AND DEFENSIVE TACTICAL PERFORMANCE OF FOOTBALL PLAYERS DURING SMALL-SIDED GAMES - Casanova et al. (2022).pdf
+       <- 3.5.1.25 Casanovaetal..pdf
+259. THE INFLUENCE OF FIELD ORIENTATION ON POSITIONAL DYNAMICS IN SOCCER SMALL-SIDED GAMES - Couto et al. (2024).pdf
+       <- The influence of the field orientation on the repr.pdf
+260. THE KEY ROLE OF CONTEXT IN TEAM SPORTS TRAINING - THE VALUE OF PLAYED-FORM ACTIVITIES - Petiot et al. (2023).pdf
+       <- The key role of context in team sports training Th.pdf
+261. THE KEY ROLE OF CONTEXT IN TEAM SPORTS TRAINING - THE VALUE OF PLAYED-FORM ACTIVITIES - Petiot et al. (2023).pdf
+       <- petiot-et-al-2023-the-key-role-of-context-in-team-sports-training-the-value-of-played-form-activities-in-practice.pdf   (vem de: Estudos/Aprendizagem Motora)
+262. THE RELATIVE AGE EFFECT IN YOUTH SOCCER ACROSS EUROPE - Helsen et al. (2005).pdf
+       <- RelativeAgeEffectSportsHelsenEtAl 2005.pdf
+263. THE ROLE OF ECOLOGICAL DYNAMICS IN ANALYSING PERFORMANCE IN TEAM SPORTS - Vilar et al. (2012).pdf
+       <- Vilar SM 2012.pdf   (vem de: Estudos/A classificar)
+264. THE SCOPE OF INTENTIONALITY SUPPORTING THE DESIGN OF PLAYED-FORM PRACTICE IN SOCCER - Petiot et al. (2025).pdf
+       <- petiotetal2025.pdf
+265. THE SPAWNS OF CREATIVE BEHAVIOR IN TEAM SPORTS - A CREATIVITY DEVELOPMENTAL FRAMEWORK - Santos et al. (2016).pdf
+       <- OS FRUTOS DO COMPORTAMENTO CRIATIVO EM ESPORTES COLETIVOS.pdf
+266. THE SPAWNS OF CREATIVE BEHAVIOR IN TEAM SPORTS - A CREATIVITY DEVELOPMENTAL FRAMEWORK - Santos et al. (2016).pdf
+       <- fpsyg-07-01282.pdf
+267. THE VALUE OF OPPOSED AND UNOPPOSED PRACTICE - AN ECOLOGICAL DYNAMICS RATIONALE FOR SKILL DEVELOPMENT (2025).pdf
+       <- ThevalueofopposedandunopposedpracticeAnecologicaldynamicsrationaleforskilldevelopment.pdf
+268. THERE IS NO COPY AND PASTE BUT THERE IS RESONATION AND INHABITATION - PLAYER DEVELOPMENT FRAMEWORK (2025) [PT].pdf
+       <- There is no copy and paste but there is resonation and inhabitation Integrating a contemporary player development framework in football from a compl (2).pdf
+269. THERE IS NO COPY AND PASTE BUT THERE IS RESONATION AND INHABITATION - PLAYER DEVELOPMENT FRAMEWORK (2025).pdf
+       <- There is no copy and paste but there is resonation and inhabitation Integrating a contemporary player development framework in football from a compl.pdf
+270. TIME SCALES FOR EXPLORATORY TACTICAL BEHAVIOUR IN FOOTBALL SMALL-SIDED GAMES - Ric et al. (2016).pdf
+       <- ric accepted time scales football (1).pdf
+271. TIME SCALES FOR EXPLORATORY TACTICAL BEHAVIOUR IN FOOTBALL SMALL-SIDED GAMES - Ric et al. (2016).pdf
+       <- ric accepted time scales football.pdf
+272. TREINAMENTO BARCELONA - APUNTS EDUCACIÓN FÍSICA Y DEPORTES 142 (2020).pdf
+       <- TREINAMENTO BARCELONA.pdf   (vem de: Estudos/Fisiologia e Treinamento)
+273. TREINANDO POR MEIO DE JOGOS NO FUTEBOL E NO FUTSAL - Aquino e Machado (2021) (capítulo 5).pdf
+       <- Capitulo5.JogosReduzidoscomomeiodetreinamentonoFuteboleFutsal.pdf
+274. UEFA CHAMPIONS LEAGUE TECHNICAL REPORT 2024-25 (comprimido).pdf
+       <- UCL Technical-Report 2025 DIGITAL compressed compressed (1).pdf
+275. UEFA CHAMPIONS LEAGUE TECHNICAL REPORT 2024-25 (comprimido).pdf
+       <- UCL Technical-Report 2025 DIGITAL compressed compressed.pdf
+276. UEFA CHAMPIONS LEAGUE TECHNICAL REPORT 2024-25 (comprimido).pdf
+       <- UCL Technical-Report 2025 DIGITAL compressed.pdf
+277. UEFA CHAMPIONS LEAGUE TECHNICAL REPORT 2024-25 (comprimido, páginas removidas).pdf
+       <- UCL Technical-Report 2025 DIGITAL compressed compressed removed.pdf
+278. UEFA CHAMPIONS LEAGUE TECHNICAL REPORT 2024-25.pdf
+       <- UCL Technical-Report 2025 DIGITAL.pdf
+279. UNDERSTANDING SKILLED ADAPTIVE BEHAVIOR - ROLE OF ACTION AND PERCEPTION - Seifert, Araújo e Davids (2022).pdf
+       <- Seifert Araujo Davids PDF.pdf
+280. WAYFINDING - ECOLOGICAL PERSPECTIVES OF NAVIGATING DYNAMIC ENVIRONMENTS - Woods et al. (2020).pdf
+       <- Woodsetal.2020 Wayfinding.pdf
+281. WHAT TO LOOK FOR IN SETTING SPORTS TRAINING TASKS FOR YOUNG PLAYERS - NUMERICAL CONFIGURATION AND COURT SIZE (2023).pdf
+       <- WhattolookforinsettingsportstrainingtasksforyoungplayersAnalysisofthenumericalconfigurationofplayersandcourtsizeconstraintson.pdf
+282. YOU'LL NEVER WALK ALONE - A COOPERAÇÃO COMO PARADIGMA DAS DINÂMICAS NO FUTEBOL (2013).pdf
+       <- artigo cooperação futebol.pdf
+
+=== Estudos/Inglês  (3) ===
+283. INGLÊS - 20 QUESTIONS - ENGLISH EVALUATION.pdf
+       <- 20 questions, english evaluation..pdf
+284. INGLÊS - ENGLISH QUESTIONS VARIETY.pdf
+       <- english questions variety.pdf
+285. INGLÊS - PRESENT CONTINUOUS - MRS CURIOUS - READING COMPREHENSION.pdf
+       <- present continuous tense mrs curious esl reading comprehension exercises worksheet.pdf
+
+=== Estudos/Neurociência  (93) ===
+286. 16TH EUROPEAN CONGRESS OF SPORT AND EXERCISE PSYCHOLOGY - SYMPOSIA (2022).pdf
+       <- symposia.pdf   (vem de: Estudos/Aprendizagem Motora)
+287. A CONSTRUÇÃO DA ATENÇÃO A PARTIR DA MEMÓRIA - Helene e Xavier (2003).pdf
+       <- atenção e memoria artigo.pdf
+288. A EVOLUÇÃO DO CÉREBRO - SISTEMA NERVOSO, PSICOLOGIA E PSICOPATOLOGIA - Dalgalarrondo (2011).pdf
+       <- A Evolução do Cérebro Sistema Nervoso, Psicologia e -- Paulo Dalgalarrondo -- 2011 -- Artmed -- 9788582711736.pdf
+289. A IMPORTÂNCIA DA NEUROCIÊNCIA PARA O ESPORTE COLETIVO - UMA REVISÃO NARRATIVA (2017).pdf
+       <- NEUROCIÊNCIA NOS JEC.pdf
+290. A IMPORTÂNCIA DO EXERCÍCIO FÍSICO PARA NEUROPLASTICIDADE E APRENDIZADO (2019).pdf
+       <- IMPORTANCIA DO EXERCICIO PARA A NEUROCPLASTICIDADE.pdf
+291. A NEUROCIÊNCIA E AS METODOLOGIAS DINÂMICAS PARA ALUNOS COM DÉFICIT COGNITIVO (2024).pdf
+       <- ARTIGO QUE POUCO RELACIONA NEUROCIENCIA E LUDICIDADE.pdf
+292. ADAPTIVE CODING OF REWARD VALUE BY DOPAMINE NEURONS - Tobler et al. (2005).pdf
+       <- 10090369221 1738160510456.pdf
+293. ADDICTION - BEYOND DOPAMINE REWARD CIRCUITRY - Volkow et al. (2011).pdf
+       <- 5944396394 1733938029227.pdf
+294. APRESENTAÇÃO - NEUROCIÊNCIA APLICADA AO MOVIMENTO HUMANO - Gabriel Vitor (2026).pdf
+       <- Apresentação - Neurociência Aplicada ao Movimento Humano.pdf
+295. AS BASES BIOLÓGICAS DO COMPORTAMENTO - INTRODUÇÃO À NEUROCIÊNCIA - Brandão (2008).pdf
+       <- As Bases Biológicas do comportamento - Introdução à Neurociência - Marcus Lira Brandão.pdf
+296. ASKING THE RIGHT QUESTIONS - PARADIGMS USED TO INVESTIGATE INTERACTIONS - Kalra et al. (2024).pdf
+       <- fcogn-1-1505513.pdf   (vem de: Estudos/Aprendizagem Motora)
+297. BE SMART, EXERCISE YOUR HEART - EXERCISE EFFECTS ON BRAIN AND COGNITION - Hillman, Erickson e Kramer (2008).pdf
+       <- 2541207486 1733939960615.pdf
+298. BEYOND THE COMPUTER BRAIN IN SPORT.pdf
+       <- Beyond The Computer Brain In Sport.pdf
+299. BRAIN ACTIVATION DURING THE OBSERVATION - Rominger, Koschutnig et al. (2021).pdf
+       <- RomingerKoschutnigetal.2021-Brainactivationduringtheobservation.pdf
+300. BRAIN FUNCTIONAL TRAINING - FRONTIERS IN AGING (2024) [PT].pdf
+       <- Paper published Frontiers in Aging, Brain Functional Training , 2024 (1).pdf
+301. BRAIN FUNCTIONAL TRAINING - FRONTIERS IN AGING (2024).pdf
+       <- Paper published Frontiers in Aging, Brain Functional Training , 2024.pdf
+302. CHARACTERISTICS OF BRAIN ACTIVATION IN HIGH-LEVEL FOOTBALL PLAYERS DURING DECISION-MAKING - Huang et al. (2023).pdf
+       <- fnhum-17-1189841.pdf
+303. COGNITION IN ELITE SOCCER PLAYERS - A GENERAL MODEL - Habekost et al. (2024).pdf
+       <- Cognition in elite soccer players a general model.pdf
+304. COGNITIVE FUNCTIONS AND SPECIAL WORKING CAPACITY IN ELITE BOXERS - Korobeynikov et al. (2023).pdf
+       <- Cognitive functions and special working capacity i.pdf
+305. COMPORTE-SE - A BIOLOGIA HUMANA EM NOSSO MELHOR E PIOR - Sapolsky.pdf
+       <- Robert M. Sapolsky - Comporte-se - A biologia humana em nosso melhor e pior (Em Portugues do Brasil).pdf
+306. CONSENSUS PAPER - THE CEREBELLUM'S ROLE IN MOVEMENT AND COGNITION - Koziol et al. (2014).pdf
+       <- MCER2013Koziol.pdf
+307. CONSIDERAÇÕES SOBRE A EVOLUÇÃO FILOGENÉTICA DO SISTEMA NERVOSO E A CONSCIÊNCIA (2006).pdf
+       <- evolução filogenética sistema nervoso.pdf
+308. COORDENAÇÃO MOTORA E FUNÇÕES EXECUTIVAS - POSSÍVEIS ASSOCIAÇÕES - Nava, Zacaron et al. (2021).pdf
+       <- 12322-Texto do artigo-64351-1-10-20221020.pdf
+309. CORTICAL DYNAMICS AND DECISION-MAKING STRATEGIES IN HUMAN WAYFINDING - AN EEG STUDY - Huang et al. (2025).pdf
+       <- Cortical dynamics are differentially associated wi.pdf
+310. CREATIVITY IN MOTION - MEANINGFUL MOVEMENT AND CREATIVE COGNITION - Frith et al. (2024).pdf
+       <- fcogn-03-1386375.pdf
+311. DESENVOLVIMENTO INFANTIL E PLASTICIDADE CEREBRAL - A IMPORTÂNCIA DOS PRIMEIROS ANOS (2025).pdf
+       <- DESENVOLVIMENTO INFANTIL E PLASTICIDADE CEREBRAL A.pdf
+312. DUAL-PROCESSING ACCOUNTS OF REASONING, JUDGMENT, AND SOCIAL COGNITION - Evans (2008).pdf
+       <- 9633087190 1733938036882.pdf
+313. DYNAMIC MAPPING OF HUMAN CORTICAL DEVELOPMENT DURING CHILDHOOD THROUGH EARLY ADULTHOOD - Gogtay et al. (2004).pdf
+       <- 8271515499 1733860360733.pdf
+314. EARLIER DEVELOPMENT OF THE ACCUMBENS RELATIVE TO ORBITOFRONTAL CORTEX - RISK-TAKING IN ADOLESCENTS - Galvan et al. (2006).pdf
+       <- 10182305259 1733860369336.pdf
+315. EARLY INFANT PREFRONTAL GRAY MATTER VOLUME AND INFANT EMOTIONALITY - Zhang et al. (2023).pdf
+       <- 4865825142 1733511782661.pdf
+316. EFEITO DA PRÁTICA DO FUTEBOL NAS FUNÇÕES EXECUTIVAS DE CRIANÇAS (2021).pdf
+       <- FUTEBOL E FUNÇÕES EXECUTIVAS.pdf
+317. EFFICIENT FOOT MOTOR CONTROL BY NEYMAR'S BRAIN - Naito e Hirose (2014).pdf
+       <- ARTIGO PÉ DO NEYMAR.pdf
+318. EFFICIENT FOOT MOTOR CONTROL BY NEYMAR'S BRAIN - Naito e Hirose (2014).pdf
+       <- fnhum-08-00594.pdf
+319. EL ESTUDIO DE LA COGNICIÓN - HACIA UNA PERSPECTIVA CORPORIZADA - Espinel Quirós et al. (2024).pdf
+       <- flexib cognitiva.pdf
+320. EMBODIED COGNITION PERSPECTIVES WITHIN EARLY EXECUTIVE FUNCTION DEVELOPMENT - Pearce et al. (2025).pdf
+       <- fcogn-2-1361748.pdf
+321. EMBODIED COGNITION WITH AND WITHOUT MENTAL REPRESENTATIONS - EMBODIED CHOICES IN SPORTS - Raab (2019).pdf
+       <- COGNIÇÃO RAAB E MARCOS REIS.pdf
+322. EVALUATING WEAKNESSES OF PERCEPTUAL-COGNITIVE TRAINING AND BRAIN TRAINING IN SPORT - Renshaw et al. (2019) [PT].pdf
+       <- Fraquezas do perceptuak cognitive training.pdf
+323. EVALUATING WEAKNESSES OF PERCEPTUAL-COGNITIVE TRAINING AND BRAIN TRAINING IN SPORT - Renshaw et al. (2019).pdf
+       <- Fraquezas do "perceptuak cognitive training.pdf
+324. EXPERTISE AND PERCEPTUAL-COGNITIVE PERFORMANCE IN SOCCER - A REVIEW [PT].pdf
+       <- Expertise and perceptual-cognitive performance in (1).pdf
+325. EXPERTISE AND PERCEPTUAL-COGNITIVE PERFORMANCE IN SOCCER - A REVIEW [PT].pdf
+       <- Expertise and perceptual-cognitive performance in (2).pdf
+326. EXPERTISE AND PERCEPTUAL-COGNITIVE PERFORMANCE IN SOCCER - A REVIEW [PT].pdf
+       <- Expertise and perceptual-cognitive performance in (3).pdf
+327. GERMAN JOURNAL OF EXERCISE AND SPORT RESEARCH - Scharfen et al. (2021).pdf
+       <- s12662-020-00699-y.pdf
+328. IMPACTOS DO USO DE CIGARROS ELETRÔNICOS NA SAÚDE MENTAL, FÍSICA E COMPORTAMENTAL (2025).pdf
+       <- Contrib+046.pdf
+329. JOGOS DIGITAIS E APRIMORAMENTO DO CONTROLE INIBITÓRIO EM CRIANÇAS (2019).pdf
+       <- JOGOS DIGITAIS E CONT. INIBITÓRIO.pdf
+330. KANDEL - JOURNAL OF NEUROSCIENCE 40TH ANNIVERSARY RETROSPECTIVE (2009).pdf
+       <- kandel2009.pdf
+331. LIVRO SPRINGER 978-3-642-75348-0.pdf
+       <- 978-3-642-75348-0.pdf
+332. MECHANISMS OF LEARNING AND PLASTICITY IN CHILDHOOD AND ADOLESCENCE - Fandakova e Hartley (2020).pdf
+       <- mecanismos de neuroplasticidade.pdf
+333. MENTAL FATIGUE AND SPORT - FROM THE LAB TO THE FIELD - Lopes et al. (2023).pdf
+       <- FrontSportsActLiving 2023 EditorialMentalfatigueandsportfromthelabtothefield (1).pdf
+334. MENTAL FATIGUE AND SPORT - FROM THE LAB TO THE FIELD - Lopes et al. (2023).pdf
+       <- FrontSportsActLiving 2023 EditorialMentalfatigueandsportfromthelabtothefield (2).pdf
+335. MENTAL FATIGUE AND SPORT - FROM THE LAB TO THE FIELD - Lopes et al. (2023).pdf
+       <- FrontSportsActLiving 2023 EditorialMentalfatigueandsportfromthelabtothefield.pdf
+336. MIRROR NEURONS AND THEIR CLINICAL RELEVANCE - Rizzolatti, Fabbri-Destro e Cattaneo (2009).pdf
+       <- NatureNP2008.pdf
+337. MOVEMENT MATTERS - DEVELOPMENTAL TRAJECTORY OF EMBODIED PLANNING - Musculus et al. (2021).pdf
+       <- TRAJETÓRIA MOV HUMANO.pdf
+338. NEURO COACHING FRAMEWORK.pdf
+       <- Neuro Coaching Framework.pdf
+339. NEUROCIENCIA APLICADA - Cardinali (2012) (livro).pdf
+       <- Neurociencia Aplicada Cardinali.pdf
+340. NEUROCIÊNCIA E APRENDIZAGEM - Gazarini (2024).pdf
+       <- Neurociência e Aprendizagem.pdf
+341. O FUNCIONAMENTO COGNITIVO DE IDOSOS E ADOLESCENTES NUM CONTEXTO DE JOGO DE REGRAS - Santos, Rossetti e Ortega (2008).pdf
+       <- FUNCIONAMENTO COGNITIVO JOGO IDOSOS E ADOLESCENTES.pdf
+342. O QUE O CÉREBRO TEM PARA CONTAR - Ramachandran (livro).pdf
+       <- O QUE O CEREBRO TEM PARA NOS CONTAR.pdf
+343. PAPEL DAS FUNÇÕES EXECUTIVAS NO ESPORTE - META-ANÁLISE (2025).pdf
+       <- PAPEL DAS FUNÇÕES EXECUTIVAS NO ESPORTE- META ANALISE.pdf
+344. PERCEIVING - Albright (2015).pdf
+       <- percepction.pdf
+345. PERCEPTION - A DYNAMIC INTERPLAY BETWEEN GENETICS AND NEUROPLASTICITY - Proverbio (2022).pdf
+       <- fcogn-01-1004576.pdf
+346. PERCEPTUAL-COGNITIVE PROCESSES UNDERLYING CREATIVE EXPERT PERFORMANCE IN SOCCER - Roca et al. (2021).pdf
+       <- Perceptual-cognitive processes underlying creative.pdf
+347. PERCEPTUAL-COGNITIVE SKILLS AND TALENT DEVELOPMENT ENVIRONMENTS IN SOCCER - A SCOPING REVIEW - Triggs et al. (2025).pdf
+       <- Perceptual-cognitive skills and talent development.pdf
+348. PERFORMANCE AND PHYSICAL ACTIVITY - PLAYFUL ACTIVITIES IN DANISH ESPORTS CLUBS - Østergaard (2024).pdf
+       <- fspor-06-1441607.pdf
+349. POSSIBILIDADES DE APRENDIZAGEM - NEUROCIÊNCIA DO APRENDIZADO E MOTRICIDADE (2015).pdf
+       <- NEUROCIENCIA DO APRENDIZADO E MOTRICIDADE.pdf
+350. PRACTICE ORGANIZATION AND THE LEVEL OF MENTAL EFFORT VIA PUPIL DILATION - Ferreira et al. (2025).pdf
+       <- Practice_organization_and_the_level_of_mental_effo.pdf
+351. PRINCÍPIOS DE NEUROCIÊNCIAS - Kandel et al. (5ª ed.).pdf
+       <- KANDEL - 5Ed, Principios da Neurociencia.pdf
+352. PSIQUIATRIA CLÍNICA - UM GUIA PARA MÉDICOS E PROFISSIONAIS DA SAÚDE MENTAL - Cantilino e Monteiro (2023).pdf
+       <- Psiquiatria Clínica Um Guia para Médicos e Profissionais da Saúde Mental - Amaury Cantilino.pdf
+353. PSIQUIATRIA DO ESTILO DE VIDA - Carvalho, Lafer e Schuch (2022).pdf
+       <- Psiquiatria do Estilo de Vida.pdf
+354. RELAÇÕES ENTRE A AFETIVIDADE E A INTELIGÊNCIA NO DESENVOLVIMENTO MENTAL DA CRIANÇA - Piaget (2017).pdf
+       <- INTERAÇÃO AFETIVIDADE E COGNIÇÃO.pdf
+355. REPLICATION AND ANALYSIS OF EBBINGHAUS' FORGETTING CURVE - Murre e Dros (2015).pdf
+       <- 3723470147 1733925822165.pdf   (vem de: Estudos/Aprendizagem Motora)
+356. RETRIEVAL PRACTICE PRODUCES MORE LEARNING THAN ELABORATIVE STUDYING WITH CONCEPT MAPPING - Karpicke e Blunt (2011).pdf
+       <- 1370434750 1733925834378.pdf
+357. ROBUST PREDICTION OF INDIVIDUAL CREATIVE ABILITY FROM BRAIN FUNCTIONAL CONNECTIVITY - Beaty et al. (2018).pdf
+       <- 4775020567 1733938623521.pdf
+358. RÁPIDO E DEVAGAR - DUAS FORMAS DE PENSAR - Kahneman.pdf
+       <- Rapido-e-Devagar-Daniel-Kahneman.pdf
+359. SEPARATE NEURAL SYSTEMS VALUE IMMEDIATE AND DELAYED MONETARY REWARDS - McClure et al. (2004).pdf
+       <- 2414392833 1733938045276.pdf
+360. STRESS SIGNALLING PATHWAYS THAT IMPAIR PREFRONTAL CORTEX STRUCTURE AND FUNCTION - Arnsten (2009).pdf
+       <- 4814920698 1733940867253.pdf
+361. THE EFFECTS OF ACUTE EXERCISE ON LONG-TERM EPISODIC MEMORY - META-ANALYSIS - Qazi et al. (2024).pdf
+       <- fcogn-03-1367569.pdf
+362. THE EFFECTS OF MENTAL FATIGUE ON ANAEROBIC POWER AND POWER ENDURANCE PERFORMANCE - Gonzalez et al. (2024) [PT].pdf
+       <- The Effects of Mental Fatigue on Anaerobic Power and Power Endurance Performance.pdf
+363. THE FUNCTIONAL BASIS OF FACE EVALUATION - Oosterhof e Todorov (2008).pdf
+       <- 8245858505 1733938457047.pdf
+364. THE IMPACT OF BRAIN FUNCTIONAL CONNECTIVITY IN SOCCER PLAYERS - A RESTING STATE FMRI STUDY (2024).pdf
+       <- The impact of brain functional connecti...er players A resting state fMRI study.pdf
+365. THE IMPORTANCE OF A DEVELOPMENTAL PERSPECTIVE IN PSYCHIATRY - Thapar e Riglin (2020).pdf
+       <- 7772367922 1733508161291.pdf
+366. THE MODEL OF THE BRAIN AS A COMPLEX SYSTEM - Scharfen et al. (2024).pdf
+       <- 1-s2.0-S1053810024000679-main.pdf
+367. THE MOLECULAR AND SYSTEMS BIOLOGY OF MEMORY - Kandel, Dudai e Mayford (2014).pdf
+       <- 9840471613 1733936197313.pdf
+368. THE NEUROPHYSIOLOGY OF CONTINUOUS ACTION MONITORING - Wilken et al. (2023).pdf
+       <- Neurofisiologia da ação motora.pdf   (vem de: Estudos/Aprendizagem Motora)
+369. THE NEUROPLASTIC BRAIN - CURRENT BREAKTHROUGHS AND EMERGING FRONTIERS - Gazerani (2025).pdf
+       <- CÉREBRO NEUROPLÁSTICO.pdf
+370. THE PEOPLE'S GAME - EVOLUTIONARY PERSPECTIVES ON THE NEUROSCIENCE OF FOOTBALL FANDOM - Butler (2025).pdf
+       <- The peoples game evolutionary perspectives on the.pdf
+371. THE SLEEP-DEPRIVED HUMAN BRAIN - Krause et al. (2017).pdf
+       <- 10422792869 1733858129517.pdf
+372. THE TIMES THEY ARE A-CHANGIN' - BRAIN FLEXIBILITY AND UPWARD AND DOWNWARD NEUROPLASTICITY.pdf
+       <- The times they are a-changin’ a proposal on how brain flexibility goes beyond the obvious to include the concepts of “upward” and “downward” to neuroplasticity.pdf
+373. THINKING WHILE PLAYING - COGNITIVE LOAD AND PASSING ACCURACY IN FOOTBALL TRAINING - Oliveira et al. (2025).pdf
+       <- Thinking While Playing- Exploring Cognitive Load and Passing Accuracy in Football Training.pdf
+374. TRANSCRANIAL ELECTRICAL STIMULATION FOR PROCEDURAL LEARNING AND REHABILITATION - Lapenta et al. (2024).pdf
+       <- nuerobiologia e reablitação.pdf
+375. UNDERSTANDING AND ASSESSING THE INTERCONNECTEDNESS OF MOTOR AND COGNITIVE DEVELOPMENT - DUAL TASK (2024).pdf
+       <- Understanding and Assessing the Interconnectedness.pdf
+376. VENTRAL HIPPOCAMPUS INTERACTS WITH PRELIMBIC CORTEX DURING INHIBITION OF THREAT RESPONSE VIA LEARNED SAFETY (2019).pdf
+       <- 5572109234 1733936750547.pdf
+377. WHAT COGNITIVE MECHANISM, WHEN, WHERE, AND WHY - DECISION MAKING OF RUGBY PLAYERS - Ashford et al. (2021).pdf
+       <- What Cognitive Mechanism When Where and Why Explor.pdf
+378. WHAT IS A TASK - AN IDEOMOTOR PERSPECTIVE - Künzell et al. (2018).pdf
+       <- What is a task An ideomotor perspective.pdf
+
+=== Estudos/Neurociência/Reservatório de Dopamina  (19) ===
+379. RESERVATÓRIO DE DOPAMINA - AULA 004 - DINHEIRO.pdf
+       <- 5763944036 1733936933540.pdf   (vem de: Estudos/Aprendizagem Motora)
+380. RESERVATÓRIO DE DOPAMINA - AULA 015 - FURE A BOLHA HOMEOSTÁTICA.pdf
+       <- 8684343348 1733939795564.pdf   (vem de: Estudos/Fisiologia e Treinamento)
+381. RESERVATÓRIO DE DOPAMINA - AULA 036 - SINAL DE SEGURANÇA (MODULE SUA AMÍGDALA).pdf
+       <- 9973094142 1733936741053.pdf   (vem de: Estudos/Neurociência)
+382. RESERVATÓRIO DE DOPAMINA - AULA 045 - COMO FAZER UMA BOA APRESENTAÇÃO.pdf
+       <- 6195005601 1733937168918.pdf   (vem de: Estudos/Neurociência)
+383. RESERVATÓRIO DE DOPAMINA - AULA 057 - O QUE SÃO E ONDE FICAM AS MEMÓRIAS.pdf
+       <- 8504094926 1733936185583.pdf   (vem de: Estudos/Neurociência)
+384. RESERVATÓRIO DE DOPAMINA - AULA 066 - COMO O ESTRESSE POTENCIALIZA HÁBITOS RUINS.pdf
+       <- 1992360776 1733940858916.pdf   (vem de: Estudos/Neurociência)
+385. RESERVATÓRIO DE DOPAMINA - AULA 078 - TÉCNICAS DE ESTUDO.pdf
+       <- 8238716225 1733925811891.pdf   (vem de: Estudos/Neurociência)
+386. RESERVATÓRIO DE DOPAMINA - AULA 079 - A NEUROCIÊNCIA DA CRIATIVIDADE.pdf
+       <- 4616366850 1733938613964.pdf   (vem de: Estudos/Neurociência)
+387. RESERVATÓRIO DE DOPAMINA - AULA 080 - COMO O CÉREBRO TOMA DECISÃO.pdf
+       <- 3073629527 1733938018809.pdf   (vem de: Estudos/Neurociência)
+388. RESERVATÓRIO DE DOPAMINA - AULA 085 - NEUROCIÊNCIA SOCIAL (PARTE 1).pdf
+       <- 7119999234 1733938438524.pdf   (vem de: Estudos/Neurociência)
+389. RESERVATÓRIO DE DOPAMINA - AULA 100 - MELHORE SEU VO2.pdf
+       <- 100 - O MELHOR PRESENTE QUE VOCÊ PODE SE DAR (melhore seu VO2).pdf   (vem de: Estudos/Fisiologia e Treinamento)
+390. RESERVATÓRIO DE DOPAMINA - AULA 105 - FOMO E REDE SOCIAL.pdf
+       <- 4286937527 1733937409981.pdf   (vem de: Estudos/Neurociência)
+391. RESERVATÓRIO DE DOPAMINA - AULA 117 - O SISTEMA DE RECOMPENSA DO ADOLESCENTE.pdf
+       <- 9237296406 1733860351591.pdf   (vem de: Estudos/Neurociência)
+392. RESERVATÓRIO DE DOPAMINA - AULA 122 - COMO SEU CÉREBRO MUDA COM A EXPERIÊNCIA (NEUROPLASTICIDADE).pdf
+       <- 122 - COMO SEU CÉREBRO MUDA COM A EXPERIÊNCIA (neuroplasticidade).pdf   (vem de: Estudos/Neurociência)
+393. RESERVATÓRIO DE DOPAMINA - AULA 138 - EFEITOS DO EXERCÍCIO FÍSICO NO CÉREBRO (PARTE 2).pdf
+       <- 10829376245 1733940036291.pdf   (vem de: Estudos/Neurociência)
+394. RESERVATÓRIO DE DOPAMINA - AULA 152 - A DOPAMINA RESPONDE AO VALOR RELATIVO.pdf
+       <- 8481206160 1738160502416.pdf   (vem de: Estudos/Neurociência)
+395. RESERVATÓRIO DE DOPAMINA - PLANILHA 5 KM EM 10 SEMANAS - INICIANTE.pdf
+       <- 6909254802 1734093782624.pdf   (vem de: Estudos/Fisiologia e Treinamento)
+396. RESERVATÓRIO DE DOPAMINA - PLANILHA CAMINHADA COM TROTE 1.pdf
+       <- 5533001807 1734093766676.pdf   (vem de: Estudos/A classificar)
+397. RESERVATÓRIO DE DOPAMINA - PLANILHA CAMINHADA COM TROTE 2.pdf
+       <- 4941184050 1734093774636.pdf   (vem de: Estudos/A classificar)
+
+=== Estudos/Pedagogia do Esporte  (45) ===
+398. A BRINCAR, A BRINCAR - LÓGICAS E SENTIDOS DE FUTURAS EDUCADORAS DE INFÂNCIA (2020).pdf
+       <- ARTIGO SOBRE BRINCAR.pdf
+399. A OPERACIONALIZAÇÃO DO ESPORTE EM ESCOLAS DE INICIAÇÃO - O FUTEBOL QUE SE PROPÕE (2015).pdf
+       <- robertob,+02+Artigo.pdf
+400. A PROPOSTA PEDAGÓGICA DO TEACHING GAMES FOR UNDERSTANDING - REFLEXÕES SOBRE A INICIAÇÃO ESPORTIVA - Bolonhini e Paes (2009).pdf
+       <- TGFU E INICIAÇÃO ESPORTIVA.pdf
+401. AS APRENDIZAGENS INTERATIVAS E COGNITIVAS EM JOGOS POPULARES - Cruz (2014) (dissertação).pdf
+       <- MESTRADO JOGOS POPULARES.pdf
+402. COMPARISON OF TGFU, SPORT EDUCATION, COMBINED AND LINEAR PEDAGOGY - Ghorbanzadeh et al. (2024).pdf
+       <- fpsyg-15-1385289.pdf   (vem de: Estudos/Aprendizagem Motora)
+403. DIVERSÃO SOBRE RODAS - JOGOS E BRINCADEIRAS TRADICIONAIS PARA A INICIAÇÃO AO SKATE (2022).pdf
+       <- andreamarques,+2-51337 MARTINS URRA DANTAS Ed27.pdf
+404. EDUCAÇÃO FÍSICA DESENVOLVIMENTISTA - Gallahue.pdf
+       <- gallahue-d-l-a-educac3a7c3a3o-fc3adsica-desenvolvimentista.pdf   (vem de: Estudos/Aprendizagem Motora)
+405. EDUCAÇÃO FÍSICA ESCOLAR - FUNDAMENTOS DE UMA ABORDAGEM DESENVOLVIMENTISTA - Tani et al. (livro).pdf
+       <- Educação Física Escolar GO TANI.pdf
+406. ENSINAR DE FRENTE PARA TRÁS - PROPOSTA CENTRADA NA FINALIZAÇÃO PARA ESCOLINHAS DE FUTSAL E FUTEBOL - Rigon.pdf
+       <- ENSINARDEFRENTEPARATRS UMAPROPOSTACENTRADANAFINALIZAOPARAESCOLINHASDEFUTSALEFUTEBOL.pdf
+407. ENSINO-APRENDIZAGEM DE ESPORTES COLETIVOS A PARTIR DE UM JOGO DE QUEIMADA - Sadi (2008).pdf
+       <- Queimado.pdf
+408. ESCOLA DA BOLA (livro).pdf
+       <- Escola da Bola.pdf
+409. ESPORTE DE AVENTURA - PROCESSO INSTRUCIONAL E SITUAÇÕES DE RISCO - Paixão (2010).pdf
+       <- Esporte de aventura processo instrucional e situac.pdf   (vem de: Estudos/Aprendizagem Motora)
+410. ESTRUTURAS DE ENSINO DOS ESPORTES NO PROGRAMA SEGUNDO TEMPO - CAPÍTULO 2 (2013).pdf
+       <- Cap táticas básicas e fam. habilidades motoras.pdf   (vem de: Estudos/Aprendizagem Motora)
+411. INICIAÇÃO ESPORTIVA APLICADA A ESPORTES DE RAQUETE - ATIVIDADES COORDENATIVAS (apostila).pdf
+       <- APOSTILA - Iniciação esportiva-1.pdf
+412. INICIAÇÃO ESPORTIVA UNIVERSAL - VOLUME 1 - Greco e Benda (livro).pdf
+       <- INICIAÇÃO ESPORTIVA UNIIVERSAL 1.pdf
+413. INICIAÇÃO ESPORTIVA UNIVERSAL - VOLUME 1 - Greco e Benda (livro).pdf
+       <- PABLO GRECO & RODOLFO BENDA - INICIAÇÃO ESPORTIVA UNIVERSAL - VOL. 1.pdf
+414. INICIAÇÃO ESPORTIVA UNIVERSAL - VOLUME 2 - Greco (livro).pdf
+       <- 823298102-Pablo-Greco-Iniciacao-Esportiva-Universal-Vol-2-1.pdf
+415. INTERVENÇÃO PROFISSIONAL NOS ESPORTES DE AVENTURA - UMA PERSPECTIVA CONCEITUAL (2022).pdf
+       <- INTERVENÇÃO PROFISSIONAL NOS ESPORTES DE.pdf   (vem de: Estudos/Aprendizagem Motora)
+416. JOGOS E PIAGET - Soares e Rezende (2021).pdf
+       <- ARTIGO JOGO PIAGET (1).pdf
+417. JOGOS E PIAGET - Soares e Rezende (2021).pdf
+       <- ARTIGO JOGO PIAGET.pdf
+418. LUDICIDADE - DA ETIMOLOGIA DA PALAVRA À COMPLEXIDADE DO CONCEITO - Massa (2015).pdf
+       <- 2460-Texto do artigo-4059-1-10-20171221.pdf
+419. LUDOPEDAGOGIA - CONTRIBUIÇÕES NA EDUCAÇÃO INFANTIL - Silva (2021).pdf
+       <- LUDOPEDAGOGIA.pdf
+420. O ENSINO DOS JOGOS ESPORTIVOS COLETIVOS - COMPETÊNCIAS ESSENCIAIS E LÓGICA DO JOGO - Scaglia et al. (2013).pdf
+       <- pri2602,+Rev4-2013-p227-249.pdf
+421. O FETICHE DA CAPOEIRA PATRIMÔNIO - Bueno (2012) (dissertação).pdf
+       <- Marcos Cordeiro Bueno (Canguru).pdf   (vem de: Estudos/Aprendizagem Motora)
+422. O FUTEBOL E OS JOGOS-BRINCADEIRAS DE BOLA COM OS PÉS - Scaglia (2003) (tese).pdf
+       <- Tese - Scaglia (2003). O futebol e os jogos de brincadeiras de bola com os pés.pdf
+423. O FUTEBOL E OS JOGOS-BRINCADEIRAS DE BOLA COM OS PÉS - Scaglia (2003) (tese).pdf
+       <- scaglia alcidesjose d.pdf
+424. O FUTEBOL QUE SE APRENDE E O FUTEBOL QUE SE ENSINA - Scaglia (1999) (dissertação).pdf
+       <- Scaglia AlcidesJose M.pdf
+425. O JOGO COMO CONTEÚDO DA EDUCAÇÃO FÍSICA E SUAS POSSIBILIDADES CO-EDUCATIVAS - Silva e Sampaio (2012).pdf
+       <- 745JogoComoConteudo.pdf   (vem de: Estudos/Aprendizagem Motora)
+426. O JOGO DE BOLA DE QUEIMADA - Silva et al. (2023).pdf
+       <- 11222-+O+JOGO+DE+BOLA+DE+QUEIMADA.pdf
+427. O JOGO DE BOLA DE QUEIMADA - Silva et al. (2023).pdf
+       <- Queimado 2, regras!.pdf
+428. O QUE O PEDIATRA PRECISA SABER SOBRE O PROCESSO DE INICIAÇÃO ESPORTIVA - Pereira et al. (2019).pdf
+       <- Artigo-EspecializaoPrecoce-RevistaMdica.pdf   (vem de: Estudos/Aprendizagem Motora)
+429. OS JOGOS NA SOCIEDADE CONTEMPORÂNEA - INFLUÊNCIAS DOS AVANÇOS TECNOLÓGICOS (2017).pdf
+       <- nathaliadias,+Gerente+da+revista,+12+-+Os+jogos+na+sociedade.pdf
+430. PEDAGOGIA DO ESPORTE - BASES EPISTEMOLÓGICAS E ARTICULAÇÕES PARA O ENSINO ESPORTIVO - Bettega et al. (2021).pdf
+       <- BettegaMachadoPasquarelliAquinoScaglia2021-PedagogiadoEsporte BasesEpistemolgicaseArticulaesparaoEnsinoEsportivo.pdf
+431. PEDAGOGIA DO ESPORTE - DESCOBRINDO NOVOS CAMINHOS (livro).pdf
+       <- Livro Pedagogia do Esporte descobrindo novos caminhos.pdf
+432. PEDAGOGIA DO ESPORTE - Reverdito e Scaglia (livro).pdf
+       <- Pedagogia-do-esporte-Riller-Silva-Reverdito- -Alcides-José-Scaglia-f51d25c5ee8550806370c0b8a36d6af9.pdf
+433. PEDAGOGIA DO ESPORTE - TENSÃO NA CIÊNCIA E O ENSINO DOS JOGOS ESPORTIVOS (2014).pdf
+       <- PEDAGOGIA DO ESPORTE - TENSÃO NA CIÊNCIA.pdf
+434. PEDAGOGIA DO ESPORTE - TENSÃO NA CIÊNCIA E O ENSINO DOS JOGOS ESPORTIVOS (2014).pdf
+       <- PEDAGOGIA DO ESPORTE ARTIGO.pdf
+435. PEDAGOGIA DO ESPORTE E DAS LUTAS - EM BUSCA DE APROXIMAÇÕES - Rufino e Darido (2012).pdf
+       <- Pedagogia do esporte.pdf
+436. PEDAGOGIA DO JOGO - Scaglia (2022).pdf
+       <- PEDAGOGIA DO JOGO.pdf
+437. PEDAGOGIA, FUTEBOL E RUA - Scaglia (2021) (amostra).pdf
+       <- ALCIDES SCAGLIA - PEDAGOGIA, FUTEBOL & RUA.pdf
+438. POLÍTICAS SOCIAIS EM LAZER, ESPORTES E PARTICIPAÇÃO - Stigger.pdf
+       <- lbassis,+MARCO+PAULO+STIGGER.pdf   (vem de: Estudos/Aprendizagem Motora)
+439. PRÁTICAS CORPORAIS NA NATUREZA - POR UMA EDUCAÇÃO AMBIENTAL (2011).pdf
+       <- 7527-libre.pdf
+440. RBFF - ARTIGO (2014).pdf
+       <- 205-Texto do artigo-1175-1-10-20140827.pdf
+441. THE ROLE OF NONLINEAR PEDAGOGY IN SUPPORTING THE DESIGN OF MODIFIED GAMES IN JUNIOR SPORTS - Chow et al. (2021).pdf
+       <- The Role of Nonlinear Pedagogy in Supporting the D.pdf
+442. TRANSITION I EFFICIENCY - Ugrinowitsch et al. (2014).pdf
+       <- Ugrinowotschetal2014TransitionIefficiencyMotriz.pdf
+
+=== Faculdade  (23) ===
+443. AS DIFERENTES ABORDAGENS DE PESQUISA CIENTÍFICA E SUAS CLASSIFICAÇÕES - Souza et al. (2016).pdf
+       <- Diferentes abordagens de pesquisa científica e suas classificações.pdf   (vem de: Estudos/Aprendizagem Motora)
+444. FACULDADE - APRESENTAÇÃO - EXERGAMES E EXERCÍCIO AERÓBICO NO DIABETES TIPO 1 - David Gabriel, Gabriel Vitor e Vinicius Branco.pdf
+       <- Apresentação Slides Corporativo Minimalista Azul.pdf   (vem de: Estudos/Fisiologia e Treinamento)
+445. FACULDADE - APRESENTAÇÃO - FISIOLOGIA DA FUNÇÃO RENAL - Souza et al. (2024).pdf
+       <- fisiologia do trio.pdf   (vem de: Estudos/Fisiologia e Treinamento)
+446. FACULDADE - APRESENTAÇÃO - FISIOLOGIA DA MICÇÃO - Batista et al. (2024).pdf
+       <- Fisiologia da Micção 20240311 205812 0000.pdf   (vem de: Estudos/Fisiologia e Treinamento)
+447. FACULDADE - APRESENTAÇÃO - FISIOLOGIA DA SECREÇÃO RENAL - Ginnari et al. (2024).pdf
+       <- Fisiologia da Secreção Renal.pdf   (vem de: Estudos/Fisiologia e Treinamento)
+448. FACULDADE - APRESENTAÇÃO - FISIOLOGIA DOS RINS - Oliveira et al. (2024).pdf
+       <- Blue and White Professional Science Project Presen 240311 210353.pdf   (vem de: Estudos/Fisiologia e Treinamento)
+449. FACULDADE - APRESENTAÇÃO DE NEGÓCIO - MODERN FUT - Grupo Gabriel Vitor (2025).pdf
+       <- Modern Futdo futuro.pdf   (vem de: Estudos/Neurociência)
+450. FACULDADE - APRESENTAÇÃO DE NEGÓCIO - MODERN FUT - Grupo Gabriel Vitor (2026).pdf
+       <- Modern Futdo futuro (1).pdf   (vem de: Estudos/Neurociência)
+451. FACULDADE - ATIVIDADE FISIOLOGIA DO SISTEMA RESPIRATÓRIO - Gabriel Vitor (2023).pdf
+       <- Documento sem título.pdf   (vem de: Estudos/Neurociência)
+452. FACULDADE - ATIVIDADE FÍSICA E SAÚDE MENTAL - Grupo Gabriel Vitor.pdf
+       <- SAÚDE MENTAL.pdf   (vem de: Estudos/Neurociência)
+453. FACULDADE - DECLARAÇÃO DE ACEITE DE SUPERVISÃO DE ESTÁGIO E DOCUMENTOS.pdf
+       <- ilovepdf merged.pdf   (vem de: Estudos/Aprendizagem Motora)
+454. FACULDADE - FICHA ANTROPOMÉTRICA - Gabriel Vitor e Vinicius Branco (2025).pdf
+       <- PLANILHA GABRIEL VITOR-2 - 1..pdf   (vem de: Estudos/Futebol)
+455. FACULDADE - METODOLOGIA DOS ESPORTES COLETIVOS - ATIVIDADES - Grupo Gabriel Vitor.pdf
+       <- MEC.pdf   (vem de: Estudos/Futebol)
+456. FACULDADE - PLANO MODALIDADE FUTSAL (2026).pdf
+       <- MODALIDADE FUTSAL.pdf   (vem de: Estudos/Futebol)
+457. FACULDADE - RELATÓRIO DE ESTÁGIO SUPERVISIONADO III - LAZER - Gabriel Vitor.pdf
+       <- ilovepdf merged (1) organized.pdf   (vem de: Estudos/Aprendizagem Motora)
+458. FACULDADE - RELATÓRIO DE ESTÁGIO SUPERVISIONADO III - LAZER - Gabriel Vitor.pdf
+       <- ilovepdf merged (1).pdf   (vem de: Estudos/Aprendizagem Motora)
+459. FACULDADE - RELATÓRIO DE EXPERIÊNCIA - TRIAGEM PRÉ-EXERCÍCIO - Gabriel Vitor.pdf
+       <- Relatório Saúde.pdf   (vem de: Estudos/Aprendizagem Motora)
+460. FACULDADE - RELATÓRIO DE MONITORIA VÔLEI - Carolina Monique (2023).pdf
+       <- RELATÃ RIO VOLEI- Carolina Monique.pdf   (vem de: Estudos/Aprendizagem Motora)
+461. FACULDADE - RESUMO DE ARTIGO - ABORDAGENS DE PESQUISA CIENTÍFICA - Gabriel Vitor.pdf
+       <- Resumo Artigo (2).pdf   (vem de: Estudos/Aprendizagem Motora)
+462. FACULDADE - RESUMO DE ARTIGO - PROMOÇÃO DA SAÚDE E LINHA DO TEMPO - Gabriel Vitor.pdf
+       <- Documento sem título.pdf   (vem de: Estudos/Aprendizagem Motora)
+463. FACULDADE - RESUMO DE ARTIGO - PROMOÇÃO DA SAÚDE E LINHA DO TEMPO - Gabriel Vitor.pdf
+       <- RESUMO ARTIGO.pdf   (vem de: Estudos/Aprendizagem Motora)
+464. FACULDADE - VISITA TÉCNICA ESCOLINHA INOCOOP CITY - Grupo Gabriel Vitor (2026).pdf
+       <- Apresentação Básica Minimalista Azul.pdf   (vem de: Estudos/Neurociência)
+465. METODOLOGIA DA PESQUISA - Silva (2017) (livro).pdf
+       <- Livro Metodologia da Pesquisa - Comum a todos os cursos.pdf   (vem de: Estudos/Neurociência)
+
+=== Pessoal  (5) ===
+466. AVALIAÇÃO FÍSICA - JULIA PERRUSI (2024).pdf
+       <- JULIA PERRUSI.pdf   (vem de: Estudos/Fisiologia e Treinamento)
+467. CARTA PESSOAL - GABRIEL VITOR.pdf
+       <- Gabriel Vitor.pdf   (vem de: Estudos/A classificar)
+468. CARTA PESSOAL - GABRIEL VITOR.pdf
+       <- Gabriel-Vitor.pdf   (vem de: Estudos/A classificar)
+469. PLANO DE NEGÓCIO - SERVIÇO DE VÍDEO PARA PAIS - Medeiros e Silva (2025).pdf
+       <- Business Plan Presentation in Dark Purple and Pink Geometric Style.pdf   (vem de: Estudos/Aprendizagem Motora)
+470. TERMO DE ADESÃO - SECRETARIA (APROVADO).pdf
+       <- termo-de-adesao-secretaria-aprovado-174241544967db2659cd07e.pdf   (vem de: Estudos/A classificar)
+
+=== TCC  (5) ===
+471. FICHAMENTO - RAAB (2003) - Gabriel Vitor (TCC II).pdf
+       <- Fichamento Raab 2003.pdf   (vem de: Estudos/Aprendizagem Motora)
+472. TCC - CRIATIVIDADE NO FUTEBOL - DIFERENCIAÇÃO DE METAS EM JOGOS REDUZIDOS - Gabriel Vitor (apresentação v2).pdf
+       <- Tomada de decisão criativa por meio do passe (1).pdf   (vem de: Estudos/Futebol)
+473. TCC - CRIATIVIDADE NO FUTEBOL - DIFERENCIAÇÃO DE METAS EM JOGOS REDUZIDOS - Gabriel Vitor (apresentação v3).pdf
+       <- Tomada de decisão criativa por meio do passe (2).pdf   (vem de: Estudos/Futebol)
+474. TCC - TERMO DE ACEITE DE ORIENTAÇÃO VOLUNTÁRIA (2026).pdf
+       <- D E C L A R A Ç Ã O.pdf   (vem de: Estudos/Pedagogia do Esporte)
+475. TCC - TOMADA DE DECISÃO CRIATIVA POR MEIO DO PASSE - Gabriel Vitor (apresentação v1).pdf
+       <- Tomada de decisão criativa por meio do passe.pdf   (vem de: Estudos/Futebol)
+
+=== Trabalhos Anteriores/Tubarões/Jogadores  (4) ===
+476. FICHA DE ATLETA - BERNARDO MORAIS (2013) - VOLANTE.pdf
+       <- Bernardo Morais.pdf   (vem de: Estudos/A classificar)
+477. FICHA DE ATLETA - MATHEUS ROSAL (2009) - LATERAL ESQUERDO (com data de nascimento).pdf
+       <- Matheus Rosal (09) - LE (2).pdf   (vem de: Estudos/A classificar)
+478. FICHA DE ATLETA - MATHEUS ROSAL (2009) - LATERAL ESQUERDO (com histórico de lesões).pdf
+       <- Matheus Rosal (09) - LE.pdf   (vem de: Estudos/Aprendizagem Motora)
+479. FICHA DE ATLETA - MATHEUS ROSAL (2009) - LATERAL ESQUERDO.pdf
+       <- Matheus Rosal (09) - LE (1).pdf   (vem de: Estudos/A classificar)
+
+=== Trabalhos Anteriores/Tubarões/Relatórios  (5) ===
+480. GRÁFICO RENDIMENTO X RESULTADO - TUB X MAITÁ, CT BARÃO E JAGUAR.pdf
+       <- chart (1).pdf   (vem de: Estudos/A classificar)
+481. GRÁFICO RENDIMENTO X RESULTADO - TUB X MAITÁ, CT BARÃO E JAGUAR.pdf
+       <- chart.pdf   (vem de: Estudos/A classificar)
+482. RELATÓRIO DE COMPETIÇÃO - COPA PERNAMBUCANA U-16 - TUBARÕES FC - Gabriel Vitor.pdf
+       <- Blue & white company profile presentation (2).pdf   (vem de: Estudos/Neurociência)
+483. RELATÓRIO DE COMPETIÇÃO - COPA PERNAMBUCANA U-16 - TUBARÕES FC - Gabriel Vitor.pdf
+       <- Blue & white company profile presentation (3).pdf   (vem de: Estudos/Neurociência)
+484. RELATÓRIO DE COMPETIÇÃO - COPA PERNAMBUCANA U-16 - TUBARÕES FC - Gabriel Vitor.pdf
+       <- Blue & white company profile presentation.pdf   (vem de: Estudos/Neurociência)

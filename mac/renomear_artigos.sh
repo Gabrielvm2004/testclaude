@@ -45,12 +45,12 @@ done < "$TMPD/lista"
 {
   echo "PLANO DE RENOMEAÇÃO DOS ARTIGOS — $DATA"
   echo "Nada foi mudado ainda. Volte ao Terminal para confirmar."
-  echo "Formato:  nome atual   →   NOVO NOME   (e a pasta nova, quando muda)"
+  echo "Formato:  NOVO NOME   <-   nome atual   (agrupado pela pasta onde o artigo vai ficar)"
   echo
   i=0
   while [ $i -lt ${#ORIG[@]} ]; do
     d="${DEST[$i]#$HOME/Documents/}"
-    printf '%s\t   %s\n      →  %s\n' "$d" "${ORIG[$i]##*/}" "${NOVO[$i]}"
+    printf '%s\t   %s   <-   %s\n' "$d" "${NOVO[$i]}" "${ORIG[$i]##*/}"
     i=$((i + 1))
   done | sort -t$'\t' -k1,1 -s | awk -F'\t' '$1!=g{g=$1; print "\n=== " g " ==="} {print $2}'
   if [ $faltando -gt 0 ]; then
