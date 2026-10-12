@@ -11,7 +11,7 @@
 # - Não mexe na pasta Scout nem em arquivos .csv (automação do Scout).
 #
 # Como usar (no Terminal):  bash ~/Downloads/organizar_e_renomear.sh
-# VERSAO 6
+# VERSAO 7
 
 # ======================= CONFIGURE AQUI =======================
 DOC="$HOME/Documents"
@@ -373,17 +373,26 @@ for item in "${itens[@]}"; do
     case "$texto" in *" $kw"*) r=${KW_R[$k]}; PTS[$r]=$(( ${PTS[$r]:-0} + 3 )); MOT[$r]="${MOT[$r]} \"${KW_T[$k]}\"" ;; esac
     k=$((k + 1))
   done
+  # O NOME manda. O conteúdo do PDF só decide quando nenhuma regra reconheceu o nome
+  # (ex.: "10090369221_1733860369336.pdf"); senão um currículo que fala de futebol
+  # iria para Estudos/Futebol.
   melhor=-1; melhor_pts=0
-  r=0
-  while [ $r -lt ${#R_DEST[@]} ]; do
-    if [ "${R_TIPOS[$r]}" = ",," ] || case "${R_TIPOS[$r]}" in *",$tipo,"*) true ;; *) false ;; esac; then
-      p=${PTS[$r]:-0}
-      c=${CP[$(( (n - 1) * NREG + r ))]:-0}
-      [ $c -gt 0 ] && { p=$((p + 2 * c)); MOT[$r]="${MOT[$r]} (conteúdo)"; }
-      [ "${R_TEMPAL[$r]}" = 0 ] && p=100      # regra só por tipo: sempre ganha
-      if [ $p -gt $melhor_pts ]; then melhor=$r; melhor_pts=$p; fi
-    fi
-    r=$((r + 1))
+  for fase in nome conteudo; do
+    r=0
+    while [ $r -lt ${#R_DEST[@]} ]; do
+      if [ "${R_TIPOS[$r]}" = ",," ] || case "${R_TIPOS[$r]}" in *",$tipo,"*) true ;; *) false ;; esac; then
+        if [ $fase = nome ]; then
+          p=${PTS[$r]:-0}
+          [ "${R_TEMPAL[$r]}" = 0 ] && p=100      # regra só por tipo: sempre ganha
+        else
+          p=${CP[$(( (n - 1) * NREG + r ))]:-0}
+          [ $p -gt 0 ] && MOT[$r]=" (conteúdo do PDF)"
+        fi
+        if [ $p -gt $melhor_pts ]; then melhor=$r; melhor_pts=$p; fi
+      fi
+      r=$((r + 1))
+    done
+    [ $melhor -ge 0 ] && break
   done
 
   if [ $melhor -ge 0 ]; then
