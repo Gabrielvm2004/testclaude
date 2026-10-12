@@ -51,8 +51,8 @@ $BEN/Fotos e Vídeos
 # - "pasta" nos tipos = aceita pastas. Regra sem palavras vale para o tipo inteiro.
 REGRAS="
 $DL/Instaladores (pode apagar)   | | dmg, pkg, mpkg, exe, app
-$HOME/Pictures/Capturas de Tela  | captura de tela, screenshot
-$HOME/Movies/Gravações de Tela   | gravacao de tela
+{CLUBE}/Capturas de Tela         | captura de tela, screenshot
+{CLUBE}/Gravações de Tela        | gravacao de tela
 $DOC/TCC                         | tcc, monografia, orientador, orientacao voluntaria, termo de aceite, projeto de pesquisa, preprojeto, pre projeto, relatorio de andamento, parecer orientador
 $ANT/AABB                        | aabb
 $BEN                             | benfica
@@ -237,7 +237,7 @@ EOF
 echo
 echo "Qual etapa você quer fazer agora?"
 echo "  1) Limpeza: instaladores, cópias 100% idênticas, zips já extraídos,"
-echo "     capturas e gravações de tela  (a mais segura; libera espaço)"
+echo "     capturas e gravações de tela (vão para o clube da data em que foram feitas)"
 echo "  2) Trabalho: América-PE, Tubarões, AABB e Benfica"
 echo "  3) Estudos, TCC, Faculdade, Pessoal, Projetos e o resto"
 echo "  4) Tudo de uma vez"
@@ -248,7 +248,7 @@ case "$ETAPA" in 1|2|3|4) ;; *) echo "Opção inválida."; exit 1 ;; esac
 
 etapa_de() {   # destino -> 1, 2 ou 3
   case "$1" in
-    "$DL/Instaladores (pode apagar)"|"$DUPLICADOS"|"$ZIPS"|"$HOME/Pictures/Capturas de Tela"|"$HOME/Movies/Gravações de Tela") echo 1 ;;
+    "$DL/Instaladores (pode apagar)"|"$DUPLICADOS"|"$ZIPS"|*"/Capturas de Tela"|*"/Gravações de Tela") echo 1 ;;
     "$AM"|"$AM/"*|"$ANT"|"$ANT/"*|"$BEN"|"$BEN/"*) echo 2 ;;
     *) echo 3 ;;
   esac
