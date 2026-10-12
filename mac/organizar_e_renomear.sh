@@ -11,7 +11,7 @@
 # - Não mexe na pasta Scout nem em arquivos .csv (automação do Scout).
 #
 # Como usar (no Terminal):  bash ~/Downloads/organizar_e_renomear.sh
-# VERSAO 5
+# VERSAO 6
 
 # ======================= CONFIGURE AQUI =======================
 DOC="$HOME/Documents"
@@ -297,21 +297,35 @@ for origem in "${ORIGENS[@]}"; do
 done
 
 # Conteúdo dos arquivos pelo Spotlight (só nos Downloads, só regras marcadas com "s").
-CONT=()
-if [ "$ETAPA" = 3 ] || [ "$ETAPA" = 4 ]; then
-  if command -v mdfind >/dev/null 2>&1; then
-    echo "Lendo o conteúdo dos PDFs pelo Spotlight (1 a 2 minutos)..."
-    k=0
-    while [ $k -lt ${#KW_T[@]} ]; do
-      r=${KW_R[$k]}
-      if [ "${R_CONT[$r]}" = "s" ]; then
-        achados="$(mdfind -onlyin "$DL" "kMDItemTextContent == \"${KW_T[$k]}*\"cdw" 2>/dev/null \
-          | awk -v d="$DL/" 'index($0,d)==1 && index(substr($0,length(d)+1),"/")==0')"
-        while IFS= read -r a; do [ -n "$a" ] && CONT[$r]="${CONT[$r]}$SEP$a$SEP"; done <<< "$achados"
-      fi
-      k=$((k + 1))
-    done
-  fi
+# CP[item * NREG + regra] = quantas palavras da regra aparecem dentro do arquivo.
+CP=(); NREG=${#R_DEST[@]}
+LER_CONTEUDO=n
+if { [ "$ETAPA" = 3 ] || [ "$ETAPA" = 4 ]; } && command -v mdfind >/dev/null 2>&1; then
+  printf "Ler também o CONTEÚDO dos PDFs? Separa melhor os artigos, mas leva alguns minutos. (s/n) [s]: "
+  read -r LER_CONTEUDO; [ -z "$LER_CONTEUDO" ] && LER_CONTEUDO=s
+fi
+if [ "$LER_CONTEUDO" = "s" ] || [ "$LER_CONTEUDO" = "S" ]; then
+  TMPD="$(mktemp -d)"
+  : > "$TMPD/achados"
+  total_kw=0; k=0
+  while [ $k -lt ${#KW_T[@]} ]; do [ "${R_CONT[${KW_R[$k]}]}" = "s" ] && total_kw=$((total_kw + 1)); k=$((k + 1)); done
+  feitos=0; k=0
+  while [ $k -lt ${#KW_T[@]} ]; do
+    r=${KW_R[$k]}
+    if [ "${R_CONT[$r]}" = "s" ]; then
+      feitos=$((feitos + 1)); [ $((feitos % 10)) -eq 0 ] && echo "  conteúdo: $feitos de $total_kw palavras"
+      mdfind -onlyin "$DL" "kMDItemTextContent == \"${KW_T[$k]}*\"cdw" 2>/dev/null \
+        | awk -v d="$DL/" -v r="$r" 'index($0,d)==1 && index(substr($0,length(d)+1),"/")==0 {print r "\t" $0}' >> "$TMPD/achados"
+    fi
+    k=$((k + 1))
+  done
+  # Junta tudo de uma vez (rápido), com os acentos na mesma forma dos dois lados.
+  i=0; for item in "${itens[@]}"; do printf '%s\t%s\n' "$i" "$item"; i=$((i + 1)); done > "$TMPD/itens"
+  perl -CSD -MUnicode::Normalize -pe '$_ = NFC($_)' -i "$TMPD/itens" "$TMPD/achados"
+  awk -F'\t' 'NR==FNR {idx[$2]=$1; next} ($2 in idx) {c[idx[$2] "\t" $1]++} END {for (x in c) print x "\t" c[x]}' \
+    "$TMPD/itens" "$TMPD/achados" > "$TMPD/pontos"
+  while IFS=$'\t' read -r ii rr cc; do CP[$((ii * NREG + rr))]=$cc; done < "$TMPD/pontos"
+  rm -rf "$TMPD"
 fi
 
 echo "Analisando ${#itens[@]} itens..."
@@ -364,12 +378,8 @@ for item in "${itens[@]}"; do
   while [ $r -lt ${#R_DEST[@]} ]; do
     if [ "${R_TIPOS[$r]}" = ",," ] || case "${R_TIPOS[$r]}" in *",$tipo,"*) true ;; *) false ;; esac; then
       p=${PTS[$r]:-0}
-      b="${CONT[$r]}"
-      if [ -n "$b" ]; then
-        resto="${b//"$SEP$item$SEP"/}"
-        c=$(( (${#b} - ${#resto}) / (${#item} + 2) ))
-        [ $c -gt 0 ] && { p=$((p + 2 * c)); MOT[$r]="${MOT[$r]} (conteúdo)"; }
-      fi
+      c=${CP[$(( (n - 1) * NREG + r ))]:-0}
+      [ $c -gt 0 ] && { p=$((p + 2 * c)); MOT[$r]="${MOT[$r]} (conteúdo)"; }
       [ "${R_TEMPAL[$r]}" = 0 ] && p=100      # regra só por tipo: sempre ganha
       if [ $p -gt $melhor_pts ]; then melhor=$r; melhor_pts=$p; fi
     fi
