@@ -18,7 +18,7 @@ const INSTRUCAO_CLAUDE_DESIGN = `Crie um card visual de pós-jogo do América FC
 1. Cabeçalho: escudo/identidade do América FC (verde e branco), "América FC x <adversário>", data, categoria e mando.
 2. Números grandes no topo: finalizações, finalizações concedidas, subidas de pressão e corridas para trás (total do jogo).
 3. Comparação 1º tempo × 2º tempo em barras horizontais lado a lado, para as quatro contagens acima.
-4. Duas relações em destaque, com número absoluto e % (ex.: "5 de 9 = 56%"), para 1º T, 2º T e jogo: "Pressões efetivas" (recuperamos a bola logo após a subida de pressão) e "Corridas para trás que viraram finalização sofrida" (em tom de alerta).
+4. Duas relações em destaque, com número absoluto e % (ex.: "5 de 9 = 56%"), para 1º T, 2º T e jogo: "Pressões efetivas (posse ou finalização nossa logo após a pressão)" (recuperamos a bola ou finalizamos logo após a subida de pressão) e "Corridas para trás que viraram finalização sofrida" (em tom de alerta).
 5. Posse de bola (posses principais, escolhidas pelo analista): posses nossas — quantidade, duração média, maior posse e distribuição da duração por faixa (0–5s, 5–10s, 10–20s, 20–60s) em barras; posses deles — quantidade e duração média, ao lado das nossas para comparar.
 6. Rodapé com a observação: "Posse: posses marcadas pelo analista (<posses>; escolhidas, não é o jogo inteiro). Posses acima de 60 s ficam fora da média. Contagens referem-se ao jogo inteiro."
 
@@ -148,7 +148,6 @@ const CONTAGENS = [
 ];
 const FAIXAS = [['0–5s', 0, 5], ['5–10s', 5, 10], ['10–20s', 10, 20], ['20–60s', 20, Infinity]];
 const POSSE = ['ganhamos_posse', 'perdemos_posse'];
-const FINALIZACOES = ['finalizacao_nossa', 'finalizacao_concedida'];
 
 let resumoAtual = null;
 
@@ -216,15 +215,17 @@ function estatPosses(posses) {
   };
 }
 
-// Pressão efetiva: o próximo registro depois da subida de pressão é um ⌃⌥1,
-// até LIMITE_SEG s depois. Finalizações no meio são puladas (podem ser marcadas com atraso).
+// Pressão efetiva: o próximo registro depois da subida de pressão é um ⌃⌥1 (posse nossa)
+// ou um ⌃⌥3 (finalização nossa), até LIMITE_SEG s depois. Cada pressão conta uma vez só.
+// Finalizações concedidas no meio são puladas (podem ser marcadas com atraso).
+const EFETIVA_APOS_PRESSAO = ['ganhamos_posse', 'finalizacao_nossa'];
 function pressoesEfetivas(eventos) {
   let total = 0, efetivas = 0;
   eventos.forEach((r, i) => {
     if (r.evento !== 'subida_pressao') return;
     total++;
-    const prox = eventos.slice(i + 1).find(x => !FINALIZACOES.includes(x.evento));
-    if (prox && prox.evento === 'ganhamos_posse' && Math.abs(prox.segundos - r.segundos) <= LIMITE_SEG) efetivas++;
+    const prox = eventos.slice(i + 1).find(x => x.evento !== 'finalizacao_concedida');
+    if (prox && EFETIVA_APOS_PRESSAO.includes(prox.evento) && Math.abs(prox.segundos - r.segundos) <= LIMITE_SEG) efetivas++;
   });
   return { n: efetivas, de: total };
 }
@@ -267,7 +268,7 @@ function calcular(registros, avisosLeitura) {
   const p1 = pressoesEfetivas(doTempo('1')), p2 = pressoesEfetivas(doTempo('2'));
   const c1 = corridasComFinalizacao(doTempo('1')), c2 = corridasComFinalizacao(doTempo('2'));
   const relacoes = [
-    { rotulo: 'Pressões efetivas (⌃⌥1 logo após a pressão)', chave: 'pressoes_efetivas', t1: p1, t2: p2, jogo: somar(p1, p2), rel: true },
+    { rotulo: 'Pressões efetivas (posse ou finalização nossa logo após a pressão)', chave: 'pressoes_efetivas', t1: p1, t2: p2, jogo: somar(p1, p2), rel: true },
     { rotulo: '⚠ Corridas para trás que viraram finalização sofrida', chave: 'corridas_viraram_finalizacao_sofrida', t1: c1, t2: c2, jogo: somar(c1, c2), rel: true },
   ];
 
@@ -396,7 +397,7 @@ Categoria: ${info.categoria || '(não informada)'}
 Mando: ${info.mando || '(não informado)'}
 ${linhas.join('\n')}
 
-Como ler as relações: "Pressões efetivas" = subidas de pressão em que o registro seguinte foi uma posse nossa (⌃⌥1), até ${LIMITE_SEG} s depois. "Corridas que viraram finalização sofrida" = corridas para trás seguidas de finalização concedida antes da nossa próxima posse, até ${LIMITE_SEG} s depois.`;
+Como ler as relações: "Pressões efetivas" = subidas de pressão em que o registro seguinte foi uma posse nossa (⌃⌥1) ou uma finalização nossa (⌃⌥3), até ${LIMITE_SEG} s depois; cada pressão conta uma vez só. "Corridas que viraram finalização sofrida" = corridas para trás seguidas de finalização concedida antes da nossa próxima posse, até ${LIMITE_SEG} s depois.`;
 }
 
 async function copiar(texto) {

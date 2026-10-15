@@ -160,7 +160,7 @@ Para editar: clique com o botão direito no arquivo → **Abrir com → Editor d
 5. O que a tabela mostra:
    - **Contagens** (jogo inteiro): finalizações, finalizações concedidas, subidas de pressão, corridas para trás.
    - **Relações**, contadas pela **ordem dos registros** (não pelos segundos), com limite de segurança de 60 s de vídeo, em número e % (ex.: "5 de 9 = 56%"):
-     - **Pressões efetivas:** o registro seguinte à subida de pressão é um ⌃⌥1. Finalizações registradas no meio são puladas, porque podem ter sido marcadas com atraso.
+     - **Pressões efetivas (posse ou finalização nossa logo após a pressão):** o registro seguinte à subida de pressão é um ⌃⌥1 ou um ⌃⌥3. Cada pressão conta uma vez só. Finalizações concedidas registradas no meio são puladas, porque podem ter sido marcadas com atraso.
      - **⚠ Corridas que viraram finalização sofrida:** depois da corrida para trás aparece uma finalização concedida antes do próximo ⌃⌥1.
    - **Posse:** nossas (quantidade, duração média, maior posse, faixas 0–5 / 5–10 / 10–20 / 20–60 s, acima de 60 s e sem duração) e deles (quantidade e duração média). A média e as faixas usam só posses com duração de até 60 s.
 6. Botões:
