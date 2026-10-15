@@ -19,8 +19,8 @@ const INSTRUCAO_CLAUDE_DESIGN = `Crie um card visual de pós-jogo do América FC
 2. Números grandes no topo: finalizações, finalizações concedidas, subidas de pressão e corridas para trás (total do jogo).
 3. Comparação 1º tempo × 2º tempo em barras horizontais lado a lado, para as quatro contagens acima.
 4. Duas relações em destaque, com número absoluto e % (ex.: "5 de 9 = 56%"), para 1º T, 2º T e jogo: "Pressões efetivas (posse ou finalização nossa logo após a pressão)" (recuperamos a bola ou finalizamos logo após a subida de pressão) e "Corridas para trás que viraram finalização sofrida" (em tom de alerta).
-5. Posse de bola (posses principais, escolhidas pelo analista): posses nossas — quantidade, duração média, maior posse e distribuição da duração por faixa (0–5s, 5–10s, 10–20s, 20–60s) em barras; posses deles — quantidade e duração média, ao lado das nossas para comparar.
-6. Rodapé com a observação: "Posse: posses marcadas pelo analista (<posses>; escolhidas, não é o jogo inteiro). Posses acima de 60 s ficam fora da média. Contagens referem-se ao jogo inteiro."
+5. Posse de bola (posses principais, escolhidas pelo analista): em destaque, o % de posse de bola nós × eles (ex.: "42% × 58%") no 1º T, 2º T e jogo; posses nossas — quantidade, duração média, maior posse e distribuição da duração por faixa (0–5s, 5–10s, 10–20s, 20–60s) em barras; posses deles — quantidade e duração média, ao lado das nossas para comparar.
+6. Rodapé com a observação: "Posse: posses marcadas pelo analista (<posses>; escolhidas, não é o jogo inteiro). % de posse = tempo das posses nossas ÷ tempo das posses nossas e deles. Posses acima de 60 s ficam fora da média de duração. Contagens referem-se ao jogo inteiro."
 
 Use apenas os dados abaixo, sem inventar números. Visual limpo, legível no celular, formato retrato.`;
 
@@ -182,14 +182,35 @@ function quando(r) {
 // Cada ⌃⌥1/⌃⌥2 começa uma posse e encerra a anterior.
 // Duração = próximo ⌃⌥1/⌃⌥2 − este. Sem duração quando:
 //   a próxima tecla é igual (⌃⌥1…⌃⌥1 ou ⌃⌥2…⌃⌥2) ou é a última posse do tempo.
+// Pressão efetiva: começa uma posse nossa no momento da pressão (encerra a deles ali).
+// O ⌃⌥1 que vier logo depois (antes de um ⌃⌥2, até LIMITE_SEG s) é a mesma posse e é absorvido.
+function marcasDePosse(eventos) {
+  const marcas = [];
+  let absorver = null; // pressão efetiva aguardando o ⌃⌥1 correspondente
+  eventos.forEach((r, i) => {
+    if (r.evento === 'subida_pressao' && pressaoEfetiva(eventos, i)) {
+      marcas.push({ ...r, evento: 'ganhamos_posse', viaPressao: true });
+      absorver = r;
+    } else if (r.evento === 'ganhamos_posse') {
+      if (absorver && Math.abs(r.segundos - absorver.segundos) <= LIMITE_SEG) { absorver = null; return; }
+      absorver = null;
+      marcas.push(r);
+    } else if (r.evento === 'perdemos_posse') {
+      absorver = null;
+      marcas.push(r);
+    }
+  });
+  return marcas;
+}
+
 function montarPosses(eventos, avisos) {
-  const marcas = eventos.filter(r => POSSE.includes(r.evento));
+  const marcas = marcasDePosse(eventos);
   return marcas.map((r, i) => {
     const prox = marcas[i + 1];
     const posse = { nossa: r.evento === 'ganhamos_posse', dur: null, longa: false };
     if (!prox || prox.evento === r.evento) return posse;
     const dur = prox.segundos - r.segundos;
-    const quem = posse.nossa ? 'nossa' : 'deles';
+    const quem = posse.nossa ? (r.viaPressao ? 'nossa (iniciada na pressão)' : 'nossa') : 'deles';
     if (dur <= 0) {
       avisos.push(`Posse ${quem} com duração zero ou negativa (vídeo voltou?) — ${quando(r)}. Contada sem duração.`);
     } else {
@@ -206,6 +227,8 @@ function montarPosses(eventos, avisos) {
 function estatPosses(posses) {
   const validas = posses.filter(p => p.dur !== null && !p.longa).map(p => p.dur);
   return {
+    // Tempo total: todas as posses com duração, inclusive as acima de LIMITE_SEG.
+    tempo: posses.filter(p => p.dur !== null).reduce((a, p) => a + p.dur, 0),
     n: posses.length,
     media: validas.length ? validas.reduce((a, b) => a + b, 0) / validas.length : null,
     maior: validas.length ? Math.max(...validas) : null,
@@ -219,13 +242,18 @@ function estatPosses(posses) {
 // ou um ⌃⌥3 (finalização nossa), até LIMITE_SEG s depois. Cada pressão conta uma vez só.
 // Finalizações concedidas no meio são puladas (podem ser marcadas com atraso).
 const EFETIVA_APOS_PRESSAO = ['ganhamos_posse', 'finalizacao_nossa'];
+function pressaoEfetiva(eventos, i) {
+  const r = eventos[i];
+  const prox = eventos.slice(i + 1).find(x => x.evento !== 'finalizacao_concedida');
+  return !!prox && EFETIVA_APOS_PRESSAO.includes(prox.evento) && Math.abs(prox.segundos - r.segundos) <= LIMITE_SEG;
+}
+
 function pressoesEfetivas(eventos) {
   let total = 0, efetivas = 0;
   eventos.forEach((r, i) => {
     if (r.evento !== 'subida_pressao') return;
     total++;
-    const prox = eventos.slice(i + 1).find(x => x.evento !== 'finalizacao_concedida');
-    if (prox && EFETIVA_APOS_PRESSAO.includes(prox.evento) && Math.abs(prox.segundos - r.segundos) <= LIMITE_SEG) efetivas++;
+    if (pressaoEfetiva(eventos, i)) efetivas++;
   });
   return { n: efetivas, de: total };
 }
@@ -283,6 +311,7 @@ function calcular(registros, avisosLeitura) {
 // =====================================================================
 function fmt(x) {
   if (x === null || x === undefined) return '–';
+  if (typeof x === 'object' && 'nossa' in x) return x.nossa === null ? '–' : `${x.nossa}% × ${100 - x.nossa}%`;
   if (typeof x === 'object') return x.de ? `${x.n} de ${x.de} = ${Math.round(100 * x.n / x.de)}%` : '0 de 0';
   return Number.isInteger(x) ? String(x) : x.toFixed(1).replace('.', ',');
 }
@@ -300,6 +329,11 @@ function linhasDaTabela(res) {
   L.push({ secao: `Relações — pela ordem dos registros, até ${LIMITE_SEG} s` });
   relacoes.forEach(r => L.push(r));
   L.push({ secao: `Posse — ${textoPosses(res)} marcadas (escolhidas pelo analista)` });
+  const pct = t => {
+    const total = nossas[t].tempo + deles[t].tempo;
+    return { nossa: total ? Math.round(100 * nossas[t].tempo / total) : null };
+  };
+  L.push({ rotulo: 'Posse de bola (nós × eles)', chave: 'posse_de_bola_nossa_pct', t1: pct('t1'), t2: pct('t2'), jogo: pct('jogo'), pct: true });
   L.push({ rotulo: 'Posses nossas', ...de(nossas, s => s.n) });
   L.push({ rotulo: 'Duração média — nossas (s)', ...de(nossas, s => s.media) });
   L.push({ rotulo: 'Maior posse nossa (s)', ...de(nossas, s => s.maior) });
@@ -397,7 +431,8 @@ Categoria: ${info.categoria || '(não informada)'}
 Mando: ${info.mando || '(não informado)'}
 ${linhas.join('\n')}
 
-Como ler as relações: "Pressões efetivas" = subidas de pressão em que o registro seguinte foi uma posse nossa (⌃⌥1) ou uma finalização nossa (⌃⌥3), até ${LIMITE_SEG} s depois; cada pressão conta uma vez só. "Corridas que viraram finalização sofrida" = corridas para trás seguidas de finalização concedida antes da nossa próxima posse, até ${LIMITE_SEG} s depois.`;
+Como ler as relações: "Pressões efetivas" = subidas de pressão em que o registro seguinte foi uma posse nossa (⌃⌥1) ou uma finalização nossa (⌃⌥3), até ${LIMITE_SEG} s depois; cada pressão conta uma vez só. "Corridas que viraram finalização sofrida" = corridas para trás seguidas de finalização concedida antes da nossa próxima posse, até ${LIMITE_SEG} s depois.
+"Posse de bola" = tempo total das posses nossas ÷ (tempo das nossas + tempo das deles), só com as posses marcadas; uma pressão efetiva começa a posse nossa no momento da pressão.`;
 }
 
 async function copiar(texto) {
@@ -439,7 +474,10 @@ document.getElementById('btn-sheets').addEventListener('click', () => {
     ['t1', 't2', 'jogo'].forEach(col => {
       const base = `${l.chave || chave(l.rotulo)}_${col}`;
       const v = l[col];
-      if (l.rel) {
+      if (l.pct) {
+        cab.push(base);
+        val.push(v.nossa === null ? '' : v.nossa);
+      } else if (l.rel) {
         cab.push(base, `${base}_total`, `${base}_pct`);
         val.push(v.n, v.de, v.de ? Math.round(100 * v.n / v.de) : '');
       } else {

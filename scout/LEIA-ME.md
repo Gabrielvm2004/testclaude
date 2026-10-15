@@ -162,6 +162,8 @@ Para editar: clique com o botão direito no arquivo → **Abrir com → Editor d
    - **Relações**, contadas pela **ordem dos registros** (não pelos segundos), com limite de segurança de 60 s de vídeo, em número e % (ex.: "5 de 9 = 56%"):
      - **Pressões efetivas (posse ou finalização nossa logo após a pressão):** o registro seguinte à subida de pressão é um ⌃⌥1 ou um ⌃⌥3. Cada pressão conta uma vez só. Finalizações concedidas registradas no meio são puladas, porque podem ter sido marcadas com atraso.
      - **⚠ Corridas que viraram finalização sofrida:** depois da corrida para trás aparece uma finalização concedida antes do próximo ⌃⌥1.
+   - **Posse de bola (nós × eles):** tempo total das posses nossas ÷ (tempo das nossas + tempo das deles), por 1º T / 2º T / Jogo, ex.: "42% × 58%". Entram todas as posses com duração, inclusive as acima de 60 s (o limite de 60 s vale só para a média).
+   - **Pressão efetiva começa a posse nossa:** se depois do ⌃⌥5 vier ⌃⌥1 ou ⌃⌥3, a posse nossa começa no momento da pressão e a posse deles termina ali. O ⌃⌥1 que vier logo depois (antes de um ⌃⌥2, até 60 s) é a mesma posse, não abre outra. Ex.: ⌃⌥2 aos 1:40, pressão aos 1:56, finalização nossa aos 2:08 → posse deles de 16 s (1:40–1:56).
    - **Posse:** nossas (quantidade, duração média, maior posse, faixas 0–5 / 5–10 / 10–20 / 20–60 s, acima de 60 s e sem duração) e deles (quantidade e duração média). A média e as faixas usam só posses com duração de até 60 s.
 6. Botões:
    - **Copiar para o Claude Design:** copia o texto pronto (instrução fixa do card + dados do jogo). Abra o Claude Design e cole com **⌘V**.
